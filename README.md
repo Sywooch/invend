@@ -109,3 +109,14 @@ i.e if there is a record refuse deletion and update for agreement else delete al
 Heroku
 
 composer install
+
+$ heroku addons:add heroku-postgresql
+...
+
+$ heroku config
+=== example-app Config Vars
+DATABASE_URL:               postgres://{user}:{password}@{hostname}:{port}/{database-name}
+HEROKU_POSTGRESQL_AQUA_URL: postgres://{user}:{password}@{hostname}:{port}/{database-name}
+
+php yii migrate/up
+

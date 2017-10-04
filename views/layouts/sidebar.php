@@ -12,14 +12,14 @@ use yii\helpers\Url;
                     <img alt="image" class="img-circle" src="<?php echo Yii::getAlias('@web').'/img/profile_small.jpg'; ?>" />
                      </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Smart Fanis Co.</strong>
                     </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="user/create">Profile</a></li>
+                        <li><a href="/user/create">Profile</a></li>
                         <li><a href="contacts.html">Contacts</a></li>
                         <li><a href="mailbox.html">Mailbox</a></li>
                         <li class="divider"></li>
-                        <li><a href="login.html">Logout</a></li>
+                        <li><a href="/site/logout">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
@@ -29,7 +29,7 @@ use yii\helpers\Url;
             <li class="active">
                 <a href="/site/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li class="active"><a href="/dashboard/d1">Inventory</a></li>
+                    <li><a href="/dashboard/d1">Inventory</a></li>
                     <li><a href="/dashboard/d2">Purchase Orders</a></li>
                     <li><a href="/dashboard/d3">Sales Orders</a></li>
                     <li><a href="/dashboard/d4">Customers</a></li>
@@ -39,43 +39,43 @@ use yii\helpers\Url;
             <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Purchasing Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/po/create">Receive</a></li>
-                    <li><a href="/po-return/">Return</a></li>
-                    <li><a href="/po/index">Receive List</a></li>
+                    <li><a href="/po/create">New Order</a></li>
+                    <li><a href="/po/index">Order List</a></li>
+                    <li><a href="/po-return/create">New Order Return</a></li>
                     <li><a href="/po-return/index">Return List</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Sales Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/sales-order/create">Fulfil</a></li>
-                    <li><a href="/sales-order-return/create">Return</a></li>
-                    <li><a href="/sales-order/index">Receive List</a></li>
+                    <li><a href="/sales-order/create">New Order</a></li>
+                    <li><a href="/sales-order/index">Order List</a></li>
+                    <li><a href="/sales-order-return/create">New Return</a></li>
                     <li><a href="/sales-order-return/index">Return List</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Bill of Materials</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/bo/create">Create</a></li>
-                    <li><a href="/bo/index">List</a></li>
+                    <li><a href="/bom/create">New Bill</a></li>
+                    <li><a href="/bom/index">Bill List</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Work Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/wo/create">Create</a></li>
-                    <li><a href="/wo/index">List</a></li>
+                    <li><a href="/wo/create">New Order</a></li>
+                    <li><a href="/wo/index">Order List</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/product/create">Product</a></li>
+                    <li><a href="/product/create">New Product</a></li>
                     <li><a href="/product/index">Product List</a></li>
-                    <li><a href="/vendor/create">Vendor</a></li>
+                    <li><a href="/vendor/create">New Vendor</a></li>
                     <li><a href="/vendor/index">Vendor List</a></li>
-                    <li><a href="/customer/create">Customer</a></li>
+                    <li><a href="/customer/create">New Customer</a></li>
                     <li><a href="/customer/index">Customer List</a></li>
                 </ul>
             </li>
