@@ -1,0 +1,154 @@
+.the-logo{
+	padding: 0px;
+	margin: 0px;
+}
+
+.the-logo img{
+	width: 100%;
+}
+
+.page-container {
+	padding-left: 0px;
+}
+
+.header {
+    height: 70px;
+    padding: 5px 20px 5px 0;
+}
+.header a {
+    font-weight: 700;
+}
+.header .brand {
+    margin-left: 30px;
+    text-align: left;
+    width: 150px
+}
+
+.main-menu-hub li{
+	list-style-type: none !important;
+}
+
+.page-heading h2 {
+    margin: 0;
+}
+.h-divider {
+	width: 100%;
+	height:1px;
+	border-bottom: 1px solid #e2dede;
+}
+.subnav {
+	margin:0 -15px 0 -15px;
+	padding: 10px 0;
+}
+.subnav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none !important;
+}
+
+.subnav ul li{
+	float: none;
+}
+.subnav ul li a {
+    padding: 6px 10px;
+    color: #555 !important;
+    /*border-bottom: 1px solid #efeaea;*/
+    display: block;
+}
+.subnav ul li a:hover {
+    color: #ef4923  !important;
+
+}
+.content-filler{
+   /* min-height: 680px;*/
+    /*text-align: center;*/
+    color: #666;
+   padding: 30px;
+
+}
+
+body.fixed-header .app-header {
+    position: fixed;
+    left: 0;
+    top: 70px;
+}
+
+.app-header {
+    background-color: #009d96;
+    width: 100%;
+    height: 43px;
+    padding:1px 0 0 0;
+}
+#app-name {
+    margin-top: 8px;
+}
+#app-icon {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+}
+#app-icon img{
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+#app-title {
+    color: #fff;
+    font-weight: 700;
+    max-width: 330px;
+    padding: 4px 0 0 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.app-nav {
+    padding: 0;
+    /*border-left: 1px solid #46a29e;*/
+    margin: 0 0 0 0px;
+}
+.app-nav ul{
+    padding: 0;
+    margin:0;
+}
+
+.app-nav ul li{
+    float: left;
+    list-style-type: none;
+}
+.app-nav ul li a{
+    font-size: 11px;
+    padding:8px 20px;
+    margin:0;
+    color: #c5efed;
+    font-weight: 700;
+    display: block;
+}
+/*#app-nav ul li a:hover{
+    color: #fff;
+}*/
+
+.app-nav>ul li.active:after, .app-nav>ul li:hover:after {
+    height: 3px;
+}
+.app-nav>ul li:after {
+  /*  -webkit-transition: all 0.1s linear 0s;
+    transition: all 0.1s linear 0s;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    height: 0px;
+    content: '';
+    z-index: 125;*/
+}
+
+.head-icon i.fa.fa-user, .head-icon i.fa.fa-book, .head-icon i.fa.fa-bar-chart {
+    color: #082f4d;
+    font-size: 18px;
+}
+
+.icon-set.grid-box {
+    opacity: 0.5;
+}
+
+
