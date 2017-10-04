@@ -37,43 +37,6 @@ use yii\helpers\Url;
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Inventory Reports</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="/report/">Inventory Summary</a></li>
-                    <li><a href="/report/">Inventory Details Report</a></li>
-                    <li><a href="/report/">Inventory by Location</a></li>
-                    <li><a href="/report/">Historical Inventory</a></li>
-                    <li><a href="/report/">Inventory Movement Summary</a></li>
-                    <li><a href="/report/">Inventory Movement Details</a></li>
-                    <li><a href="/report/">Stock Reordering Report</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Purchasing Reports</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="/report/">Purchasing Order Product Summary</a></li>
-                    <li><a href="/report/">Purchasing Order Details</a></li>
-                    <li><a href="/report/">Purchasing Order Status</a></li>
-                    <li><a href="/report/">Vendor Payment Details</a></li>
-                    <li><a href="/report/">Vendor Product List</a></li>
-                    <li><a href="/report/">Vendor List</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Sales Reports</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="/report/">Sales by Product Summary</a></li>
-                    <li><a href="/report/">Sales by Product Details</a></li>
-                    <li><a href="/report/">Sales Order Summary</a></li>
-                    <li><a href="/report/">Sales Order Profit Report</a></li>
-                    <li><a href="/report/">Sales Order Operational Report</a></li>
-                    <li><a href="/report/">Sales Representative Report</a></li>
-                    <li><a href="/report/">Customer Payment Summary</a></li>
-                    <li><a href="/report/">Customer Order History</a></li>
-                    <li><a href="/report/">Customer List</a></li>
-                </ul>
-            </li>
-            <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Purchasing Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/po/create">Receive</a></li>
@@ -109,8 +72,48 @@ use yii\helpers\Url;
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/product/create">Product</a></li>
+                    <li><a href="/product/index">Product List</a></li>
                     <li><a href="/vendor/create">Vendor</a></li>
-                    <li><a href="/vendor/create">Customer</a></li>
+                    <li><a href="/vendor/index">Vendor List</a></li>
+                    <li><a href="/customer/create">Customer</a></li>
+                    <li><a href="/customer/index">Customer List</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Inventory Reports</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/report/">Inventory Summary</a></li>
+                    <li><a href="/report/">Inventory Details Report</a></li>
+                    <li><a href="/report/">Inventory by Location</a></li>
+                    <li><a href="/report/">Historical Inventory</a></li>
+                    <li><a href="/report/">Inventory Movement Summary</a></li>
+                    <li><a href="/report/">Inventory Movement Details</a></li>
+                    <li><a href="/report/">Stock Reordering Report</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Purchasing Reports</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/report/">Purchasing Order Product Summary</a></li>
+                    <li><a href="/report/">Purchasing Order Details</a></li>
+                    <li><a href="/report/">Purchasing Order Status</a></li>
+                    <li><a href="/report/">Vendor Payment Details</a></li>
+                    <li><a href="/report/">Vendor Product List</a></li>
+                    <li><a href="/report/">Vendor List</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Sales Reports</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/report/">Sales by Product Summary</a></li>
+                    <li><a href="/report/">Sales by Product Details</a></li>
+                    <li><a href="/report/">Sales Order Summary</a></li>
+                    <li><a href="/report/">Sales Order Profit Report</a></li>
+                    <li><a href="/report/">Sales Order Operational Report</a></li>
+                    <li><a href="/report/">Sales Representative Report</a></li>
+                    <li><a href="/report/">Customer Payment Summary</a></li>
+                    <li><a href="/report/">Customer Order History</a></li>
+                    <li><a href="/report/">Customer List</a></li>
                 </ul>
             </li>
         </ul>

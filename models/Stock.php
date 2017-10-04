@@ -69,7 +69,7 @@ class Stock extends ActiveRecord
             [['time', 'product_id', 'product_category_id', 'last_vendor_id'], 'safe'],
             [['remarks'], 'string', 'max' => 255],
             [['quantity'], 'default', 'value' => 0],
-            [['location_id'], 'default', 'value' => 1],
+            [['user_id', 'product_category_id', 'location_id', 'last_vendor_id'], 'default', 'value' => 1],
             [['last_vendor_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vendor::className(), 'targetAttribute' => ['last_vendor_id' => 'id']],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['product_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductCategory::className(), 'targetAttribute' => ['product_category_id' => 'id']],
