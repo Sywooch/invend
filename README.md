@@ -8,9 +8,9 @@ Download and Install Composer from this link https://getcomposer.org/download/
 
 Run the following commands
 
-cd c:/xampp/htdocs/leaseapp
+cd c:/xampp/htdocs/inventory
 
-composer global require "fxp/composer-asset-plugin:~1.1.1"
+composer global require fxp/composer-asset-plugin --no-plugins
 composer install
 composer update
 
@@ -24,9 +24,9 @@ Edit the file `config/db.php` with real data, for example:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=leaseapp_db',
+    'dsn' => 'mysql:host=localhost;dbname=inventory_db',
     'username' => 'root',
-    'password' => '1234',
+    'password' => 'root',
     'charset' => 'utf8',
 ];
 ```

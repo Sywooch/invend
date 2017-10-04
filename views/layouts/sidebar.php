@@ -26,7 +26,7 @@ use yii\helpers\Url;
                     INVEND
                 </div>
             </li>
-            <li class="active">
+            <li>
                 <a href="/site/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="/dashboard/d1">Inventory</a></li>
