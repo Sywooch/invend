@@ -55,6 +55,9 @@
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
+        ],
+        "post-install-cmd": [
+            "sh post-install-cmd.sh"
         ]
     },
     "extra": {
