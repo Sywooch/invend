@@ -1,5 +1,5 @@
-LEASE APP
-=========
+INVEND SYS APP
+==============
 
 COMPOSER
 --------
@@ -106,17 +106,6 @@ i.e if there is a record refuse deletion and update for agreement else delete al
 
 
 
+Heroku
 
-Codes
--------------
-[[ 'input-name' ],
-                function ($attribute, $params) {
-                    $user_role_array = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
-                    if( !array_key_exists( "Role Name", $user_role_array ) ) {
-                        $myOldA = ( $this->getOldAttribute( $attribute ) );
-                        if( $this->{$attribute} !== (string) $myOldA ) {
-                            $this->addError($attribute, "Please contact XXXXX to modify this option. The field has been reset.  You may now resubmit the form" );
-                            $this->{$attribute} = $myOldA;
-                        } //End of if attribute equals old attribute
-                    } //End of if array key exists
-                }, 'skipOnEmpty' => false, 'skipOnError' => false ],
+composer install
