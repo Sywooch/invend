@@ -83,7 +83,7 @@ class Product extends ActiveRecord
     public function rules()
     {
         return [
-            [['item_name', 'item_code', 'product_type_id'], 'required'],
+            [['item_name', 'product_type_id'], 'required'],
             [['user_id', 'product_type_id', 'product_category_id', 'reorder_point', 'reorder_quantity', 'default_location_id', 'last_vendor_id', 'standard_uom_id', 'sales_uom_id', 'purchasing_uom_id', 'length', 'width', 'height', 'weight', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['cost', 'normal_price', 'retail_price', 'wholesale_price'], 'number'],
             [['product_category_id', 'default_location_id', 'last_vendor_id'], 'default', 'value' => 1],

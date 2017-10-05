@@ -187,7 +187,7 @@ class ProductController extends Controller
             
             $modelProduct->user_id = Yii::$app->user->getId();
             $modelProduct->time = date('Y-m-d H:i:s');
-            if(empty($modelProduct->number))
+            if(empty($modelProduct->item_code))
                 $modelProduct->item_code = 'P-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
 
 
