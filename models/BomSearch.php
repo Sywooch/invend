@@ -18,7 +18,7 @@ class BomSearch extends Bom
     public function rules()
     {
         return [
-            [['id', 'user_id', 'production_area_id', 'max_prod_capability', 'active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'user_id', 'production_area_id', 'max_prod_capability'], 'integer'],
             [['name', 'number', 'description', 'time', 'remarks'], 'safe'],
         ];
     }

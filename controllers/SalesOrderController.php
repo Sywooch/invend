@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\DynamicForms;
 use yii\helpers\ArrayHelper;
+use app\widgets\GeneratePassword;
 
 /**
  * SalesOrderController implements the CRUD actions for SalesOrder model.
@@ -95,6 +96,7 @@ class SalesOrderController extends Controller
         $modelSalesOrder = new SalesOrder();
         $modelCustomer = new Customer();
         $modelStock = new Stock();
+        $generate = new GeneratePassword();
         $modelTransactions = new Transactions();
         $modelsSalesOrderLines = [new SalesOrderLines()];
 
@@ -120,7 +122,8 @@ class SalesOrderController extends Controller
             // save sales_order data
             if ($valid) {
                 $modelSalesOrder->reason = 1;
-                if ($this->saveSalesOrder($modelTransactions,$modelStock,$modelSalesOrder,$modelsSalesOrderLines)) {
+                $modelSalesOrder->number = 'SO-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
+                if ($this->saveSalesOrder($generate,$modelTransactions,$modelStock,$modelSalesOrder,$modelsSalesOrderLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The sales order number {id} has been saved.', ['id' => $modelSalesOrder->id]));
                     return $this->redirect('index');
@@ -146,6 +149,7 @@ class SalesOrderController extends Controller
         // retrieve existing sales order data
         $modelSalesOrder = $this->findModel($id);
         $modelCustomer = new Customer();
+        $generate = new GeneratePassword();
         $modelStock = new Stock();
         $modelTransactions = new Transactions();
 
@@ -177,7 +181,7 @@ class SalesOrderController extends Controller
 
             // save sales_order data
             if ($valid) {
-                if ($this->saveSalesOrder($modelTransactions,$modelStock,$modelSalesOrder,$modelsSalesOrderLines)) {
+                if ($this->saveSalesOrder($generate,$modelTransactions,$modelStock,$modelSalesOrder,$modelsSalesOrderLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The sales order number {id} has been saved.', ['id' => $modelSalesOrder->id]));
                     return $this->redirect('/sales-order/index');
@@ -202,13 +206,16 @@ class SalesOrderController extends Controller
      * @return bool Returns TRUE if successful.
      * @throws NotFoundHttpException When record cannot be saved.
      */
-    protected function saveSalesOrder($modelTransactions,$modelStock,$modelSalesOrder,$modelsSalesOrderLines) {
+    protected function saveSalesOrder($generate,$modelTransactions,$modelStock,$modelSalesOrder,$modelsSalesOrderLines) {
         $transaction = Yii::$app->db->beginTransaction();
         try {
 
             $modelSalesOrder->user_id = Yii::$app->user->getId();
             $modelSalesOrder->time = date('Y-m-d H:i:s');
             $modelSalesOrder->balance = $modelSalesOrder->total - $modelSalesOrder->paid;
+
+            if(empty($modelSalesOrder->number))
+                $modelSalesOrder->number = 'SO-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
 
             if($modelSalesOrder->paid > 0)
             {

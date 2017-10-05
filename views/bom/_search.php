@@ -15,33 +15,10 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'user_id') ?>
 
     <?= $form->field($model, 'name') ?>
 
     <?= $form->field($model, 'number') ?>
-
-    <?= $form->field($model, 'description') ?>
-
-    <?php // echo $form->field($model, 'production_area_id') ?>
-
-    <?php // echo $form->field($model, 'max_prod_capability') ?>
-
-    <?php // echo $form->field($model, 'active') ?>
-
-    <?php // echo $form->field($model, 'time') ?>
-
-    <?php // echo $form->field($model, 'remarks') ?>
-
-    <?php // echo $form->field($model, 'created_by') ?>
-
-    <?php // echo $form->field($model, 'updated_by') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

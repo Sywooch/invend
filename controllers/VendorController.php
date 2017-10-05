@@ -8,6 +8,7 @@ use app\models\VendorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\widgets\GeneratePassword;
 
 /**
  * VendorController implements the CRUD actions for Vendor model.
@@ -27,6 +28,16 @@ class VendorController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * Lists all Vendor models.
+     * @return json
+     */
+    public function actionGetVendorInfo($id) 
+    {
+        $modelVendor = Vendor::find()->where(['vendor.id' => $id, 'vendor.active' => 1])->asArray()->one();
+        echo json_encode($modelVendor);
     }
 
     /**
@@ -64,9 +75,14 @@ class VendorController extends Controller
     public function actionCreate()
     {
         $modelVendor = new Vendor();
-        $modelVendor->user_id = Yii::$app->user->getId();
-        $modelVendor->time = date('Y-m-d H:i:s');
-        if ($modelVendor->load(Yii::$app->request->post()) && $modelVendor->save()) {
+        $generate = new GeneratePassword();
+
+        if ($modelVendor->load(Yii::$app->request->post())) {
+            $modelVendor->user_id = Yii::$app->user->getId();
+            $modelVendor->time = date('Y-m-d H:i:s');
+            if(empty($modelVendor->number))
+                $modelVendor->number = 'VE-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
+            $modelVendor->save();
             return $this->redirect(['view', 'id' => $modelVendor->id]);
         } else {
             return $this->render('create', [
@@ -84,9 +100,14 @@ class VendorController extends Controller
     public function actionUpdate($id)
     {
         $modelVendor = $this->findModel($id);
-        $modelVendor->user_id = Yii::$app->user->getId();
-        $modelVendor->time = date('Y-m-d H:i:s');
-        if ($modelVendor->load(Yii::$app->request->post()) && $modelVendor->save()) {
+        $generate = new GeneratePassword();
+
+        if ($modelVendor->load(Yii::$app->request->post())) {
+            $modelVendor->user_id = Yii::$app->user->getId();
+            $modelVendor->time = date('Y-m-d H:i:s');
+            if(empty($modelVendor->number))
+                $modelVendor->number = 'VE-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
+            $modelVendor->save();
             return $this->redirect(['view', 'id' => $modelVendor->id]);
         } else {
             return $this->render('update', [

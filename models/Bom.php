@@ -31,6 +31,7 @@ use yii\db\ActiveRecord;
  */
 class Bom extends ActiveRecord
 {
+    public $count = 1;
     /**
      * @inheritdoc
      */
@@ -64,9 +65,10 @@ class Bom extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'number'], 'required'],
+            [['name'], 'required'],
             [['user_id', 'production_area_id', 'max_prod_capability', 'active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['time'], 'safe'],
+            [['max_prod_capability'], 'default', 'value' => 0],
+            [['time', 'number'], 'safe'],
             [['name', 'number', 'description', 'remarks'], 'string', 'max' => 255],
             [['production_area_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductionArea::className(), 'targetAttribute' => ['production_area_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -80,11 +82,11 @@ class Bom extends ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'User ID'),
+            'user_id' => Yii::t('app', 'User'),
             'name' => Yii::t('app', 'Name'),
-            'number' => Yii::t('app', 'Number'),
+            'number' => Yii::t('app', 'Bom #'),
             'description' => Yii::t('app', 'Description'),
-            'production_area_id' => Yii::t('app', 'Production Area ID'),
+            'production_area_id' => Yii::t('app', 'Production Area'),
             'max_prod_capability' => Yii::t('app', 'Max Prod Capability'),
             'active' => Yii::t('app', 'Active'),
             'time' => Yii::t('app', 'Time'),

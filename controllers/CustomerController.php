@@ -8,6 +8,7 @@ use app\models\CustomerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\widgets\GeneratePassword;
 
 /**
  * CustomerController implements the CRUD actions for Customer model.
@@ -27,6 +28,16 @@ class CustomerController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * Lists all Customer models.
+     * @return json
+     */
+    public function actionGetCustomerInfo($id) 
+    {
+        $modelCustomer = Customer::find()->where(['customer.id' => $id, 'customer.active' => 1])->asArray()->one();
+        echo json_encode($modelCustomer);
     }
 
     /**
@@ -64,9 +75,14 @@ class CustomerController extends Controller
     public function actionCreate()
     {
         $modelCustomer = new Customer();
-        $modelCustomer->user_id = Yii::$app->user->getId();
-        $modelCustomer->time = date('Y-m-d H:i:s');
-        if ($modelCustomer->load(Yii::$app->request->post()) && $modelCustomer->save()) {
+        $generate = new GeneratePassword();
+        
+        if ($modelCustomer->load(Yii::$app->request->post())) {
+            $modelCustomer->user_id = Yii::$app->user->getId();
+            $modelCustomer->time = date('Y-m-d H:i:s');
+            if(empty($modelCustomer->number))
+                $modelCustomer->number = 'CU-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
+            $modelCustomer->save();
             return $this->redirect(['view', 'id' => $modelCustomer->id]);
         } else {
             return $this->render('create', [
@@ -84,9 +100,14 @@ class CustomerController extends Controller
     public function actionUpdate($id)
     {
         $modelCustomer = $this->findModel($id);
-        $modelCustomer->user_id = Yii::$app->user->getId();
-        $modelCustomer->time = date('Y-m-d H:i:s');
-        if ($modelCustomer->load(Yii::$app->request->post()) && $modelCustomer->save()) {
+        $generate = new GeneratePassword();
+
+        if ($modelCustomer->load(Yii::$app->request->post())) {
+            $modelCustomer->user_id = Yii::$app->user->getId();
+            $modelCustomer->time = date('Y-m-d H:i:s');
+            if(empty($modelCustomer->number))
+                $modelCustomer->number = 'CU-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
+            $modelCustomer->save();
             return $this->redirect(['view', 'id' => $modelCustomer->id]);
         } else {
             return $this->render('update', [

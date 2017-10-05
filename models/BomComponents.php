@@ -33,7 +33,7 @@ use yii\db\ActiveRecord;
  */
 class BomComponents extends ActiveRecord
 {
-    public $total_component;
+    public $count = 1;
 
     /**
      * @inheritdoc
@@ -68,10 +68,12 @@ class BomComponents extends ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'number', 'quantity_type', 'quantity', 'last_cost', 'total_line_cost'], 'required'],
+            [['product_id','quantity_type', 'quantity', 'last_cost'], 'required'],
             [['user_id', 'product_id', 'bom_stages_id', 'quantity', 'uom_id', 'active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['last_cost', 'total_line_cost'], 'number'],
-            [['time'], 'safe'],
+            [['last_cost', 'total_line_cost'], 'default', 'value' => 0],
+            [['user_id'], 'default', 'value' => 1],
+            [['time', 'number'], 'safe'],
             [['number', 'quantity_type', 'remarks'], 'string', 'max' => 255],
             [['bom_stages_id'], 'exist', 'skipOnError' => true, 'targetClass' => BomStages::className(), 'targetAttribute' => ['bom_stages_id' => 'id']],
             [['uom_id'], 'exist', 'skipOnError' => true, 'targetClass' => Uom::className(), 'targetAttribute' => ['uom_id' => 'id']],
@@ -90,7 +92,7 @@ class BomComponents extends ActiveRecord
             'user_id' => Yii::t('app', 'User'),
             'bom_stages_id' => Yii::t('app', 'Bom Stages'),
             'product_id' => Yii::t('app', 'Product'),
-            'number' => Yii::t('app', 'Number'),
+            'number' => Yii::t('app', 'Code'),
             'quantity_type' => Yii::t('app', 'Qty Type'),
             'quantity' => Yii::t('app', 'Qty'),
             'last_cost' => Yii::t('app', 'Last Cost'),

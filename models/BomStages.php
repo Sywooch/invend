@@ -36,6 +36,7 @@ use yii\base\Model;
  */
 class BomStages extends ActiveRecord
 {
+    public $count = 1;
     /**
      * @inheritdoc
      */
@@ -69,9 +70,10 @@ class BomStages extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'total_input_cost'], 'required'],
+            [['name'], 'required'],
             [['user_id', 'bom_id', 'work_centre_id', 'required_capacity', 'active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['total_input_cost'], 'number'],
+            [['total_input_cost', 'required_capacity'], 'default', 'value' => 0],
             [['time'], 'safe'],
             [['name', 'number', 'description', 'remarks'], 'string', 'max' => 255],
             [['bom_id'], 'exist', 'skipOnError' => true, 'targetClass' => Bom::className(), 'targetAttribute' => ['bom_id' => 'id']],
@@ -87,12 +89,12 @@ class BomStages extends ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'bom_id' => Yii::t('app', 'Bom ID'),
+            'user_id' => Yii::t('app', 'User'),
+            'bom_id' => Yii::t('app', 'Bom'),
             'name' => Yii::t('app', 'Name'),
-            'number' => Yii::t('app', 'Number'),
+            'number' => Yii::t('app', 'Code'),
             'description' => Yii::t('app', 'Description'),
-            'work_centre_id' => Yii::t('app', 'Work Centre ID'),
+            'work_centre_id' => Yii::t('app', 'Work Centre'),
             'required_capacity' => Yii::t('app', 'Required Capacity'),
             'total_input_cost' => Yii::t('app', 'Total Input Cost'),
             'active' => Yii::t('app', 'Active'),

@@ -35,6 +35,8 @@ use yii\db\ActiveRecord;
  */
 class BomOutputs extends ActiveRecord
 {
+    public $count = 1;
+
     /**
      * @inheritdoc
      */
@@ -68,11 +70,12 @@ class BomOutputs extends ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'number', 'quantity_type', 'quantity', 'last_cost', 'cost', 'cost_percentage'], 'required'],
+            [['product_id', 'quantity_type', 'quantity', 'cost', 'cost_percentage'], 'required'],
             [['user_id', 'product_id', 'bom_id', 'quantity', 'uom_id', 'primary', 'active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['last_cost', 'cost', 'cost_percentage'], 'number'],
+            [['last_cost', 'cost', 'cost_percentage'], 'default', 'value' => 0],
             [['cost_percentage'], 'string', 'min' => 0, 'max' => 6],
-            [['time'], 'safe'],
+            [['time', 'number'], 'safe'],
             [['number', 'quantity_type', 'remarks'], 'string', 'max' => 255],
             [['bom_id'], 'exist', 'skipOnError' => true, 'targetClass' => Bom::className(), 'targetAttribute' => ['bom_id' => 'id']],
             [['uom_id'], 'exist', 'skipOnError' => true, 'targetClass' => Uom::className(), 'targetAttribute' => ['uom_id' => 'id']],
@@ -91,7 +94,7 @@ class BomOutputs extends ActiveRecord
             'user_id' => Yii::t('app', 'User'),
             'bom_id' => Yii::t('app', 'Bom'),
             'product_id' => Yii::t('app', 'Product'),
-            'number' => Yii::t('app', 'Number'),
+            'number' => Yii::t('app', 'Code'),
             'quantity_type' => Yii::t('app', 'Quantity Type'),
             'quantity' => Yii::t('app', 'Quantity'),
             'last_cost' => Yii::t('app', 'Last Cost'),

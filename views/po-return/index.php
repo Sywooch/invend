@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-lg-12">
         <div class="ibox">
             <div class="ibox-title text-right">
-                <a href="<?= Url::toRoute(['/po-return/create']) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-pencil"></i> Purchase Order Return</a>
+                <a href="<?= Url::toRoute(['/po-return/create']) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-pencil"></i>New Purchase Return</a>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>

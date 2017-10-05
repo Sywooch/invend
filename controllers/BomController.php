@@ -76,7 +76,6 @@ class BomController extends Controller
         $modelsStage = [new BomStages()];
         $modelsComponents[] = [new BomComponents];
         $modelsOutput = [new BomOutputs()];
-        $total_component = 0;
 
         if ($modelBom->load(Yii::$app->request->post())) {
 
@@ -100,9 +99,7 @@ class BomController extends Controller
 
             $valid = $modelBom->validate();
             $valid = BomStages::validateBom($modelsStage,$modelsComponents) && $valid;
-            //$valid = BomOutputs::validateBom($modelsOutput) && $valid;
-
-            //$valid = true;
+            $valid = BomOutputs::validateBom($modelsOutput) && $valid;
 
             // save bom data
             if ($valid) {
@@ -119,7 +116,6 @@ class BomController extends Controller
             'modelsStage'  => (empty($modelsStage)) ? [new BomStages] : $modelsStage,
             'modelsOutput'  => (empty($modelsOutput)) ? [new BomOutputs] : $modelsOutput,
             'modelsComponents' => (empty($modelsComponents)) ? [new BomComponents] : $modelsComponents,
-            'total_component' => $total_component,
         ]);
     }
 
@@ -129,7 +125,6 @@ class BomController extends Controller
 
         // retrieve existing bom data
         $modelBom = $this->findModel($id);
-        $total_component = 0;
 
         // retrieve existing Output data
         $oldOutputIds = BomOutputs::find()->select('id')

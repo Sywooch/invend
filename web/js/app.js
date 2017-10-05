@@ -9,15 +9,9 @@ function getSubTotal(component) {
   console.log(component.id);
   console.log(component.value);
 
-  console.log($('#' +  component.id + '').val());
-  
   var amount = $('#' +  component.id + '').val();
-
   var input = component.id;
-
-  // bomcomponents-0-1-quantity
   var fields = input.split('-');
-  console.log(fields);
 
   var index_1 = fields[1];
   var index_2 = fields[2];
@@ -31,20 +25,20 @@ function getSubTotal(component) {
 
   quantity = parseFloat($('#bomcomponents-' +  index_1 + '-' + index_2 + '-quantity').val());
   quantity = parseFloat(quantity);
-  console.log('quantity');
-  console.log(quantity);
+  if(isNaN(quantity))
+  {
+    quantity = 0;
+  }
   
   last_cost = parseFloat($('#bomcomponents-' +  index_1 + '-' + index_2 + '-last_cost').val());
   last_cost = parseFloat(last_cost);
-  console.log('last_cost');
-  console.log(last_cost);
-
+  if(isNaN(last_cost))
+  {
+    last_cost = 0;
+  }
 
   total_line_cost = parseFloat(quantity) * parseFloat(last_cost);
   total_line_cost = parseFloat(total_line_cost);
-
-  console.log('total_line_cost');
-  console.log(total_line_cost);
 
   if(isNaN(total_line_cost))
   {
@@ -54,8 +48,36 @@ function getSubTotal(component) {
   var txttotal_line_cost = document.getElementById('bomcomponents-' +  index_1 + '-' + index_2 + '-total_line_cost');
   txttotal_line_cost.value= total_line_cost;
 
-  $('#bomcomponents-' +  index_1 + '-' + index_2 + '-total_line_cost').val(total_line_cost).trigger('change');
+  count = parseFloat($('#bomstage-' +  index_1 + '-count').val());
+  count = parseFloat(count);
+  console.log(count);
+  if(isNaN(count))
+  {
+    count = 0;
+  }
 
+  console.log(count);
+  var i =0;
+  var total = 0;
+
+  for(i=0;i<count;i++) {
+
+    console.log("Calculate Component Total");
+    total_line_cost = parseFloat($('#bomcomponents-' +  index_1 + '-' + i + '-total_line_cost').val());
+    if(isNaN(total_line_cost))
+    {
+      total_line_cost = 0;
+    }
+    total = total + total_line_cost;
+
+    var txttotal = document.getElementById('bomcomponents-sub_total');
+    txttotal.value= total;
+
+    var txttotal = document.getElementById('salesorderreturn-total');
+    txttotal.value= total;
+  }
+
+  $('#bomstages-' +  index_1 + '-total_input_cost').val(total).trigger('change');
 }
 
 
@@ -281,7 +303,6 @@ function getPoBalance(component) {
     // get total value
     var total = parseFloat($('#po-total').val());
     total = parseFloat(total);
-    console.log(total);
 
     if(isNaN(total))
     {
@@ -300,7 +321,6 @@ function getPoBalance(component) {
     // get paid value
     var paid = parseFloat($('#po-paid').val());
     paid = parseFloat(paid);
-    console.log(paid);
 
     if(isNaN(paid))
     {
@@ -715,4 +735,99 @@ function getSoReturnBalance(component) {
   var txtbalance = document.getElementById('salesorderreturn-balance');
   txtbalance.value= balance;
 
+}
+
+// Get Vendor Info
+function getVendor(component) {
+
+  console.log('component');
+  console.log(component);
+  console.log(component.id);
+  console.log(component.value);
+  
+  var vendor_id = component.value;
+  console.log('vendor_id');
+  console.log(vendor_id);
+
+  if(vendor_id != undefined && vendor_id != 0 && vendor_id != null && !isNaN(vendor_id))
+  {
+    $.ajax({
+      url: '/vendor/get-vendor-info',
+      data: {id: vendor_id },
+      success: function(data) {
+        if (data)
+        {
+          var vendor = JSON.parse(data);
+          console.log('vendor');
+          console.log(vendor);
+          console.log(vendor.name);
+
+          var txtcontact = document.getElementById('vendor-contact');
+          txtcontact.value= vendor.contact;
+
+          var txtphone = document.getElementById('vendor-phone');
+          txtphone.value= vendor.phone;
+
+          var txtaddress= document.getElementById('vendor-address');
+          txtaddress.value= vendor.address;
+
+        }else {
+          alert('No Data');
+        }
+        return true;
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+          console.log("Status: " + textStatus);
+          console.log("Error: " + errorThrown); 
+      }
+    });
+  }
+}
+
+
+// Get Customer Info
+function getCustomer(component) {
+
+  console.log('component');
+  console.log(component);
+  console.log(component.id);
+  console.log(component.value);
+  
+  var customer_id = component.value;
+  console.log('customer_id');
+  console.log(customer_id);
+
+  if(customer_id != undefined && customer_id != 0 && customer_id != null && !isNaN(customer_id))
+  {
+    $.ajax({
+      url: '/customer/get-customer-info',
+      data: {id: customer_id },
+      success: function(data) {
+        if (data)
+        {
+          var customer = JSON.parse(data);
+          console.log('customer');
+          console.log(customer);
+          console.log(customer.name);
+
+          var txtcontact = document.getElementById('customer-contact');
+          txtcontact.value= customer.contact;
+
+          var txtphone = document.getElementById('customer-phone');
+          txtphone.value= customer.phone;
+
+          var txtaddress= document.getElementById('customer-address');
+          txtaddress.value= customer.address;
+
+        }else {
+          alert('No Data');
+        }
+        return true;
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+          console.log("Status: " + textStatus);
+          console.log("Error: " + errorThrown); 
+      }
+    });
+  }
 }

@@ -39,16 +39,16 @@ use kartik\widgets\DatePicker;
             <div class="ibox-content">
                 <div class="row">
                     <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'customer_id')->dropDownList(ArrayHelper::map(Customer::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
+                        <?= $form->field($modelSalesOrder, 'customer_id')->dropDownList(ArrayHelper::map(Customer::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getCustomer(this)']) ?>
                     </div>
                     <div class="col-sm-3">
-                        <?= $form->field($modelCustomer, 'contact')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
+                        <?= $form->field($modelCustomer, 'contact')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
-                        <?= $form->field($modelCustomer, 'phone')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
+                        <?= $form->field($modelCustomer, 'phone')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
-                        <?= $form->field($modelCustomer, 'address')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
+                        <?= $form->field($modelCustomer, 'address')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                 </div>
                 <div class="row">
@@ -204,7 +204,7 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelSalesOrderLine, "[{$i}]sub_total")->begin();
-                                            echo Html::activeTextInput($modelSalesOrderLine, "[{$i}]sub_total", ['maxlength' => true, 'class' => 'form-control','onchange' => 'getSoTotal(this);this.oldvalue = this.value;']); //Field
+                                            echo Html::activeTextInput($modelSalesOrderLine, "[{$i}]sub_total", ['readonly' => true,'maxlength' => true, 'class' => 'form-control','onchange' => 'getSoTotal(this);this.oldvalue = this.value;']); //Field
                                             echo Html::error($modelSalesOrderLine,"[{$i}]sub_total", ['class' => 'help-block']); //error
                                             echo $form->field($modelSalesOrderLine, "[{$i}]sub_total")->end();
                                         ?>

@@ -117,7 +117,7 @@ class PoReturnController extends Controller
             $valid = $modelPoReturn->validate();
             $valid = PoReturnLines::validatePoReturn($modelsPoReturnLines) && $valid;
 
-            // save po data
+            // save po return data
             if ($valid) {
                 $modelPoReturn->reason = 2;
                 if ($this->savePoReturn($modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines)) {

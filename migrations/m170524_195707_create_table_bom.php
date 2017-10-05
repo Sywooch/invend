@@ -21,11 +21,12 @@ class m170524_195707_create_table_bom extends Migration
         $this->createTable('bom', [
 
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
+            'user_id' => $this->integer()->notNull()->defaultValue(1),
             'name' => $this->string()->notNull(),
             'number' => $this->string()->notNull(),
             'description' => $this->string(),
             'production_area_id' => $this->integer(),
+            'max_prod_capability' => $this->integer()->defaultValue(0),
             'total_input_cost' => $this->decimal(10,2)->defaultValue(0),
             'active' => $this->boolean()->defaultValue(false),
             'time' => $this->datetime()->notNull(),
@@ -34,7 +35,6 @@ class m170524_195707_create_table_bom extends Migration
             'updated_by' => $this->integer()->notNull(),      
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-
         ]);
 
         $this->createIndex(

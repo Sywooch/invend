@@ -39,16 +39,16 @@ use kartik\widgets\DatePicker;
             <div class="ibox-content">
                 <div class="row">
                     <div class="col-sm-3">
-                        <?= $form->field($modelPo, 'vendor_id')->dropDownList(ArrayHelper::map(Vendor::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
+                        <?= $form->field($modelPo, 'vendor_id')->dropDownList(ArrayHelper::map(Vendor::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getVendor(this)']) ?>
                     </div>
                     <div class="col-sm-3">
-                        <?= $form->field($modelVendor, 'contact')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
+                        <?= $form->field($modelVendor, 'contact')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
-                        <?= $form->field($modelVendor, 'phone')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
+                        <?= $form->field($modelVendor, 'phone')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
-                        <?= $form->field($modelVendor, 'address')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
+                        <?= $form->field($modelVendor, 'address')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                 </div>
                 <div class="row">
@@ -197,7 +197,7 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelPoLine, "[{$i}]sub_total")->begin();
-                                            echo Html::activeTextInput($modelPoLine, "[{$i}]sub_total", ['maxlength' => true, 'class' => 'form-control','onchange' => 'getPoTotal(this);this.oldvalue = this.value;']); //Field
+                                            echo Html::activeTextInput($modelPoLine, "[{$i}]sub_total", ['readonly' => true,'maxlength' => true, 'class' => 'form-control','onchange' => 'getPoTotal(this);this.oldvalue = this.value;']); //Field
                                             echo Html::error($modelPoLine,"[{$i}]sub_total", ['class' => 'help-block']); //error
                                             echo $form->field($modelPoLine, "[{$i}]sub_total")->end();
                                         ?>

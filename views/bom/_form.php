@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 
 ?>
 
-<div class="bom-request-form">
+<div class="bom-form">
 
     <!-- The Bom Information    -->
     <?php $form = ActiveForm::begin(['id' => 'bom-form']); ?>
@@ -20,16 +20,6 @@ use yii\helpers\ArrayHelper;
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">Config option 1</a></li>
-                    <li><a href="#">Config option 2</a></li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
                 </a>
             </div>
         </div>
@@ -68,12 +58,9 @@ use yii\helpers\ArrayHelper;
                         <i class="fa fa-wrench"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#">Config option 1</a></li>
-                        <li><a href="#">Config option 2</a></li>
+                        <li><a href="/bom/index">Bill List</a></li>
+                        <li><a href="/product/create">New Product</a></li>
                     </ul>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
                 </div>
             </div>
 
@@ -269,7 +256,8 @@ use yii\helpers\ArrayHelper;
                                                             <td colspan="7" class="active"><button type="button" class="add-component btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></button></td>
                                                             <td colspan="1" class="active">
 
-                                                                <?= Html::input('text', 'total_input_cost', $modelsStage[$i]->total_input_cost, ['id' => "bomcomponents-{$i}-total_component",'readonly'=>true,'maxlength' => true, 'class' => 'form-control', 'onchange' => 'getGrandTotal(this);this.oldvalue = this.value;']); ?>
+                                                                <?= Html::input('text', 'total_input_cost', $modelsStage[$i]->total_input_cost, ['id' => "bomstage-{$i}-total_input_cost",'readonly'=>true,'maxlength' => true, 'class' => 'form-control', 'onchange' => 'getGrandTotal(this);this.oldvalue = this.value;']); ?>
+                                                                <?= Html::hiddenInput('count', $modelsStage[$i]->count, ['id' => "bomstage-{$i}-count",'readonly'=>true,'maxlength' => true, 'class' => 'form-control']); ?>
                                                             </td>
                                                             <td colspan="1" class="active"></td>
                                                         </tfoot>
@@ -286,9 +274,9 @@ use yii\helpers\ArrayHelper;
                                                 <button type="button" class="add-stage btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
                                             </td>
                                             <td colspan="1" class="active">
-                                                <?= Html::input('text', 'total_input_cost', $modelBom->total_input_cost, ['id' => "bomcomponents-total_component",'readonly'=>true,'maxlength' => true, 'class' => 'form-control']); ?>
+                                                <?= Html::input('text', 'total_input_cost', $modelBom->total_input_cost, ['id' => "bom-total_input_cost",'readonly'=>true,'maxlength' => true, 'class' => 'form-control']); ?>
+                                                <?= Html::hiddenInput('count', $modelBom->count, ['id' => "bom-count",'readonly'=>true,'maxlength' => true, 'class' => 'form-control']); ?>
                                             </td>
-
                                         </tfoot>
                                     </table>
                                     </div>
@@ -445,7 +433,7 @@ use yii\helpers\ArrayHelper;
                     </div>
                 </div>
             </div>
-
+        </div>
     </div>
     
     <div class="form-group">
@@ -482,7 +470,7 @@ use yii\helpers\ArrayHelper;
       if(product_id != undefined && product_id != 0 && product_id != null && !isNaN(product_id))
       {
         $.ajax({
-          url: '../get-product-info',
+          url: '/product/get-product-info',
           data: {id: product_id },
           success: function(data) {
             if (data)
@@ -507,7 +495,7 @@ use yii\helpers\ArrayHelper;
           },
           error: function(XMLHttpRequest, textStatus, errorThrown) { 
               $.ajax({
-                url: '../bom/get-product-info',
+                url: '/product/get-product-info',
                 data: {id: product_id },
                 success: function(data) {
                     if (data)
@@ -563,7 +551,7 @@ use yii\helpers\ArrayHelper;
       if(product_id != undefined && product_id != 0 && product_id != null && !isNaN(product_id))
       {
         $.ajax({
-          url: '../get-product-info',
+          url: '/product/get-product-info',
           data: {id: product_id },
           success: function(data) {
             if (data)
@@ -588,7 +576,7 @@ use yii\helpers\ArrayHelper;
           },
           error: function(XMLHttpRequest, textStatus, errorThrown) { 
               $.ajax({
-                url: '../bom/get-product-info',
+                url: '/product/get-product-info',
                 data: {id: product_id },
                 success: function(data) {
                     if (data)
@@ -627,23 +615,96 @@ use yii\helpers\ArrayHelper;
 $js = <<<'EOD'
 
     $(function () {
-        $(".dynamicform_wrapper").on("afterInsert", function(e, item) {
-            console.log("afterInsert");
-            console.log(item);
+        $(".component_wrapper").on("afterInsert", function(e, item) {
             console.log(e);
+            console.log(item);
 
-             $( ".picker" ).each(function() {
-                $( this ).datepicker({
-                dateFormat : 'dd-mm-yy',
-                language : 'en',
-                changeMonth: true,
-                changeYear: true
-              });
-            });
+            count = parseFloat($('#bomstage-count').val());
+            count = parseFloat(count);
+            console.log(count);
+            if(isNaN(count))
+            {
+                count = 0;
+            }
+
+            // inital count is the same as index_1
+            var txtproduct = document.getElementById('bomcomponents-' +  count + '-product_id');
+            txtproduct.value= 0;
+
+            count = count + 1;
+            console.log("count");
+            console.log(count);
             
-            jQuery(".dynamicform_wrapper .panel-title-address").each(function(index) {
-                jQuery(this).html("Contact: " + (index + 1))
-            });
+            var txtcount = document.getElementById('bomstage-count');
+            txtcount.value= count;
+
+        });
+
+        $(".component_wrapper").on("afterDelete", function(e, item) {
+        
+            count = parseFloat($('#po_line-count').val());
+            count = parseFloat(count);
+            console.log(count);
+            if(isNaN(count))
+            {
+                count = 0;
+            }
+
+            count = count - 1;
+            console.log("count");
+            console.log(count);
+            console.log(e);
+            console.log(item);
+
+            var txtcount = document.getElementById('po_line-count');
+            txtcount.value= count;
+
+        });
+
+        $(".stage_wrapper").on("afterInsert", function(e, item) {
+
+            count = parseFloat($('#po_line-count').val());
+            count = parseFloat(count);
+            console.log(count);
+            if(isNaN(count))
+            {
+                count = 0;
+            }
+
+            // inital count is the same as index_1
+            var txtproduct = document.getElementById('polines-' +  count + '-product_id');
+            txtproduct.value= 0;
+
+            count = count + 1;
+            console.log("count");
+            console.log(count);
+            console.log(e);
+            console.log(item);
+
+            var txtcount = document.getElementById('po_line-count');
+            txtcount.value= count;
+
+        });
+
+        $(".stage_wrapper").on("afterDelete", function(e, item) {
+        
+            count = parseFloat($('#po_line-count').val());
+            count = parseFloat(count);
+            console.log(count);
+            if(isNaN(count))
+            {
+                count = 0;
+            }
+
+            count = count - 1;
+            console.log("count");
+            console.log(count);
+            console.log(e);
+            console.log(item);
+
+            var txtcount = document.getElementById('po_line-count');
+            txtcount.value= count;
+
         });
     });
 

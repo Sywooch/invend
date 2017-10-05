@@ -15,7 +15,6 @@ use yii\web\View;
         'modelsStage'  => $modelsStage,
         'modelsOutput'  => $modelsOutput,
         'modelsComponents' => $modelsComponents,
-        'total_component' => $total_component,
     ]) ?>
 
 </div>

@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\DynamicForms;
 use yii\helpers\ArrayHelper;
+use app\widgets\GeneratePassword;
 
 /**
  * PoController implements the CRUD actions for Po model.
@@ -95,6 +96,7 @@ class PoController extends Controller
         $modelPo = new Po();
         $modelVendor = new Vendor();
         $modelStock = new Stock();
+        $generate = new GeneratePassword();
         $modelTransactions = new Transactions();
         $modelsPoLines = [new PoLines()];
 
@@ -122,7 +124,8 @@ class PoController extends Controller
             // save po data
             if ($valid) {
                 $modelPo->reason = 1;
-                if ($this->savePo($modelTransactions,$modelStock,$modelPo,$modelsPoLines)) {
+                
+                if ($this->savePo($generate,$modelTransactions,$modelStock,$modelPo,$modelsPoLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The purchase order number {id} has been saved.', ['id' => $modelPo->id]));
                     return $this->redirect('index');
@@ -149,6 +152,7 @@ class PoController extends Controller
         $modelPo = $this->findModel($id);
         $modelVendor = new Vendor();
         $modelStock = new Stock();
+        $generate = new GeneratePassword();
         $modelTransactions = new Transactions();
 
         // retrieve existing polines data
@@ -179,7 +183,7 @@ class PoController extends Controller
 
             // save po data
             if ($valid) {
-                if ($this->savePo($modelTransactions,$modelStock,$modelPo,$modelsPoLines)) {
+                if ($this->savePo($generate,$modelTransactions,$modelStock,$modelPo,$modelsPoLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The purchase order number {id} has been saved.', ['id' => $modelPo->id]));
                     return $this->redirect('/po/index');
@@ -204,13 +208,15 @@ class PoController extends Controller
      * @return bool Returns TRUE if successful.
      * @throws NotFoundHttpException When record cannot be saved.
      */
-    protected function savePo($modelTransactions,$modelStock,$modelPo,$modelsPoLines) {
+    protected function savePo($generate,$modelTransactions,$modelStock,$modelPo,$modelsPoLines) {
         $transaction = Yii::$app->db->beginTransaction();
         try {
 
             $modelPo->user_id = Yii::$app->user->getId();
             $modelPo->time = date('Y-m-d H:i:s');
             $modelPo->balance = $modelPo->total - $modelPo->paid;
+            if(empty($modelPo->number))
+                $modelPo->number = 'PO-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
 
             if($modelPo->paid > 0)
             {

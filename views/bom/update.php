@@ -16,7 +16,6 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
         'modelsStage'  => $modelsStage,
         'modelsOutput'  => $modelsOutput,
         'modelsComponents' => $modelsComponents,
-        'total_component' => $total_component,
     ]) ?>
 
 </div>

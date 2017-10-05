@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
+use app\widgets\GeneratePassword;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -78,6 +79,7 @@ class ProductController extends Controller
     public function actionCreate() {
 
         $modelProduct = new Product();
+        $generate = new GeneratePassword();
         $modelsStock = [new Stock()];
 
         if ($modelProduct->load(Yii::$app->request->post())) {
@@ -99,11 +101,9 @@ class ProductController extends Controller
             $valid = $modelProduct->validate();
             $valid = Stock::validateProduct($modelsStock) && $valid;
 
-            // $valid = true;
-
             // save product data
             if ($valid) {
-                if ($this->saveProduct($modelProduct,$modelsStock)) {
+                if ($this->saveProduct($generate,$modelProduct,$modelsStock)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The product number {id} has been saved.', ['id' => $modelProduct->id]));
                     return $this->redirect('index');
@@ -129,6 +129,7 @@ class ProductController extends Controller
 
         // retrieve existing product data
         $modelProduct = $this->findModel($id);
+        $generate = new GeneratePassword();
 
         // retrieve existing stock data
         $oldStockIds = Stock::find()->select('id')
@@ -156,7 +157,7 @@ class ProductController extends Controller
             // $valid = true;
             // save product data
             if ($valid) {
-                if ($this->saveProduct($modelProduct,$modelsStock)) {
+                if ($this->saveProduct($generate,$modelProduct,$modelsStock)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The product number {id} has been saved.', ['id' => $modelProduct->id]));
                     return $this->redirect('/product/index');
@@ -180,12 +181,15 @@ class ProductController extends Controller
      * @return bool Returns TRUE if successful.
      * @throws NotFoundHttpException When record cannot be saved.
      */
-    protected function saveProduct($modelProduct,$modelsStock) {
+    protected function saveProduct($generate,$modelProduct,$modelsStock) {
         $transaction = Yii::$app->db->beginTransaction();
         try {
             
             $modelProduct->user_id = Yii::$app->user->getId();
             $modelProduct->time = date('Y-m-d H:i:s');
+            if(empty($modelProduct->number))
+                $modelProduct->item_code = 'P-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
+
 
             if ($go = $modelProduct->save()) {
 
