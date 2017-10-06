@@ -186,7 +186,7 @@ class PoReturnController extends Controller
         }
 
         // show VIEW
-        return $this->render('Update', [
+        return $this->render('update', [
             'modelPoReturn' => $modelPoReturn,
             'modelVendor' => $modelVendor,
             'modelsPoReturnLines'  => $modelsPoReturnLines,
@@ -265,7 +265,7 @@ class PoReturnController extends Controller
                         $modelStock->user_id = Yii::$app->user->getId();
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelPoReturnLine->product_id;
-                        $modelStock->quantity = $modelPoReturnLine->quantity;
+                        $modelStock->quantity = -1 * abs($modelPoReturnLine->quantity);
                         $modelStock->location_id = $modelPoReturn->location_id;
                         $modelStock->product_category_id = $modelPoReturnLine->product->product_category_id;
 

@@ -192,7 +192,7 @@ class PoController extends Controller
         }
 
         // show VIEW
-        return $this->render('Update', [
+        return $this->render('update', [
             'modelPo' => $modelPo,
             'modelVendor' => $modelVendor,
             'modelsPoLines'  => $modelsPoLines,

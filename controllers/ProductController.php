@@ -166,7 +166,7 @@ class ProductController extends Controller
         }
 
         // show VIEW
-        return $this->render('Update', [
+        return $this->render('update', [
             'modelProduct' => $modelProduct,
             'modelsStock'  => $modelsStock,
         ]);

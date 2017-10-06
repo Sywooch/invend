@@ -27,19 +27,19 @@ use yii\helpers\Url;
                 </div>
             </li>
             <li>
-                <a href="/dashboard/d2"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                <a href="/site/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Purchasing Orders</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Purchase Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/po/create">New Purchasing Order</a></li>
-                    <li><a href="/po/index">Purchasing Order List</a></li>
-                    <li><a href="/po-return/create">New Purchasing Return</a></li>
-                    <li><a href="/po-return/index">Purchasing Return List</a></li>
+                    <li><a href="/po/create">New Purchase Order</a></li>
+                    <li><a href="/po/index">Purchase Order List</a></li>
+                    <li><a href="/po-return/create">New Purchase Return</a></li>
+                    <li><a href="/po-return/index">Purchase Return List</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Sales Orders</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Sales Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/sales-order/create">New Sales Order</a></li>
                     <li><a href="/sales-order/index">Sales Order List</a></li>
@@ -48,21 +48,21 @@ use yii\helpers\Url;
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Bill of Materials</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-list"></i> <span class="nav-label">Bill of Materials</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/bom/create">New Bill</a></li>
                     <li><a href="/bom/index">Bill List</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Work Orders</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Work Orders</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/wo/create">New Woek Order</a></li>
                     <li><a href="/wo/index">Work Order List</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-cog fa-spin"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/product/create">New Product</a></li>
                     <li><a href="/product/index">Product List</a></li>

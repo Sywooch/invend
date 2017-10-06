@@ -203,7 +203,7 @@ class BomController extends Controller
         }
 
         // show VIEW
-        return $this->render('Update', [
+        return $this->render('update', [
             'modelBom' => $modelBom,
             'modelsStage'  => $modelsStage,
             'modelsOutput'  => $modelsOutput,

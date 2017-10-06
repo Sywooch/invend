@@ -162,7 +162,7 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelPoReturnLine, "[{$i}]item_code")->begin();
-                                            echo Html::activeTextInput($modelPoReturnLine, "[{$i}]item_code", ['maxlength' => true, 'class' => 'form-control']); //Field
+                                            echo Html::activeTextInput($modelPoReturnLine, "[{$i}]item_code", ['readonly' => true, 'maxlength' => true, 'class' => 'form-control']); //Field
                                             echo Html::error($modelPoReturnLine,"[{$i}]item_code", ['class' => 'help-block']); //error
                                             echo $form->field($modelPoReturnLine, "[{$i}]item_code")->end();
                                         ?>

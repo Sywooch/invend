@@ -186,7 +186,7 @@ class SalesOrderReturnController extends Controller
         }
 
         // show VIEW
-        return $this->render('Update', [
+        return $this->render('update', [
             'modelSalesOrderReturn' => $modelSalesOrderReturn,
             'modelCustomer' => $modelCustomer,
             'modelsSalesOrderReturnLines'  => $modelsSalesOrderReturnLines,

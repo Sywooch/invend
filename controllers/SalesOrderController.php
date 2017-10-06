@@ -190,7 +190,7 @@ class SalesOrderController extends Controller
         }
 
         // show VIEW
-        return $this->render('Update', [
+        return $this->render('update', [
             'modelSalesOrder' => $modelSalesOrder,
             'modelCustomer' => $modelCustomer,
             'modelsSalesOrderLines'  => $modelsSalesOrderLines,
@@ -273,7 +273,7 @@ class SalesOrderController extends Controller
                         $modelStock->user_id = Yii::$app->user->getId();
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelSalesOrderLine->product_id;
-                        $modelStock->quantity = $modelSalesOrderLine->quantity;
+                        $modelStock->quantity = -1 * abs($modelSalesOrderLine->quantity);
                         $modelStock->location_id = $modelSalesOrder->location_id;
                         
                         $modelStock->product_category_id = $modelSalesOrderLine->product->product_category_id;

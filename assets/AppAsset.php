@@ -33,6 +33,10 @@ class AppAsset extends AssetBundle
         'js/plugins/flot/jquery.flot.resize.js',
         'js/plugins/flot/jquery.flot.spline.js',
         'js/plugins/flot/jquery.flot.pie.js',
+        'js/plugins/flot/jquery.flot.symbol.js',
+        'js/plugins/flot/jquery.flot.time.js',
+
+        'js/plugins/easypiechart/jquery.easypiechart.js',
 
         'js/plugins/chartJs/Chart.min.js',
 
@@ -44,7 +48,8 @@ class AppAsset extends AssetBundle
         'js/plugins/sparkline/jquery.sparkline.min.js',
         'js/demo/sparkline-demo.js',
 
-        'js/plugins/toastr/toastr.min.js'
+        'js/plugins/toastr/toastr.min.js',
+
 
     ];
     public $depends = [

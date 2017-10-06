@@ -11,6 +11,10 @@ use app\models\ContactForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 use app\models\SignupForm;
+use app\models\Stock;
+use app\models\StockSearch;
+use app\models\Transactions;
+use app\models\TransactionsSearch;
 
 class SiteController extends Controller
 {
@@ -63,7 +67,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new StockSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $searchModelT = new TransactionsSearch();
+        $dataProviderT = $searchModelT->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'searchModelT' => $searchModelT,
+            'dataProviderT' => $dataProviderT,
+        ]);
     }
 
     /**
