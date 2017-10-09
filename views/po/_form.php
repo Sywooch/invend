@@ -54,11 +54,7 @@ use kartik\widgets\DatePicker;
                 <div class="row">
                     <div class="col-sm-3">
                         <?= $form->field($modelPo, 'location_id')->dropDownList(ArrayHelper::map(Location::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPo, 'number')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
-                    </div>
-                    
+                    </div>                    
                     <div class="col-sm-3">
                         <?= $form->field($modelPo, 'date')->widget(DatePicker::classname(),[
                               'options' => [
@@ -119,10 +115,8 @@ use kartik\widgets\DatePicker;
                             'formId' => 'po-form',
                             'formFields' => [
                                 'product_id',
-                                'item_code',
                                 'quantity',
                                 'unit_price',
-                                'discount',
                                 'sub_total',
                             ],
                         ]); ?>
@@ -134,11 +128,9 @@ use kartik\widgets\DatePicker;
                                 <tr class="active">
                                     <td></td>
                                     <td class="col-xs-4"><?= Html::activeLabel($modelsPoLines[0], 'product_id'); ?></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsPoLines[0], 'item_code'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsPoLines[0], 'quantity'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsPoLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsPoLines[0], 'discount'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsPoLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsPoLines[0], 'quantity'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsPoLines[0], 'unit_price'); ?></td>
+                                    <td class="col-xs-2"><?= Html::activeLabel($modelsPoLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 
@@ -157,17 +149,9 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelPoLine, "[{$i}]product_id")->begin();
-                                            echo Html::activeDropDownList($modelPoLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1 ])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
+                                            echo Html::activeDropDownList($modelPoLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1, 'product_category_id' => 1 ])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
                                             echo Html::error($modelPoLine,"[{$i}]product_id", ['class' => 'help-block']); //error
                                             echo $form->field($modelPoLine, "[{$i}]product_id")->end();
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                            echo $form->field($modelPoLine, "[{$i}]item_code")->begin();
-                                            echo Html::activeTextInput($modelPoLine, "[{$i}]item_code", ['readonly' => true, 'maxlength' => true, 'class' => 'form-control']); //Field
-                                            echo Html::error($modelPoLine,"[{$i}]item_code", ['class' => 'help-block']); //error
-                                            echo $form->field($modelPoLine, "[{$i}]item_code")->end();
                                         ?>
                                     </td>
                                     <td>
@@ -188,14 +172,6 @@ use kartik\widgets\DatePicker;
                                     </td>
                                     <td>
                                         <?php
-                                            echo $form->field($modelPoLine, "[{$i}]discount")->begin();
-                                            echo Html::activeTextInput($modelPoLine, "[{$i}]discount", ['defaultValue' => 0, 'maxlength' => true, 'class' => 'form-control']); //Field
-                                            echo Html::error($modelPoLine,"[{$i}]discount", ['class' => 'help-block']); //error
-                                            echo $form->field($modelPoLine, "[{$i}]discount")->end();
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
                                             echo $form->field($modelPoLine, "[{$i}]sub_total")->begin();
                                             echo Html::activeTextInput($modelPoLine, "[{$i}]sub_total", ['readonly' => true,'maxlength' => true, 'class' => 'form-control','onchange' => 'getPoTotal(this);this.oldvalue = this.value;']); //Field
                                             echo Html::error($modelPoLine,"[{$i}]sub_total", ['class' => 'help-block']); //error
@@ -206,7 +182,7 @@ use kartik\widgets\DatePicker;
                             <?php endforeach; // end of po_line loop ?>
                             </tbody>
                             <tfoot>
-                                <td colspan="6" class="active">
+                                <td colspan="4" class="active">
                                     <button type="button" class="add-po_line btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
                                 </td>
                                 <td colspan="1" class="active">
@@ -246,11 +222,6 @@ use kartik\widgets\DatePicker;
                     <div class="col-sm-3">
                         <?= $form->field($modelPo, 'total')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getPoBalance(this)']) ?>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPo, 'currency_id')->dropDownList(ArrayHelper::map(Currency::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelPo, 'due_date')->widget(DatePicker::classname(),[
                               'options' => [
@@ -270,11 +241,7 @@ use kartik\widgets\DatePicker;
                         ]);?>
 
                     </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPo, 'remarks')->textarea(['rows' => 6])->hint('Optional') ?>
-                    </div>
                 </div>
-                
             </div>
         </div>
         <div class="padding-v-md">

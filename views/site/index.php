@@ -21,213 +21,78 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-success pull-right">Monthly</span>
-                    <h5>Income</h5>
+                    <h5>Sales</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins">40 886,200</h1>
                     <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                    <small>Total income</small>
+                    <small>Sales</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-info pull-right">Annual</span>
-                    <h5>Sales Orders</h5>
+                    <span class="label label-info pull-right">Today</span>
+                    <h5>Sales</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins">275,800</h1>
                     <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                    <small>Total Sales</small>
+                    <small>Sales</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-primary pull-right">Today</span>
-                    <h5>Purchase Orders</h5>
+                    <span class="label label-info pull-right">Quaterly</span>
+                    <h5>Sales</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">106,120</h1>
-                    <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
-                    <small>Total Purchases</small>
+                    <h1 class="no-margins">275,800</h1>
+                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <small>Sales</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Total Customers</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">40 886,200</h1>
+                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
+                    <small>Total Customers</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-primary pull-right">Today</span>
-                    <h5>Work Orders</h5>
+                    <span class="label label-info pull-right">Today</span>
+                    <h5>Top Customer</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">106,120</h1>
-                    <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
-                    <small>Total Works</small>
+                    <h1 class="no-margins">275,800</h1>
+                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <small>Top Customer</small>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Orders</h5>
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-xs btn-white active">Today</button>
-                            <button type="button" class="btn btn-xs btn-white">Monthly</button>
-                            <button type="button" class="btn btn-xs btn-white">Annual</button>
-                        </div>
-                    </div>
+                    <span class="label label-info pull-right">Week</span>
+                    <h5>New Customers</h5>
                 </div>
                 <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-dashboard-chart"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <ul class="stat-list">
-                                <li>
-                                    <h2 class="no-margins">2,346</h2>
-                                    <small>Total orders in period</small>
-                                    <div class="stat-percent">48% <i class="fa fa-level-up text-navy"></i></div>
-                                    <div class="progress progress-mini">
-                                        <div style="width: 48%;" class="progress-bar"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h2 class="no-margins ">4,422</h2>
-                                    <small>Orders in last month</small>
-                                    <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
-                                    <div class="progress progress-mini">
-                                        <div style="width: 60%;" class="progress-bar"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h2 class="no-margins ">9,180</h2>
-                                    <small>Monthly income from orders</small>
-                                    <div class="stat-percent">22% <i class="fa fa-bolt text-navy"></i></div>
-                                    <div class="progress progress-mini">
-                                        <div style="width: 22%;" class="progress-bar"></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-    
-        <div class="col-lg-12">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Stocks</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <?php Pjax::begin(); ?>    
-                                <?= GridView::widget([
-                                    'dataProvider'=>$dataProvider,
-                                    'filterModel'=>$searchModel,
-                                    'columns'=>[
-
-                                        [
-                                            'attribute'=>'product_id', 
-                                            'value'=>function ($model, $key, $index, $widget) { 
-                                                return $model->product->item_name;
-                                            },
-                                            'filterType'=>GridView::FILTER_SELECT2,
-                                            'filter'=>ArrayHelper::map(Product::find()->orderBy('item_name asc')->asArray()->all(), 'id', 'item_name'), 
-                                            'filterWidgetOptions'=>[
-                                                'pluginOptions'=>['allowClear'=>true],
-                                            ],
-                                            'filterInputOptions'=>['placeholder'=>'Any Product'],
-                                            'group'=>true, 
-                                            'groupedRow'=>false,                    // move grouped column to a single grouped row
-                                            'groupOddCssClass'=>'kv-grouped-row',  // configure odd group cell css class
-                                            'groupEvenCssClass'=>'kv-grouped-row', // configure even group cell css class
-                                            'groupFooter'=>function ($model, $key, $index, $widget) { // Closure method
-                                                return [
-                                                    'mergeColumns'=>[[0,3]], // columns to merge in summary
-                                                    'content'=>[             // content to show in each summary cell
-                                                        0=>'Summary (' . $model->product->item_name . ')',
-                                                        4=>GridView::F_SUM,
-                                                    ],
-                                                    'contentFormats'=>[      // content reformatting for each summary cell
-                                                        4=>['format'=>'number', 'decimals'=>2],
-                                                        5=>['format'=>'number', 'decimals'=>0],
-                                                        6=>['format'=>'number', 'decimals'=>2],
-                                                    ],
-                                                    'contentOptions'=>[      // content html attributes for each summary cell
-                                                        0=>['style'=>'font-variant:small-caps'],
-                                                        4=>['style'=>'text-align:left'],
-                                                        5=>['style'=>'text-align:left'],
-                                                        6=>['style'=>'text-align:left'],
-                                                    ],
-                                                    // html attributes for group summary row
-                                                    'options'=>['class'=>'success','style'=>'font-weight:bold;']
-                                                ];
-                                            }
-                                        ],
-                                        [
-                                            'attribute'=>'product_category_id', 
-                                            'filter'=> ArrayHelper::map(ProductCategory::find()->orderBy('name ASC')->all(), 'id', 'name'),
-                                            'value' => 'productCategory.name',
-                                            'format'=>'text', 
-
-                                        ],
-                                        [
-                                            'attribute'=>'location_id', 
-                                            'filter'=> ArrayHelper::map(Location::find()->orderBy('name ASC')->all(), 'id', 'name'),
-                                            'value' => 'location.name',
-                                            'format'=>'text', 
-                                        ],
-                                        [
-                                            'attribute'=>'last_vendor_id', 
-                                            'filter'=> ArrayHelper::map(Vendor::find()->orderBy('name ASC')->all(), 'id', 'name'),
-                                            'value' => 'vendor.name',
-                                            'format'=>'text', 
-                                        ],
-                                        [
-                                            'attribute'=>'quantity', 
-                                            'format'=>['decimal', 0],
-                                            'pageSummary'=>true,
-                                            'pageSummaryFunc'=>GridView::F_SUM
-                                        ],
-                                        [
-                                            'attribute'=>'remarks', 
-                                            'format'=>'text', 
-                                        ],
-                                        
-                                    ],
-                                    'pjax'=>true,
-                                    'responsive' => true,
-                                    'resizableColumns'=>true,
-                                    'hover' => true,
-                                    
-                                ]); ?>
-                            <?php Pjax::end(); ?>
-                        </div>
-                    </div>
+                    <h1 class="no-margins">275,800</h1>
+                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <small>New Customers</small>
                 </div>
             </div>
         </div>

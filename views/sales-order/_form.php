@@ -54,9 +54,6 @@ use kartik\widgets\DatePicker;
                 <div class="row">
 
                     <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'number')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
-                    </div>
-                    <div class="col-sm-3">
                         <?= $form->field($modelSalesOrder, 'date')->widget(DatePicker::classname(),[
                               'options' => [
                                 'placeholder' => '',
@@ -78,9 +75,6 @@ use kartik\widgets\DatePicker;
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrder, 'status')->dropDownList(['7'=>'Unfulfilled, Uninvoiced','8'=>'Fulfilled, Invoiced', '9'=>'Fulfilled, Uninvoiced'],['disabled' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                    
-                </div>
-                <div class="row">
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrder, 'location_id')->dropDownList(ArrayHelper::map(Location::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
                     </div>
@@ -89,7 +83,6 @@ use kartik\widgets\DatePicker;
                     </div>
                     
                 </div>
-
             </div>
         </div>
         <div class="padding-v-md">
@@ -126,10 +119,8 @@ use kartik\widgets\DatePicker;
                             'formId' => 'sales-order-form',
                             'formFields' => [
                                 'product_id',
-                                'item_code',
                                 'quantity',
                                 'unit_price',
-                                'discount',
                                 'sub_total',
                             ],
                         ]); ?>
@@ -141,11 +132,9 @@ use kartik\widgets\DatePicker;
                                 <tr class="active">
                                     <td></td>
                                     <td class="col-xs-4"><?= Html::activeLabel($modelsSalesOrderLines[0], 'product_id'); ?></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsSalesOrderLines[0], 'item_code'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderLines[0], 'quantity'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderLines[0], 'discount'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderLines[0], 'quantity'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderLines[0], 'unit_price'); ?></td>
+                                    <td class="col-xs-2"><?= Html::activeLabel($modelsSalesOrderLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 
@@ -171,14 +160,6 @@ use kartik\widgets\DatePicker;
                                     </td>
                                     <td>
                                         <?php
-                                            echo $form->field($modelSalesOrderLine, "[{$i}]item_code")->begin();
-                                            echo Html::activeTextInput($modelSalesOrderLine, "[{$i}]item_code", ['readonly' => true, 'maxlength' => true, 'class' => 'form-control']); //Field
-                                            echo Html::error($modelSalesOrderLine,"[{$i}]item_code", ['class' => 'help-block']); //error
-                                            echo $form->field($modelSalesOrderLine, "[{$i}]item_code")->end();
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
                                             echo $form->field($modelSalesOrderLine, "[{$i}]quantity")->begin();
                                             echo Html::activeTextInput($modelSalesOrderLine, "[{$i}]quantity", ['maxlength' => true, 'class' => 'form-control','onchange' => 'getSoSubTotal(this)']); //Field
                                             echo Html::error($modelSalesOrderLine,"[{$i}]quantity", ['class' => 'help-block']); //error
@@ -195,14 +176,6 @@ use kartik\widgets\DatePicker;
                                     </td>
                                     <td>
                                         <?php
-                                            echo $form->field($modelSalesOrderLine, "[{$i}]discount")->begin();
-                                            echo Html::activeTextInput($modelSalesOrderLine, "[{$i}]discount", ['defaultValue' => 0, 'maxlength' => true, 'class' => 'form-control']); //Field
-                                            echo Html::error($modelSalesOrderLine,"[{$i}]discount", ['class' => 'help-block']); //error
-                                            echo $form->field($modelSalesOrderLine, "[{$i}]discount")->end();
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
                                             echo $form->field($modelSalesOrderLine, "[{$i}]sub_total")->begin();
                                             echo Html::activeTextInput($modelSalesOrderLine, "[{$i}]sub_total", ['readonly' => true,'maxlength' => true, 'class' => 'form-control','onchange' => 'getSoTotal(this);this.oldvalue = this.value;']); //Field
                                             echo Html::error($modelSalesOrderLine,"[{$i}]sub_total", ['class' => 'help-block']); //error
@@ -213,7 +186,7 @@ use kartik\widgets\DatePicker;
                             <?php endforeach; // end of sales_order_line loop ?>
                             </tbody>
                             <tfoot>
-                                <td colspan="6" class="active">
+                                <td colspan="4" class="active">
                                     <button type="button" class="add-sales_order_line btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
                                 </td>
                                 <td colspan="1" class="active">
@@ -253,11 +226,6 @@ use kartik\widgets\DatePicker;
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrder, 'total')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getSoBalance(this)']) ?>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'currency_id')->dropDownList(ArrayHelper::map(Currency::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrder, 'due_date')->widget(DatePicker::classname(),[
                               'options' => [
@@ -276,9 +244,6 @@ use kartik\widgets\DatePicker;
                                 ]
                         ]);?>
 
-                    </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'remarks')->textarea(['rows' => 6])->hint('Optional') ?>
                     </div>
                 </div>
                 

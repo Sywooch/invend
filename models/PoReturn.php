@@ -101,7 +101,7 @@ class PoReturn extends ActiveRecord
             'total' => Yii::t('app', 'Total'),
             'paid' => Yii::t('app', 'Paid'),
             'balance' => Yii::t('app', 'Balance'),
-            'vendor_id' => Yii::t('app', 'Vendor'),
+            'vendor_id' => Yii::t('app', 'Supplier'),
             'currency_id' => Yii::t('app', 'Currency'),
             'status' => Yii::t('app', 'Status'),
             'cancel' => Yii::t('app', 'Cancel'),

@@ -96,37 +96,7 @@ class m170524_195718_insert_data extends Migration
             'created_by' => 1,
             'updated_by' => 1
         ));
-
-        $this->insert('uom',array(
-            'name'=>'Packs',
-            'user_id' => 1,
-            'active' => 1,
-            'created_at' => '1496109620',
-            'updated_at' => '1496109620',
-            'created_by' => 1,
-            'updated_by' => 1
-        ));
-
-        $this->insert('uom',array(
-            'name'=>'Bottles',
-            'user_id' => 1,
-            'active' => 1,
-            'created_at' => '1496109620',
-            'updated_at' => '1496109620',
-            'created_by' => 1,
-            'updated_by' => 1
-        ));
-
-        $this->insert('uom',array(
-            'name'=>'Cases',
-            'user_id' => 1,
-            'active' => 1,
-            'created_at' => '1496109620',
-            'updated_at' => '1496109620',
-            'created_by' => 1,
-            'updated_by' => 1
-        ));
-
+        
         // location
         $this->insert('location',array(
             'name'=>'Main Warehouse',
@@ -200,9 +170,21 @@ class m170524_195718_insert_data extends Migration
 
         // product_category
         $this->insert('product_category',array(
-            'name'=>'Default Category',
+            'name'=>'Material',
             'code'=>'1000',
-            'remarks'=>'Default Category',
+            'remarks'=>'Materials used in production',
+            'user_id' => 1,
+            'active' => 1,
+            'created_at' => '1496109620',
+            'updated_at' => '1496109620',
+            'created_by' => 1,
+            'updated_by' => 1
+        ));
+
+        $this->insert('product_category',array(
+            'name'=>'Finished Product',
+            'code'=>'1001',
+            'remarks'=>'Sachet Water produced in bags',
             'user_id' => 1,
             'active' => 1,
             'created_at' => '1496109620',
@@ -215,18 +197,6 @@ class m170524_195718_insert_data extends Migration
         $this->insert('currency',array(
             'name'=>'Ghana Cedis',
             'prefix'=> 'GHC ',
-            'suffix'=> ' ',
-            'user_id' => 1,
-            'active' => 1,
-            'created_at' => '1496109620',
-            'updated_at' => '1496109620',
-            'created_by' => 1,
-            'updated_by' => 1
-        ));
-
-        $this->insert('currency',array(
-            'name'=>'USA USD',
-            'prefix'=> '$ ',
             'suffix'=> ' ',
             'user_id' => 1,
             'active' => 1,
@@ -407,6 +377,59 @@ class m170524_195718_insert_data extends Migration
         $this->insert('status',array(
             'id'=> 12,
             'name'=>'Returned, Uninvoiced',
+            'user_id' => 1,
+            'active' => 1,
+            'created_at' => '1496109620',
+            'updated_at' => '1496109620',
+            'created_by' => 1,
+            'updated_by' => 1
+        ));
+
+        // Product
+
+        $this->insert('product',array(
+            'item_name'=>'Rolls',
+            'item_code'=>'10001',
+            'product_category_id'=> 1,
+            'product_type_id'=> 1,
+            'standard_uom_id'=> 1,
+            'sales_uom_id'=> 1,
+            'purchasing_uom_id'=> 1,
+            'time'=>'2017-07-10 14:15:00',
+            'user_id' => 1,
+            'active' => 1,
+            'created_at' => '1496109620',
+            'updated_at' => '1496109620',
+            'created_by' => 1,
+            'updated_by' => 1
+        ));
+
+        $this->insert('product',array(
+            'item_name'=>'Bags',
+            'item_code'=>'10003',
+            'product_category_id'=> 1,
+            'product_type_id'=> 1,
+            'standard_uom_id'=> 3,
+            'sales_uom_id'=> 3,
+            'purchasing_uom_id'=> 3,
+            'time'=>'2017-07-10 14:15:00',
+            'user_id' => 1,
+            'active' => 1,
+            'created_at' => '1496109620',
+            'updated_at' => '1496109620',
+            'created_by' => 1,
+            'updated_by' => 1
+        ));
+
+        $this->insert('product',array(
+            'item_name'=>'Sachet Water',
+            'item_code'=>'10003',
+            'product_category_id'=> 2,
+            'product_type_id'=> 1,
+            'standard_uom_id'=> 4,
+            'sales_uom_id'=> 4,
+            'purchasing_uom_id'=> 4,
+            'time'=>'2017-07-10 14:15:00',
             'user_id' => 1,
             'active' => 1,
             'created_at' => '1496109620',

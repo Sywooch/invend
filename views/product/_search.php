@@ -21,10 +21,6 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'item_name') ?>
 
-    <?= $form->field($model, 'item_code') ?>
-
-    <?= $form->field($model, 'product_type_id')->dropDownList(ArrayHelper::map(ProductType::find()->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-
     <?= $form->field($model, 'product_category_id')->dropDownList(ArrayHelper::map(ProductCategory::find()->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
 
     <div class="form-group">

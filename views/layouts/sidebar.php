@@ -30,35 +30,28 @@ use yii\helpers\Url;
                 <a href="/site/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Purchase Orders</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Purchases</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/po/create">New Purchase Order</a></li>
-                    <li><a href="/po/index">Purchase Order List</a></li>
+                    <li><a href="/po/create">New Purchase</a></li>
+                    <li><a href="/po/index">Purchase List</a></li>
                     <li><a href="/po-return/create">New Purchase Return</a></li>
                     <li><a href="/po-return/index">Purchase Return List</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Sales Orders</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Sales</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/sales-order/create">New Sales Order</a></li>
-                    <li><a href="/sales-order/index">Sales Order List</a></li>
+                    <li><a href="/sales-order/create">New Sales</a></li>
+                    <li><a href="/sales-order/index">Sales List</a></li>
                     <li><a href="/sales-order-return/create">New Sales Return</a></li>
                     <li><a href="/sales-order-return/index">Sales Return List</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-list"></i> <span class="nav-label">Bill of Materials</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Production</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="/bom/create">New Bill</a></li>
-                    <li><a href="/bom/index">Bill List</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Work Orders</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="/wo/create">New Woek Order</a></li>
-                    <li><a href="/wo/index">Work Order List</a></li>
+                    <li><a href="/production/create">New Production</a></li>
+                    <li><a href="/production/index">Production List</a></li>
                 </ul>
             </li>
             <li>
@@ -66,8 +59,8 @@ use yii\helpers\Url;
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/product/create">New Product</a></li>
                     <li><a href="/product/index">Product List</a></li>
-                    <li><a href="/vendor/create">New Vendor</a></li>
-                    <li><a href="/vendor/index">Vendor List</a></li>
+                    <li><a href="/vendor/create">New Supplier</a></li>
+                    <li><a href="/vendor/index">Supplier List</a></li>
                     <li><a href="/customer/create">New Customer</a></li>
                     <li><a href="/customer/index">Customer List</a></li>
                 </ul>
