@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
                         'filterModel' => $searchModel,
+                        'showOnEmpty'=>true,
                         'autoXlFormat'=>true,
                         'export'=>[
                             'fontAwesome'=>true,
