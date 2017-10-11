@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=inventory_db', // MySQL, MariaDB
+    //'dsn' => 'mysql:host=localhost;dbname=inventory_db', // MySQL, MariaDB
     //'dsn' => 'sqlite:/path/to/database/file', // SQLite
     //'dsn' => 'pgsql:host=localhost;port=5432;dbname=inventory_db', // PostgreSQL
     'dsn' => 'pgsql:host=ec2-50-19-89-124.compute-1.amazonaws.com;port=5432;dbname=d3vr6mstu57muu', // PostgreSQL
