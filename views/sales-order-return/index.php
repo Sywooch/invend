@@ -40,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
                         'filterModel' => $searchModel,
+                        'showOnEmpty'=>true,
                         'columns' => [
                             [
                                 'attribute'=>'number', 
@@ -83,7 +84,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format'=>'text', 
                             ],
 
-                            ['class' => 'yii\grid\ActionColumn'],
+                            [
+                                'class' => 'yii\grid\ActionColumn',
+                                'template' => '{view}',
+                            ],
                         ],
                     ]); ?>
                 <?php Pjax::end(); ?>
