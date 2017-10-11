@@ -86,7 +86,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'attribute'=>'remarks', 
                                 'format'=>'text', 
                             ],
-
                             [
                                 'class' => 'yii\grid\ActionColumn',
                                 'template' => '{view}',
