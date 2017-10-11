@@ -257,8 +257,11 @@ class SalesOrderReturnController extends Controller
                         $modelSalesOrderReturnLine->user_id = Yii::$app->user->getId();
                         $modelSalesOrderReturnLine->time = date('Y-m-d H:i:s');
                         $modelSalesOrderReturnLine->sales_order_return_id = $modelSalesOrderReturn->id;
+                        $modelSalesOrderReturnLine->item_name = $modelSalesOrderReturnLine->product->item_name;
+                        $modelSalesOrderReturnLine->item_code = $modelSalesOrderReturnLine->product->item_code;
                         $modelSalesOrderReturnLine->sub_total = $modelSalesOrderReturnLine->quantity * $modelSalesOrderReturnLine->unit_price;
                         $modelSalesOrderReturnLine->sub_total = $modelSalesOrderReturnLine->sub_total - ($modelSalesOrderReturnLine->discount/100) * $modelSalesOrderReturnLine->sub_total;
+
 
                         // Stock
 
@@ -266,6 +269,7 @@ class SalesOrderReturnController extends Controller
                         $modelStock->user_id = Yii::$app->user->getId();
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelSalesOrderReturnLine->product_id;
+                        $modelStock->quantity = $modelSalesOrderReturnLine->quantity;
                         $modelStock->location_id = $modelSalesOrderReturn->location_id;
                         $modelStock->product_category_id = $modelSalesOrderReturnLine->product->product_category_id;
 
@@ -277,6 +281,8 @@ class SalesOrderReturnController extends Controller
                             $transaction->rollBack();
                             break;
                         }
+
+                        $modelStock = new Stock;
                     }
                 }
             }

@@ -24,21 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h5>Sales</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">40 886,200</h1>
-                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                    <small>Sales</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <span class="label label-info pull-right">Today</span>
-                    <h5>Sales</h5>
-                </div>
-                <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <h1 class="no-margins"><?= $monthlySales ?></h1>
+                    <div class="stat-percent font-bold text-success"><?= $monthlySalesPercentage ?>% <i class="fa fa-bolt"></i></div>
                     <small>Sales</small>
                 </div>
             </div>
@@ -50,8 +37,34 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h5>Sales</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <h1 class="no-margins"><?= $quaterlySales ?></h1>
+                    <div class="stat-percent font-bold text-info"><?= $quaterlySalesPercentage ?>% <i class="fa fa-level-up"></i></div>
+                    <small>Sales</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-info pull-right">Weekly</span>
+                    <h5>Sales</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"><?= $weeklySales ?></h1>
+                    <div class="stat-percent font-bold text-info"><?= $weeklySalesPercentage ?>% <i class="fa fa-level-up"></i></div>
+                    <small>Sales</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-info pull-right">Daily</span>
+                    <h5>Sales</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"><?= $dailySales ?></h1>
+                    <div class="stat-percent font-bold text-info"><?= $dailySalesPercentage ?>% <i class="fa fa-level-up"></i></div>
                     <small>Sales</small>
                 </div>
             </div>
@@ -64,8 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h5>Total Customers</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">40 886,200</h1>
-                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
+                    <h1 class="no-margins"><?= $totalCustomers ?></h1>
                     <small>Total Customers</small>
                 </div>
             </div>
@@ -77,8 +89,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h5>Top Customer</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <h1 class="no-margins"><?= $highestCustomer ?></h1>
+                    <div class="stat-percent font-bold text-info"><?= $highestSalePercentage ?>% <i class="fa fa-level-up"></i></div>
                     <small>Top Customer</small>
                 </div>
             </div>
@@ -90,8 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h5>New Customers</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">275,800</h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <h1 class="no-margins"><?= $weeklyTotalCustomers ?></h1>
                     <small>New Customers</small>
                 </div>
             </div>

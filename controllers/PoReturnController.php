@@ -256,6 +256,7 @@ class PoReturnController extends Controller
                         $modelPoReturnLine->time = date('Y-m-d H:i:s');
                         $modelPoReturnLine->po_return_id = $modelPoReturn->id;
                         $modelPoReturnLine->item_name = $modelPoReturnLine->product->item_name;
+                        $modelPoReturnLine->item_code = $modelPoReturnLine->product->item_code;
                         $modelPoReturnLine->sub_total = $modelPoReturnLine->quantity * $modelPoReturnLine->unit_price;
                         //$modelPoReturnLine->sub_total = $modelPoReturnLine->sub_total - ($modelPoReturnLine->discount/100) * $modelPoReturnLine->sub_total;
 
@@ -277,6 +278,8 @@ class PoReturnController extends Controller
                             $transaction->rollBack();
                             break;
                         }
+
+                        $modelStock =new Stock;
                     }
                 }
             }

@@ -41,23 +41,17 @@ use kartik\widgets\DatePicker;
 
             <div class="ibox-content">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelSalesOrderReturn, 'customer_id')->dropDownList(ArrayHelper::map(Customer::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getCustomer(this)']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelCustomer, 'contact')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelCustomer, 'phone')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelCustomer, 'address')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'number')->textInput(['maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrderReturn, 'date')->widget(DatePicker::classname(),[
@@ -78,21 +72,7 @@ use kartik\widgets\DatePicker;
                         ]);?>
 
                     </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'status')->dropDownList(['10'=>'Unreturned, Uninvoiced','11'=>'Returned, Invoiced','12'=>'Returned, Uninvoiced'],['disabled' => true,'maxlength' => true, 'class' => 'form-control']) ?>
-                    </div>
-                    
                 </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'location_id')->dropDownList(ArrayHelper::map(Location::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'sales_rep_id')->dropDownList(ArrayHelper::map(User::find()->where(['status' => 10 ])->orderBy('username ASC')->all(), 'id', 'username'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
-                    
-                </div>
-
             </div>
         </div>
         <div class="padding-v-md">
@@ -132,10 +112,8 @@ use kartik\widgets\DatePicker;
                             'formId' => 'sales-order-return-form',
                             'formFields' => [
                                 'product_id',
-                                'item_code',
                                 'quantity',
                                 'unit_price',
-                                'discount',
                                 'sub_total',
                             ],
                         ]); ?>
@@ -147,11 +125,9 @@ use kartik\widgets\DatePicker;
                                 <tr class="active">
                                     <td></td>
                                     <td class="col-xs-4"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'product_id'); ?></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'item_code'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'quantity'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'discount'); ?></td>
-                                    <td class="col-xs-1"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'quantity'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'unit_price'); ?></td>
+                                    <td class="col-xs-2"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 
@@ -170,17 +146,9 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelSalesOrderReturnLine, "[{$i}]product_id")->begin();
-                                            echo Html::activeDropDownList($modelSalesOrderReturnLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1 ])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
+                                            echo Html::activeDropDownList($modelSalesOrderReturnLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1, 'product_category_id' => 2 ])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
                                             echo Html::error($modelSalesOrderReturnLine,"[{$i}]product_id", ['class' => 'help-block']); //error
                                             echo $form->field($modelSalesOrderReturnLine, "[{$i}]product_id")->end();
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                            echo $form->field($modelSalesOrderReturnLine, "[{$i}]item_code")->begin();
-                                            echo Html::activeTextInput($modelSalesOrderReturnLine, "[{$i}]item_code", ['readonly' => true, 'maxlength' => true, 'class' => 'form-control']); //Field
-                                            echo Html::error($modelSalesOrderReturnLine,"[{$i}]item_code", ['class' => 'help-block']); //error
-                                            echo $form->field($modelSalesOrderReturnLine, "[{$i}]item_code")->end();
                                         ?>
                                     </td>
                                     <td>
@@ -201,14 +169,6 @@ use kartik\widgets\DatePicker;
                                     </td>
                                     <td>
                                         <?php
-                                            echo $form->field($modelSalesOrderReturnLine, "[{$i}]discount")->begin();
-                                            echo Html::activeTextInput($modelSalesOrderReturnLine, "[{$i}]discount", ['defaultValue' => 0, 'maxlength' => true, 'class' => 'form-control']); //Field
-                                            echo Html::error($modelSalesOrderReturnLine,"[{$i}]discount", ['class' => 'help-block']); //error
-                                            echo $form->field($modelSalesOrderReturnLine, "[{$i}]discount")->end();
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
                                             echo $form->field($modelSalesOrderReturnLine, "[{$i}]sub_total")->begin();
                                             echo Html::activeTextInput($modelSalesOrderReturnLine, "[{$i}]sub_total", ['readonly' => true,'maxlength' => true, 'class' => 'form-control','onchange' => 'getSoReturnTotal(this);this.oldvalue = this.value;']); //Field
                                             echo Html::error($modelSalesOrderReturnLine,"[{$i}]sub_total", ['class' => 'help-block']); //error
@@ -219,7 +179,7 @@ use kartik\widgets\DatePicker;
                             <?php endforeach; // end of sales_order_return_line loop ?>
                             </tbody>
                             <tfoot>
-                                <td colspan="6" class="active">
+                                <td colspan="4" class="active">
                                     <button type="button" class="add-sales_order_return_line btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
                                 </td>
                                 <td colspan="1" class="active">
@@ -260,11 +220,6 @@ use kartik\widgets\DatePicker;
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrderReturn, 'total')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getSoReturnBalance(this)']) ?>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'currency_id')->dropDownList(ArrayHelper::map(Currency::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrderReturn, 'due_date')->widget(DatePicker::classname(),[
                               'options' => [
@@ -284,11 +239,8 @@ use kartik\widgets\DatePicker;
                         ]);?>
 
                     </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'remarks')->textarea(['rows' => 6])->hint('Optional') ?>
-                    </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="padding-v-md">
@@ -336,9 +288,6 @@ use kartik\widgets\DatePicker;
               console.log(product);
               console.log(product.item_code);
 
-              var txtnumber = document.getElementById('salesorderreturnlines-' +  index_1 + '-item_code');
-              txtnumber.value= product.item_code;
-
               var txtlast_cost = document.getElementById('salesorderreturnlines-' +  index_1 + '-unit_price');
               txtlast_cost.value= product.cost;
 
@@ -360,9 +309,6 @@ use kartik\widgets\DatePicker;
                       var product = JSON.parse(data);
                       console.log('product');
                       console.log(product);
-                      console.log(product.item_code);
-                      var txtnumber = document.getElementById('salesorderreturnlines-' +  index_1 + '-item_code');
-                      txtnumber.value= product.item_code;
 
                       var txtlast_cost = document.getElementById('salesorderreturnlines-' +  index_1 + '-unit_price');
                       txtlast_cost.value= product.cost;

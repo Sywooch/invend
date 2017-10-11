@@ -65,13 +65,14 @@ class PoReturnLines extends ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'item_code', 'quantity', 'unit_price'], 'required'],
+            [['product_id', 'quantity', 'unit_price'], 'required'],
             [['user_id', 'po_return_id', 'product_id', 'quantity', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['unit_price', 'discount', 'sub_total'], 'number'],
             [['unit_price', 'discount', 'sub_total'], 'default', 'value' => 0],
-            [['unit_price', 'discount', 'sub_total', 'quantity'], 'number', 'min' => 0],
+            [['unit_price', 'discount', 'sub_total'], 'number', 'min' => 0],
+            [['quantity'], 'integer', 'min' => 1],
             [['active'], 'boolean'],
-            [['time'], 'safe'],
+            [['time', 'item_code'], 'safe'],
             [['item_name', 'item_code', 'remarks'], 'string', 'max' => 255],
             [['po_return_id'], 'exist', 'skipOnError' => true, 'targetClass' => PoReturn::className(), 'targetAttribute' => ['po_return_id' => 'id']],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],

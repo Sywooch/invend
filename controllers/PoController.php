@@ -263,6 +263,7 @@ class PoController extends Controller
                         $modelPoLine->time = date('Y-m-d H:i:s');
                         $modelPoLine->po_id = $modelPo->id;
                         $modelPoLine->item_name = $modelPoLine->product->item_name;
+                        $modelPoLine->item_code = $modelPoLine->product->item_code;
                         $modelPoLine->sub_total = $modelPoLine->quantity * $modelPoLine->unit_price;
                         //$modelPoLine->sub_total = $modelPoLine->sub_total - ($modelPoLine->discount/100) * $modelPoLine->sub_total;
 
@@ -284,6 +285,8 @@ class PoController extends Controller
                             $transaction->rollBack();
                             break;
                         }
+
+                        $modelStock =new Stock;
                     }
                 }
                 

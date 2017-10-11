@@ -264,6 +264,7 @@ class SalesOrderController extends Controller
                         $modelSalesOrderLine->time = date('Y-m-d H:i:s');
                         $modelSalesOrderLine->sales_order_id = $modelSalesOrder->id;
                         $modelSalesOrderLine->item_name = $modelSalesOrderLine->product->item_name;
+                        $modelSalesOrderLine->item_code = $modelSalesOrderLine->product->item_code;
                         $modelSalesOrderLine->sub_total = $modelSalesOrderLine->quantity * $modelSalesOrderLine->unit_price;
                         $modelSalesOrderLine->sub_total = $modelSalesOrderLine->sub_total - ($modelSalesOrderLine->discount/100) * $modelSalesOrderLine->sub_total;
 
@@ -286,6 +287,8 @@ class SalesOrderController extends Controller
                             $transaction->rollBack();
                             break;
                         }
+
+                        $modelStock =new Stock;
                     }
                 }
             }

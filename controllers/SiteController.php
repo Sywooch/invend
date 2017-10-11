@@ -15,6 +15,10 @@ use app\models\Stock;
 use app\models\StockSearch;
 use app\models\Transactions;
 use app\models\TransactionsSearch;
+use app\models\Customer;
+use app\models\SalesOrder;
+use app\models\SalesOrderReturn;
+use yii\db\Expression;
 
 class SiteController extends Controller
 {
@@ -73,11 +77,112 @@ class SiteController extends Controller
         $searchModelT = new TransactionsSearch();
         $dataProviderT = $searchModelT->search(Yii::$app->request->queryParams);
 
+        $totalCustomers = Customer::find()
+                                    ->where('user_id=:user_id or user_id=:admin and active=:active', [':active' => 1,':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->count();
+
+        $weeklyTotalCustomers = Customer::find()
+                        ->where('user_id=:user_id or user_id=:admin and active =:active and time >= :start and time <= :end', [':active' => 1,':start' => new Expression('DATE_SUB(, INTERVAL 1 WEEK)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                        ->count();
+
+        $highestCustomer = SalesOrder::find()
+                                    ->from('sales_order t1')
+                                    ->select(['t2.name as name','sum(total) as total'])
+                                    ->where('t1.user_id=:user_id or t1.user_id=:admin', [':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->innerJoin('customer t2', 't2.id = t1.customer_id')
+                                    ->groupBy(['t1.customer_id'])
+                                    ->max('name');
+
+        $highestSales = SalesOrder::find()
+                                    ->select(['sum(total) as total'])
+                                    ->where('user_id=:user_id or user_id=:admin', [':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->groupBy(['customer_id'])
+                                    ->max('total');
+
+        $highestSalesReturn = SalesOrderReturn::find()
+                                    ->select(['sum(total) as total'])
+                                    ->where('user_id=:user_id or user_id=:admin', [':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->groupBy(['customer_id'])
+                                    ->max('total');
+
+        $grandTotalSales = SalesOrder::find()
+                                    ->where('user_id=:user_id or user_id=:admin', [':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $grandTotalSalesReturn = SalesOrderReturn::find()
+                                    ->where('user_id=:user_id or user_id=:admin', [':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $monthlyTotalSales = SalesOrder::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 MONTHLY)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $monthlyTotalSalesReturn = SalesOrderReturn::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 MONTHLY)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $quarterlyTotalSales = SalesOrder::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 QUARTER)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $quarterlyTotalSalesReturn = SalesOrderReturn::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 QUARTER)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $weeklyTotalSales = SalesOrder::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 WEEK)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $weeklyTotalSalesReturn = SalesOrderReturn::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 WEEK)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $dailyTotalSales = SalesOrder::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 DAY)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $dailyTotalSalesReturn = SalesOrderReturn::find()
+                                    ->where('user_id=:user_id or user_id=:admin and time >= :start and time <= :end', [':start' => new Expression('DATE_SUB(, INTERVAL 1 DAY)'),':end' => new Expression('NOW()'),':user_id' => Yii::$app->user->getId(), ':admin' => 'admin'])
+                                    ->sum('total');
+
+        $grandSales = $grandTotalSales - $grandTotalSalesReturn;
+
+        $monthlySales = $monthlyTotalSales - $monthlyTotalSalesReturn;
+        $monthlySalesPercentage = ($monthlySales / $grandSales) * 100;
+
+        $weeklySales = $weeklyTotalSales - $weeklyTotalSalesReturn;
+        $weeklySalesPercentage = ($weeklySales / $grandSales) * 100;
+
+        $quaterlySales = $quarterlyTotalSales - $quarterlyTotalSalesReturn;
+        $quaterlySalesPercentage = ($quaterlySales / $grandSales) * 100;
+
+        $dailySales = $dailyTotalSales - $dailyTotalSalesReturn;
+        $dailySalesPercentage = ($dailySales / $grandSales) * 100;
+
+        $highestSale  = $highestSales - $highestSalesReturn;
+        $highestSalePercentage = ($highestSale / $grandSales) * 100;
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'searchModelT' => $searchModelT,
             'dataProviderT' => $dataProviderT,
+
+            'grandSales' => $grandSales,
+            'monthlySales' => $monthlySales,
+            'weeklySales' => $weeklySales,
+            'quaterlySales' => $quaterlySales,
+            'dailySales' => $dailySales,
+            'highestSale' => $highestSale,
+            'totalCustomers' => $totalCustomers,
+            'weeklyTotalCustomers' => $weeklyTotalCustomers,
+            'highestCustomer' => $highestCustomer,
+
+            'dailySalesPercentage' => $dailySalesPercentage,
+            'highestSalePercentage' => $highestSalePercentage,
+            'weeklySalesPercentage' => $weeklySalesPercentage,
+            'monthlySalesPercentage' => $monthlySalesPercentage,
+            'quaterlySalesPercentage' => $quaterlySalesPercentage,
         ]);
     }
 

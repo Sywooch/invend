@@ -336,6 +336,9 @@ function getPoBalance(component) {
 
   balance = total - paid;
 
+  var txtpaid = document.getElementById('po-paid');
+  txtpaid.value= total;
+
   var txtbalance = document.getElementById('po-balance');
   txtbalance.value= balance;
 
@@ -466,6 +469,9 @@ function getSoBalance(component) {
   }
 
   balance = total - paid;
+
+  var txtpaid = document.getElementById('salesorder-paid');
+  txtpaid.value= total;
 
   var txtbalance = document.getElementById('salesorder-balance');
   txtbalance.value= balance;
@@ -600,6 +606,9 @@ function getPoReturnBalance(component) {
 
   balance = total - paid;
 
+  var txtpaid = document.getElementById('poreturn-paid');
+  txtpaid.value= total;
+
   var txtbalance = document.getElementById('poreturn-balance');
   txtbalance.value= balance;
 
@@ -731,6 +740,9 @@ function getSoReturnBalance(component) {
   }
 
   balance = total - paid;
+
+  var txtpaid = document.getElementById('salesorderreturn-paid');
+  txtpaid.value= total;
 
   var txtbalance = document.getElementById('salesorderreturn-balance');
   txtbalance.value= balance;

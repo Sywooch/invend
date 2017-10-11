@@ -64,7 +64,7 @@ class Stock extends ActiveRecord
     public function rules()
     {
         return [
-            [['location_id', 'quantity', 'quantity'], 'required'],
+            [['product_id', 'product_category_id', 'quantity'], 'required'],
             [['user_id', 'product_id', 'product_category_id', 'location_id', 'last_vendor_id', 'quantity', 'active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['time', 'product_id', 'product_category_id', 'last_vendor_id'], 'safe'],
             [['remarks'], 'string', 'max' => 255],

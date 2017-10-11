@@ -38,21 +38,18 @@ use kartik\widgets\DatePicker;
 
             <div class="ibox-content">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelSalesOrder, 'customer_id')->dropDownList(ArrayHelper::map(Customer::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getCustomer(this)']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelCustomer, 'contact')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelCustomer, 'phone')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelCustomer, 'address')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                </div>
-                <div class="row">
-
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrder, 'date')->widget(DatePicker::classname(),[
                               'options' => [
@@ -72,16 +69,6 @@ use kartik\widgets\DatePicker;
                         ]);?>
 
                     </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'status')->dropDownList(['7'=>'Unfulfilled, Uninvoiced','8'=>'Fulfilled, Invoiced', '9'=>'Fulfilled, Uninvoiced'],['disabled' => true,'maxlength' => true, 'class' => 'form-control']) ?>
-                    </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'location_id')->dropDownList(ArrayHelper::map(Location::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrder, 'sales_rep_id')->dropDownList(ArrayHelper::map(User::find()->where(['status' => 10 ])->orderBy('username ASC')->all(), 'id', 'username'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>
-                    
                 </div>
             </div>
         </div>
@@ -153,7 +140,7 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelSalesOrderLine, "[{$i}]product_id")->begin();
-                                            echo Html::activeDropDownList($modelSalesOrderLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1 ])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
+                                            echo Html::activeDropDownList($modelSalesOrderLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1, 'product_category_id' => 2])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
                                             echo Html::error($modelSalesOrderLine,"[{$i}]product_id", ['class' => 'help-block']); //error
                                             echo $form->field($modelSalesOrderLine, "[{$i}]product_id")->end();
                                         ?>
@@ -292,10 +279,6 @@ use kartik\widgets\DatePicker;
               var product = JSON.parse(data);
               console.log('product');
               console.log(product);
-              console.log(product.item_code);
-
-              var txtnumber = document.getElementById('salesorderlines-' +  index_1 + '-item_code');
-              txtnumber.value= product.item_code;
 
               var txtlast_cost = document.getElementById('salesorderlines-' +  index_1 + '-unit_price');
               txtlast_cost.value= product.cost;
@@ -318,9 +301,6 @@ use kartik\widgets\DatePicker;
                       var product = JSON.parse(data);
                       console.log('product');
                       console.log(product);
-                      console.log(product.item_code);
-                      var txtnumber = document.getElementById('salesorderlines-' +  index_1 + '-item_code');
-                      txtnumber.value= product.item_code;
 
                       var txtlast_cost = document.getElementById('salesorderlines-' +  index_1 + '-unit_price');
                       txtlast_cost.value= product.cost;

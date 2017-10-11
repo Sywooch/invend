@@ -287,10 +287,6 @@ use kartik\widgets\DatePicker;
               var product = JSON.parse(data);
               console.log('product');
               console.log(product);
-              console.log(product.item_code);
-
-              var txtnumber = document.getElementById('polines-' +  index_1 + '-item_code');
-              txtnumber.value= product.item_code;
 
               var txtlast_cost = document.getElementById('polines-' +  index_1 + '-unit_price');
               txtlast_cost.value= product.cost;
@@ -313,10 +309,7 @@ use kartik\widgets\DatePicker;
                       var product = JSON.parse(data);
                       console.log('product');
                       console.log(product);
-                      console.log(product.item_code);
-                      var txtnumber = document.getElementById('polines-' +  index_1 + '-item_code');
-                      txtnumber.value= product.item_code;
-
+                      
                       var txtlast_cost = document.getElementById('polines-' +  index_1 + '-unit_price');
                       txtlast_cost.value= product.cost;
 

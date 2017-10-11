@@ -21,11 +21,11 @@ class m170524_195708_create_table_stock extends Migration
         $this->createTable('stock', [
 
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
+            'user_id' => $this->integer()->notNull()->defaultValue(1),
             'product_id' => $this->integer()->notNull(),
             'product_category_id' => $this->integer()->notNull(),
-            'location_id' => $this->integer()->notNull(),
-            'last_vendor_id' => $this->integer(),
+            'location_id' => $this->integer()->notNull()->defaultValue(1),
+            'last_vendor_id' => $this->integer()->defaultValue(1),
             'quantity' => $this->integer()->notNull(),
             'active' => $this->boolean()->defaultValue(false),
             'time' => $this->datetime()->notNull(),
