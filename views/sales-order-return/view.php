@@ -6,14 +6,14 @@ use yii\widgets\DetailView;
 use yii\grid\GridView;
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sales Order Return List'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sales Return List'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
 <div class="sales-order-view">
     <div class="ibox-title text-right">
-        <a href="<?= Url::toRoute(['/sales-order-return/update', 'id' => $model->id]) ?>" class="btn btn-white"><i class="fa fa-pencil"></i> Edit </a>
+        <a href="<?= Url::toRoute(['/sales-order-return/create']) ?>" class="btn btn-white"><i class="fa fa-pencil"></i> Sales Return </a>
         <a href="<?= Url::toRoute(['/sales-order-return/print', 'id' => $model->id]) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> Print Invoice </a>
     </div>
     <div class="ibox-content p-xl">
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <address>
                     <strong>Corporate, Inc.</strong><br>
                     112 Street Avenu, 1080<br>
-                    Miami, CT 445611<br>
+                    Kumasi, CT 445611<br>
                     <abbr title="Phone">P:</abbr> (120) 9000-4321
                 </address>
                 <p>

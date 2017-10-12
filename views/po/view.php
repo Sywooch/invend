@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="po-view">
     <div class="ibox-title text-right">
-        <a href="<?= Url::toRoute(['/po/update', 'id' => $model->id]) ?>" class="btn btn-white"><i class="fa fa-pencil"></i> Edit </a>
+        <a href="<?= Url::toRoute(['/po/create']) ?>" class="btn btn-white"><i class="fa fa-pencil"></i> New Purchase </a>
         <a href="<?= Url::toRoute(['/po/print', 'id' => $model->id]) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> Print Invoice </a>
     </div>
     <div class="ibox-content p-xl">
@@ -34,13 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="col-sm-6 text-right">
                 <h4>Order No.</h4>
-                <h4 class="text-navy">ORD-000567F7-<?= $model->number ?></h4>
+                <h4 class="text-navy"><?= $model->number ?></h4>
                 <span>To:</span>
                 <address>
-                    <strong>Corporate, Inc.</strong><br>
-                    112 Street Avenu, 1080<br>
-                    Miami, CT 445611<br>
-                    <abbr title="Phone">P:</abbr> (120) 9000-4321
+                    <strong><?= $model->vendor->name ?></strong><br>
+                    <?= $model->vendor->contact ?><br>
+                    <?= $model->vendor->phone ?><br>
+                    <abbr title="Phone">P:</abbr><?= $model->vendor->phone ?>
                 </address>
                 <p>
                     <span><strong>Order Date:</strong> <?= $model->date ?></span><br/>

@@ -9,7 +9,7 @@ use yii\grid\GridView;
 /* @var $model app\models\Po */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sales Order List'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sales List'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="sales-order-view">
     <div class="ibox-title text-right">
-        <a href="<?= Url::toRoute(['/sales-order/update', 'id' => $model->id]) ?>" class="btn btn-white"><i class="fa fa-pencil"></i> Edit </a>
+        <a href="<?= Url::toRoute(['/sales-order/create']) ?>" class="btn btn-white"><i class="fa fa-pencil"></i> Sales </a>
         <a href="<?= Url::toRoute(['/sales-order/print', 'id' => $model->id]) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> Print Invoice </a>
     </div>
     <div class="ibox-content p-xl">
@@ -34,12 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="col-sm-6 text-right">
                 <h4>Order No.</h4>
-                <h4 class="text-navy">ORD-000567F7-<?= $model->number ?></h4>
+                <h4 class="text-navy"><?= $model->number ?></h4>
                 <span>To:</span>
                 <address>
                     <strong>Corporate, Inc.</strong><br>
                     112 Street Avenu, 1080<br>
-                    Miami, CT 445611<br>
+                    Kumasi, CT 445611<br>
                     <abbr title="Phone">P:</abbr> (120) 9000-4321
                 </address>
                 <p>

@@ -101,11 +101,6 @@ class m170524_195708_create_table_production extends Migration
             'production'
         );
 
-        $this->dropIndex(
-            'idx-production-number', 
-            'production'
-        );
-
         $this->dropTable('production');
     }
 }

@@ -6,7 +6,7 @@ use kartik\grid\GridView;
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
 
-$this->title = Yii::t('app', 'Sales Order List');
+$this->title = Yii::t('app', 'Sales List');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sales-order-index">
