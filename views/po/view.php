@@ -9,7 +9,7 @@ use yii\grid\GridView;
 /* @var $model app\models\Po */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Purchase Order List'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Purchase List'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -33,17 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="col-sm-6 text-right">
-                <h4>Order No.</h4>
+                <h4>Purchase No.</h4>
                 <h4 class="text-navy"><?= $model->number ?></h4>
                 <span>To:</span>
                 <address>
                     <strong><?= $model->vendor->name ?></strong><br>
                     <?= $model->vendor->contact ?><br>
-                    <?= $model->vendor->phone ?><br>
+                    <?= $model->vendor->address ?><br>
                     <abbr title="Phone">P:</abbr><?= $model->vendor->phone ?>
                 </address>
                 <p>
-                    <span><strong>Order Date:</strong> <?= $model->date ?></span><br/>
+                    <span><strong>Purchase Date:</strong> <?= $model->date ?></span><br/>
                     <span><strong>Due Date:</strong> <?= $model->due_date ?></span>
                 </p>
             </div>

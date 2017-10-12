@@ -6,7 +6,7 @@ use kartik\grid\GridView;
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
 
-$this->title = Yii::t('app', 'Purchase Order Return');
+$this->title = Yii::t('app', 'Purchase Return');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="po-return-index">

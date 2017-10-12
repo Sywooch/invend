@@ -33,17 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="col-sm-6 text-right">
-                <h4>Order No.</h4>
-                <h4 class="text-navy">ORD-000567F7-<?= $model->number ?></h4>
+                <h4>Purchase No.</h4>
+                <h4 class="text-navy"><?= $model->number ?></h4>
                 <span>To:</span>
                 <address>
-                    <strong>Corporate, Inc.</strong><br>
-                    112 Street Avenu, 1080<br>
-                    Miami, CT 445611<br>
-                    <abbr title="Phone">P:</abbr> (120) 9000-4321
+                    <strong><?= $model->vendor->name ?></strong><br>
+                    <?= $model->vendor->contact ?><br>
+                    <?= $model->vendor->address ?><br>
+                    <abbr title="Phone">P:</abbr> <?= $model->vendor->phone ?>
                 </address>
                 <p>
-                    <span><strong>Order Date:</strong> <?= $model->date ?></span><br/>
+                    <span><strong>Purchase Date:</strong> <?= $model->date ?></span><br/>
                     <span><strong>Due Date:</strong> <?= $model->due_date ?></span>
                 </p>
             </div>

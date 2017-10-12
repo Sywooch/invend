@@ -20,7 +20,7 @@ use kartik\widgets\DatePicker;
     <?php $form = ActiveForm::begin(['id' => 'po-return-form']); ?>
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Purchase Order Return </h5>
+                <h5>Purchase Return </h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -29,8 +29,8 @@ use kartik\widgets\DatePicker;
                         <i class="fa fa-wrench"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="/po/create">Purchase Order</a></li>
-                        <li><a href="/po-return/index">Purchase Order Return List</a></li>
+                        <li><a href="/po/create">Purchase</a></li>
+                        <li><a href="/po-return/index">Purchase Return List</a></li>
                     </ul>
                 </div>
             </div>

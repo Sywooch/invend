@@ -17,17 +17,17 @@ use yii\grid\GridView;
             </div>
 
             <div class="col-sm-6 text-right">
-                <h4>Order No.</h4>
-                <h4 class="text-navy">ORD-000567F7-<?= $model->number ?></h4>
+                <h4>Sales No.</h4>
+                <h4 class="text-navy"><?= $model->number ?></h4>
                 <span>To:</span>
                 <address>
-                    <strong>Corporate, Inc.</strong><br>
-                    Awunju Daaban Avenu, 1080<br>
-                    Kumasi, Ghana<br>
-                    <abbr title="Phone">P:</abbr> (024) 0000-4321
+                    <strong><?= $model->customer->name ?></strong><br>
+                    <?= $model->customer->contact ?><br>
+                    <?= $model->customer->address ?><br>
+                    <abbr title="Phone">P:</abbr> <?= $model->customer->phone ?>
                 </address>
                 <p>
-                    <span><strong>Order Date:</strong> <?= $model->date ?></span><br/>
+                    <span><strong>Sales Date:</strong> <?= $model->date ?></span><br/>
                     <span><strong>Due Date:</strong> <?= $model->due_date ?></span>
                 </p>
             </div>

@@ -7,7 +7,7 @@ use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
 
 
-$this->title = Yii::t('app', 'Purchase Order');
+$this->title = Yii::t('app', 'Purchase');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="po-index">
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-lg-12">
         <div class="ibox">
             <div class="ibox-title text-right">
-                <a href="<?= Url::toRoute(['/po/create']) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-pencil"></i>New Purchase Order </a>
+                <a href="<?= Url::toRoute(['/po/create']) ?>" target="_blank" class="btn btn-primary"><i class="fa fa-pencil"></i>New Purchase </a>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>

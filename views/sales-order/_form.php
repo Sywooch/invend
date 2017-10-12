@@ -21,7 +21,7 @@ use kartik\widgets\DatePicker;
     <?php $form = ActiveForm::begin(['id' => 'sales-order-form']); ?>
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Sales Order </h5>
+                <h5>Sales </h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -30,8 +30,8 @@ use kartik\widgets\DatePicker;
                         <i class="fa fa-wrench"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="/sales-order-return/create">Sales Order Return</a></li>
-                        <li><a href="/sales-order/index">Sales Order List</a></li>
+                        <li><a href="/sales-order-return/create">Sales Return</a></li>
+                        <li><a href="/sales-order/index">Sales List</a></li>
                     </ul>
                 </div>
             </div>
