@@ -429,6 +429,7 @@ class m170524_195718_insert_data extends Migration
             'standard_uom_id'=> 4,
             'sales_uom_id'=> 4,
             'purchasing_uom_id'=> 4,
+            'cost'=> 3,
             'time'=>'2017-07-10 14:15:00',
             'user_id' => 1,
             'active' => 1,
