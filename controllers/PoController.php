@@ -232,6 +232,7 @@ class PoController extends Controller
                 // Transactions
 
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPo->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "We purchased items from ". $modelPo->vendor->name. " at ".$modelPo->time." by ".$modelPo->user->username;
@@ -245,6 +246,7 @@ class PoController extends Controller
 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPo->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "We purchased items from ". $modelPo->vendor->name. " at ".$modelPo->time." by ".$modelPo->user->username;

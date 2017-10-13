@@ -231,6 +231,7 @@ class SalesOrderReturnController extends Controller
 
                 // When the items are return
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
                 $modelTransactions->remarks = "Items returned by ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
@@ -244,6 +245,7 @@ class SalesOrderReturnController extends Controller
 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
                 $modelTransactions->remarks = "Items returned by ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
@@ -259,6 +261,7 @@ class SalesOrderReturnController extends Controller
                 // in respect of the sales return 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
                 $modelTransactions->remarks = "Cash Issued to ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
@@ -272,6 +275,7 @@ class SalesOrderReturnController extends Controller
 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
                 $modelTransactions->remarks = "Cash Issued to ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;

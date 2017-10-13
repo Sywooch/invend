@@ -231,6 +231,7 @@ class SalesOrderController extends Controller
                 // Transactions
 
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrder->customer->paymentMethod->name;
                 $modelTransactions->remarks = "We sold items to ". $modelSalesOrder->customer->name. " at ".$modelSalesOrder->time." by ".$modelSalesOrder->user->username;
@@ -244,6 +245,7 @@ class SalesOrderController extends Controller
 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrder->customer->paymentMethod->name;
                 $modelTransactions->remarks = "We sold items to ". $modelSalesOrder->customer->name. " at ".$modelSalesOrder->time." by ".$modelSalesOrder->user->username;

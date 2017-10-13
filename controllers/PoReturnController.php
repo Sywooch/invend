@@ -231,6 +231,7 @@ class PoReturnController extends Controller
 
                 // When the items are return
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "We return purchased items to ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
@@ -244,6 +245,7 @@ class PoReturnController extends Controller
 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "We return purchased items to ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
@@ -259,6 +261,7 @@ class PoReturnController extends Controller
                 // in respect of the sales return 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "Cash received from ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
@@ -272,6 +275,7 @@ class PoReturnController extends Controller
 
                 $modelTransactions = new Transactions;
                 $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->date = date('d-m-Y');
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "Cash received from ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
