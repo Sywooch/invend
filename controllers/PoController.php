@@ -234,21 +234,12 @@ class PoController extends Controller
                 $modelTransactions->user_id = Yii::$app->user->getId();
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPo->vendor->paymentMethod->name;
-                $modelTransactions->remarks = "We purchased items from ". $modelPo->vendor->name. "at ".$modelPo->time." by ".$modelPo->user->username;
+                $modelTransactions->remarks = "We purchased items from ". $modelPo->vendor->name. " at ".$modelPo->time." by ".$modelPo->user->username;
+                $modelTransactions->debit = $modelPo->total;
+                $modelTransactions->account = "purchases";
 
-                if($modelTransactions->type === "Cash"){
-                    $modelTransactions->credit = $modelPo->paid;
-                    $modelTransactions->account = "cash";
-
-                    $modelTransactions->debit = $modelPo->paid;
-                    $modelTransactions->account = "sales";
-                }else{
-                    $modelTransactions->credit = $modelPo->paid;
-                    $modelTransactions->account = "account payable";
-
-                    $modelTransactions->debit = $modelPo->paid;
-                    $modelTransactions->account = "sales";
-                }
+                $modelTransactions->credit = $modelPo->total;
+                $modelTransactions->account = "cash";
                 
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();

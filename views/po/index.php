@@ -5,6 +5,8 @@ use yii\helpers\Url;
 use kartik\grid\GridView; 
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
+use app\model\Location;
+use app\model\Vendor;
 
 
 $this->title = Yii::t('app', 'Purchase');
@@ -56,11 +58,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'attribute'=>'location_id', 
+                                'filter'=> ArrayHelper::map(Location::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
                                 'value' => 'location.name',
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'vendor_id', 
+                                'attribute'=>'vendor_id',
+                                'filter'=> ArrayHelper::map(Vendor::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
                                 'value' => 'vendor.name',
                                 'format'=>'text', 
                             ],

@@ -79,6 +79,7 @@ class Po extends ActiveRecord
             [['total', 'status', 'balance', 'paid'], 'default', 'value' => 0],
             [['location_id', 'user_id', 'location_id', 'currency_id'], 'default', 'value' => 1],
             [['total', 'paid'], 'number', 'min' => 0],
+            [['balance'], 'number', 'max' => 0],
             [['cancel_date', 'cancel_reason', 'date', 'due_date', 'time', 'number', 'reason', 'item_name'], 'safe'],
             [['number', 'remarks'], 'string', 'max' => 255],
             [['currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currency::className(), 'targetAttribute' => ['currency_id' => 'id']],

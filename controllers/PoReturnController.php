@@ -211,8 +211,6 @@ class PoReturnController extends Controller
 
             $modelPoReturn->user_id = Yii::$app->user->getId();
             $modelPoReturn->time = date('Y-m-d H:i:s');
-            $modelPoReturn->total =  -1 * abs($modelPoReturn->total);
-            $modelPoReturn->paid =  -1 * abs($modelPoReturn->paid);
             $modelPoReturn->balance = $modelPoReturn->total - $modelPoReturn->paid;
 
             if(empty($modelPoReturn->number))
@@ -231,26 +229,34 @@ class PoReturnController extends Controller
 
                 // Transactions
 
+                // When the items are return
                 $modelTransactions->user_id = Yii::$app->user->getId();
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
                 $modelTransactions->remarks = "We return purchased items to ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
+                $modelTransactions->debit = abs($modelPoReturn->total);
+                $modelTransactions->account = "receivable";
 
-                if($modelTransactions->type === "Cash"){
-                    $modelTransactions->credit = $modelPoReturn->paid;
-                    $modelTransactions->account = "cash";
+                $modelTransactions->credit = abs($modelPoReturn->total);
+                $modelTransactions->account = "purchases return";
 
-                    $modelTransactions->debit = $modelPoReturn->paid;
-                    $modelTransactions->account = "sales";
-                }else{
-                    $modelTransactions->credit = $modelPoReturn->paid;
-                    $modelTransactions->account = "account payable";
-
-                    $modelTransactions->debit = $modelPoReturn->paid;
-                    $modelTransactions->account = "sales";
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
                 }
-                
 
+                // when the cash has given to the customer 
+                // in respect of the sales return 
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
+                $modelTransactions->remarks = "Cash received from ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
+                $modelTransactions->debit = abs($modelPoReturn->total);
+                $modelTransactions->account = "cash";
+
+                $modelTransactions->credit = abs($modelPoReturn->total);
+                $modelTransactions->account = "receivable";
+                
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();
                 }

@@ -5,6 +5,8 @@ use yii\helpers\Url;
 use kartik\grid\GridView; 
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
+use app\model\productCategory;
+use app\model\productType;
 
 $this->title = Yii::t('app', 'Product List');
 $this->params['breadcrumbs'][] = $this->title;
@@ -52,11 +54,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'attribute'=>'product_category_id', 
+                                'filter'=> ArrayHelper::map(productCategory::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
                                 'value' => 'productCategory.name',
                                 'format'=>'text', 
                             ],
                             [
                                 'attribute'=>'product_type_id', 
+                                'filter'=> ArrayHelper::map(productType::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
                                 'value' => 'productType.name',
                                 'format'=>'text', 
                             ],

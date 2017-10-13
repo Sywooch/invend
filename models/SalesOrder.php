@@ -80,6 +80,7 @@ class SalesOrder extends ActiveRecord
             [['customer_id'], 'required'],
             [['user_id', 'location_id', 'balance', 'customer_id', 'sales_rep_id', 'currency_id', 'status', 'cancel', 'reason', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['total', 'paid'], 'number', 'min' => 0],
+            [['balance'], 'number', 'max' => 0],
             [['total', 'status', 'balance', 'paid'], 'default', 'value' => 0],
             [['location_id', 'user_id', 'currency_id', 'sales_rep_id'], 'default', 'value' => 1],
             [['cancel_date', 'date', 'due_date', 'time'], 'safe'],

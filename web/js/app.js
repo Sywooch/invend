@@ -281,6 +281,9 @@ function getPoSubTotal(component) {
     var txttotal = document.getElementById('po_line-sub_total');
     txttotal.value= total;
 
+    var txtpaid = document.getElementById('po-paid');
+    txtpaid.value= total;
+
     var txttotal = document.getElementById('po-total');
     txttotal.value= total;
   }
@@ -289,7 +292,7 @@ function getPoSubTotal(component) {
 }
 
 function getPoBalance(component) {
-  console.log("Calculate Balance");
+  console.log("Calculate Po Balance");
   console.log(component);
 
   var input = component.id;
@@ -335,9 +338,6 @@ function getPoBalance(component) {
   }
 
   balance = total - paid;
-
-  var txtpaid = document.getElementById('po-paid');
-  txtpaid.value= total;
 
   var txtbalance = document.getElementById('po-balance');
   txtbalance.value= balance;
@@ -417,6 +417,9 @@ function getSoSubTotal(component) {
     var txttotal = document.getElementById('so_line-sub_total');
     txttotal.value= total;
 
+    var txtpaid = document.getElementById('salesorder-paid');
+    txtpaid.value= total;
+
     var txttotal = document.getElementById('salesorder-total');
     txttotal.value= total;
   }
@@ -425,7 +428,7 @@ function getSoSubTotal(component) {
 }
 
 function getSoBalance(component) {
-  console.log("Calculate Balance");
+  console.log("Calculate So Balance");
   console.log(component);
 
   var input = component.id;
@@ -469,9 +472,6 @@ function getSoBalance(component) {
   }
 
   balance = total - paid;
-
-  var txtpaid = document.getElementById('salesorder-paid');
-  txtpaid.value= total;
 
   var txtbalance = document.getElementById('salesorder-balance');
   txtbalance.value= balance;
@@ -553,6 +553,9 @@ function getPoReturnSubTotal(component) {
     var txttotal = document.getElementById('po_return_line-sub_total');
     txttotal.value= total;
 
+    var txtpaid = document.getElementById('poreturn-paid');
+    txtpaid.value= total;
+
     var txttotal = document.getElementById('poreturn-total');
     txttotal.value= total;
   }
@@ -605,9 +608,6 @@ function getPoReturnBalance(component) {
   }
 
   balance = total - paid;
-
-  var txtpaid = document.getElementById('poreturn-paid');
-  txtpaid.value= total;
 
   var txtbalance = document.getElementById('poreturn-balance');
   txtbalance.value= balance;
@@ -688,6 +688,9 @@ function getSoReturnSubTotal(component) {
     var txttotal = document.getElementById('so_return_line-sub_total');
     txttotal.value= total;
 
+    var txtpaid = document.getElementById('salesorderreturn-paid');
+    txtpaid.value= total;
+
     var txttotal = document.getElementById('salesorderreturn-total');
     txttotal.value= total;
   }
@@ -740,9 +743,6 @@ function getSoReturnBalance(component) {
   }
 
   balance = total - paid;
-
-  var txtpaid = document.getElementById('salesorderreturn-paid');
-  txtpaid.value= total;
 
   var txtbalance = document.getElementById('salesorderreturn-balance');
   txtbalance.value= balance;

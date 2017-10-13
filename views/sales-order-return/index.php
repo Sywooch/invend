@@ -5,6 +5,8 @@ use yii\helpers\Url;
 use kartik\grid\GridView; 
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
+use app\model\Location;
+use app\model\Customer;
 
 $this->title = Yii::t('app', 'Sales Return List');
 $this->params['breadcrumbs'][] = $this->title;
@@ -47,12 +49,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'location_id', 
+                                'attribute'=>'location_id',
+                                'filter'=> ArrayHelper::map(Location::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'),  
                                 'value' => 'location.name',
                                 'format'=>'text', 
                             ],
                             [
                                 'attribute'=>'customer_id', 
+                                'filter'=> ArrayHelper::map(Customer::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
                                 'value' => 'customer.name',
                                 'format'=>'text', 
                             ],

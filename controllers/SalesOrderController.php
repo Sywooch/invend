@@ -233,21 +233,12 @@ class SalesOrderController extends Controller
                 $modelTransactions->user_id = Yii::$app->user->getId();
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrder->customer->paymentMethod->name;
-                $modelTransactions->remarks = "We sold items to ". $modelSalesOrder->customer->name. "at ".$modelSalesOrder->time." by ".$modelSalesOrder->user->username;
+                $modelTransactions->remarks = "We sold items to ". $modelSalesOrder->customer->name. " at ".$modelSalesOrder->time." by ".$modelSalesOrder->user->username;
+                $modelTransactions->debit = $modelSalesOrder->total;
+                $modelTransactions->account = "cash";
 
-                if($modelTransactions->type === "Cash"){
-                    $modelTransactions->credit = $modelSalesOrder->paid;
-                    $modelTransactions->account = "cash";
-
-                    $modelTransactions->debit = $modelSalesOrder->paid;
-                    $modelTransactions->account = "sales";
-                }else{
-                    $modelTransactions->credit = $modelSalesOrder->paid;
-                    $modelTransactions->account = "account payable";
-
-                    $modelTransactions->debit = $modelSalesOrder->paid;
-                    $modelTransactions->account = "sales";
-                }
+                $modelTransactions->credit = $modelSalesOrder->total;
+                $modelTransactions->account = "sales";
                 
 
                 if (! ($go = $modelTransactions->save(false))) {

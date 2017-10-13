@@ -211,8 +211,6 @@ class SalesOrderReturnController extends Controller
 
             $modelSalesOrderReturn->user_id = Yii::$app->user->getId();
             $modelSalesOrderReturn->time = date('Y-m-d H:i:s');
-            $modelSalesOrderReturn->total = -1 * abs($modelSalesOrderReturn->total);
-            $modelSalesOrderReturn->paid = -1 * abs($modelSalesOrderReturn->paid);
             $modelSalesOrderReturn->balance = $modelSalesOrderReturn->total - $modelSalesOrderReturn->paid;
 
             if(empty($modelSalesOrderReturn->number))
@@ -231,27 +229,34 @@ class SalesOrderReturnController extends Controller
 
                 // Transactions
 
+                // When the items are return
                 $modelTransactions->user_id = Yii::$app->user->getId();
                 $modelTransactions->time = date('Y-m-d H:i:s');
                 $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
-                $modelTransactions->remarks = "We sold items to ". $modelSalesOrderReturn->customer->name. "at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
+                $modelTransactions->remarks = "Items returned by ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
+                $modelTransactions->debit = abs($modelSalesOrderReturn->total);
+                $modelTransactions->account = "sales return";
 
+                $modelTransactions->credit = abs($modelSalesOrderReturn->total);
+                $modelTransactions->account = "payable";
 
-                if($modelTransactions->type === "Cash"){
-                    $modelTransactions->credit = $modelSalesOrderReturn->paid;
-                    $modelTransactions->account = "cash";
-
-                    $modelTransactions->debit = $modelSalesOrderReturn->paid;
-                    $modelTransactions->account = "sales";
-                }else{
-                    $modelTransactions->credit = $modelSalesOrderReturn->paid;
-                    $modelTransactions->account = "account payable";
-
-                    $modelTransactions->debit = $modelSalesOrderReturn->paid;
-                    $modelTransactions->account = "sales";
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
                 }
-                
 
+                // when the cash has given to the customer 
+                // in respect of the sales return 
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
+                $modelTransactions->remarks = "Cash Issued to ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
+                $modelTransactions->debit = abs($modelSalesOrderReturn->total);
+                $modelTransactions->account = "payable";
+
+                $modelTransactions->credit = abs($modelSalesOrderReturn->total);
+                $modelTransactions->account = "cash";
+                
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();
                 }

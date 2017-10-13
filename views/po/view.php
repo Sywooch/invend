@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <strong><?= $model->vendor->name ?></strong><br>
                     <?= $model->vendor->contact ?><br>
                     <?= $model->vendor->address ?><br>
-                    <abbr title="Phone">P:</abbr><?= $model->vendor->phone ?>
+                    <abbr title="Phone">P:</abbr> <?= $model->vendor->phone ?>
                 </address>
                 <p>
                     <span><strong>Purchase Date:</strong> <?= $model->date ?></span><br/>

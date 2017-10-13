@@ -78,6 +78,7 @@ class SalesOrderReturn extends ActiveRecord
             [['customer_id'], 'required'],
             [['user_id', 'location_id', 'balance', 'customer_id', 'sales_rep_id', 'currency_id', 'status', 'cancel', 'reason', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['total', 'paid'], 'number', 'min' => 0],
+            [['balance'], 'number', 'max' => 0],
             [['cancel'], 'boolean'],
             [['cancel_date', 'date', 'due_date', 'time'], 'safe'],
             [['number', 'cancel_reason', 'remarks'], 'string', 'max' => 255],
