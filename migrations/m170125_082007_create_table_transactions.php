@@ -27,6 +27,7 @@ class m170125_082007_create_table_transactions extends Migration
             'type' => $this->string()->notNull(),
             'credit' => $this->string()->notNull(),
             'debit' => $this->string()->notNull(),
+            'date' => $this->string()->notNull(),
             'time' => $this->datetime()->notNull(),
             'remarks' => $this->string()->notNull(),           
             'created_by' => $this->integer()->notNull(), 

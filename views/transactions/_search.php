@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TransactionsSearch */
@@ -15,29 +16,27 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'user_id') ?>
-
     <?= $form->field($model, 'account') ?>
 
     <?= $form->field($model, 'type') ?>
 
-    <?= $form->field($model, 'credit') ?>
+    <?= $form->field($model, 'date')->widget(DatePicker::classname(),[
+          'options' => [
+            'placeholder' => '',
+            'value' => date('d-m-Y'),
+          ],
+          
+          'type' => DatePicker::TYPE_COMPONENT_APPEND,
+          'readonly' => true,
 
-    <?php // echo $form->field($model, 'debit') ?>
+          'pluginOptions' => [
+                'autoclose'=>true,
+                'format' => 'dd-mm-yyyy',
+                'todayHighlight' => TRUE,
+                
+            ]
+    ]);?>
 
-    <?php // echo $form->field($model, 'time') ?>
-
-    <?php // echo $form->field($model, 'remarks') ?>
-
-    <?php // echo $form->field($model, 'created_by') ?>
-
-    <?php // echo $form->field($model, 'updated_by') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

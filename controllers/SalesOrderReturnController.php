@@ -236,9 +236,20 @@ class SalesOrderReturnController extends Controller
                 $modelTransactions->remarks = "Items returned by ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
                 $modelTransactions->debit = abs($modelSalesOrderReturn->total);
                 $modelTransactions->account = "sales return";
+                $modelTransactions->credit = 0;
 
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
+                }
+
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
+                $modelTransactions->remarks = "Items returned by ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
                 $modelTransactions->credit = abs($modelSalesOrderReturn->total);
                 $modelTransactions->account = "payable";
+                $modelTransactions->debit = 0;
 
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();
@@ -253,9 +264,20 @@ class SalesOrderReturnController extends Controller
                 $modelTransactions->remarks = "Cash Issued to ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
                 $modelTransactions->debit = abs($modelSalesOrderReturn->total);
                 $modelTransactions->account = "payable";
+                $modelTransactions->credit = 0;
 
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
+                }
+
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelSalesOrderReturn->customer->paymentMethod->name;
+                $modelTransactions->remarks = "Cash Issued to ". $modelSalesOrderReturn->customer->name. " at ".$modelSalesOrderReturn->time." by ".$modelSalesOrderReturn->user->username;
                 $modelTransactions->credit = abs($modelSalesOrderReturn->total);
                 $modelTransactions->account = "cash";
+                $modelTransactions->debit = 0;
                 
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();

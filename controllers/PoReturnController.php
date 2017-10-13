@@ -236,9 +236,20 @@ class PoReturnController extends Controller
                 $modelTransactions->remarks = "We return purchased items to ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
                 $modelTransactions->debit = abs($modelPoReturn->total);
                 $modelTransactions->account = "receivable";
+                $modelTransactions->credit = 0;
 
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
+                }
+
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
+                $modelTransactions->remarks = "We return purchased items to ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
                 $modelTransactions->credit = abs($modelPoReturn->total);
                 $modelTransactions->account = "purchases return";
+                $modelTransactions->debit = 0;
 
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();
@@ -253,9 +264,20 @@ class PoReturnController extends Controller
                 $modelTransactions->remarks = "Cash received from ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
                 $modelTransactions->debit = abs($modelPoReturn->total);
                 $modelTransactions->account = "cash";
+                $modelTransactions->credit = 0;
 
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
+                }
+
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelPoReturn->vendor->paymentMethod->name;
+                $modelTransactions->remarks = "Cash received from ". $modelPoReturn->vendor->name. "at ".$modelPoReturn->time." by ".$modelPoReturn->user->username;
                 $modelTransactions->credit = abs($modelPoReturn->total);
                 $modelTransactions->account = "receivable";
+                $modelTransactions->debit = 0;
                 
                 if (! ($go = $modelTransactions->save(false))) {
                     $transaction->rollBack();

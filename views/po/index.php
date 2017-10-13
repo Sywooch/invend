@@ -5,8 +5,9 @@ use yii\helpers\Url;
 use kartik\grid\GridView; 
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
-use app\model\Location;
-use app\model\Vendor;
+use app\models\Location;
+use app\models\Vendor;
+use yii\helpers\ArrayHelper;
 
 
 $this->title = Yii::t('app', 'Purchase');

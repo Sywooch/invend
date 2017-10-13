@@ -7,6 +7,7 @@ use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
 use app\model\productCategory;
 use app\model\productType;
+use yii\helpers\ArrayHelper;
 
 $this->title = Yii::t('app', 'Trial Balance');
 $this->params['breadcrumbs'][] = $this->title;
@@ -46,25 +47,61 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
 
                             [
-                                'attribute'=>'item_name', 
+                                'attribute'=>'account', 
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'item_code', 
+                                'attribute'=>'type', 
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'product_category_id', 
-                                'filter'=> ArrayHelper::map(productCategory::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
-                                'value' => 'productCategory.name',
-                                'format'=>'text', 
+                                'label'=>'credit', 
+                                'attribute'=>'credit', 
+                                'format'=>['decimal', 2], 
+                                'hAlign'=>'right', 
+                                'width'=>'100px', 
+                                'pageSummary'=>true
                             ],
                             [
-                                'attribute'=>'product_type_id', 
-                                'filter'=> ArrayHelper::map(productType::find()->where(['active' => 1])->orderBy('name ASC')->all(), 'id', 'name'), 
-                                'value' => 'productType.name',
+                                'label'=>'debit', 
+                                'attribute'=>'debit', 
+                                'format'=>['decimal', 2], 
+                                'hAlign'=>'right', 
+                                'width'=>'100px', 
+                                'pageSummary'=>true
+                            ],
+                            [
+                                'class'=>'kartik\grid\FormulaColumn', 
+                                'label'=>'Total', 
+                                'format' => ['decimal', 2],
+                                'value'=>function ($model, $key, $index, $widget) { 
+                                    $p = compact('model', 'key', 'index');
+                                    return $widget->col(2, $p) - $widget->col(3, $p) ;
+                                }, 
+                                'hAlign'=>'right', 
+                                'width'=>'120px', 
+                                'pageSummary'=>true
+                            ],
+                            [
+                                'label'=>'Date', 
+                                'attribute'=>'time', 
+                                'format'=>['date', 'php:d-M-Y'], 
+                                'xlFormat'=>'mmm\-dd\, yyyy',  // different date format
+                                'width'=>'100px'
+                            ],
+                            [
+                                'attribute'=>'remarks', 
                                 'format'=>'text', 
                             ],
+                        ],
+                        'pjax'=>true,
+                        'showPageSummary'=>true,
+                        'responsive' => true,
+                        'resizableColumns'=>true,
+                        'hover' => true,
+                        'panel'=>[
+                            'type'=>'default',
+                            'heading'=>'Payments Plan'
                         ],
                     ]); ?>
                 <?php Pjax::end(); ?>

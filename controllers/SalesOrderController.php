@@ -236,9 +236,20 @@ class SalesOrderController extends Controller
                 $modelTransactions->remarks = "We sold items to ". $modelSalesOrder->customer->name. " at ".$modelSalesOrder->time." by ".$modelSalesOrder->user->username;
                 $modelTransactions->debit = $modelSalesOrder->total;
                 $modelTransactions->account = "cash";
+                $modelTransactions->credit = 0;
 
+                if (! ($go = $modelTransactions->save(false))) {
+                    $transaction->rollBack();
+                }
+
+                $modelTransactions = new Transactions;
+                $modelTransactions->user_id = Yii::$app->user->getId();
+                $modelTransactions->time = date('Y-m-d H:i:s');
+                $modelTransactions->type = $modelSalesOrder->customer->paymentMethod->name;
+                $modelTransactions->remarks = "We sold items to ". $modelSalesOrder->customer->name. " at ".$modelSalesOrder->time." by ".$modelSalesOrder->user->username;
                 $modelTransactions->credit = $modelSalesOrder->total;
                 $modelTransactions->account = "sales";
+                $modelTransactions->debit = 0;
                 
 
                 if (! ($go = $modelTransactions->save(false))) {

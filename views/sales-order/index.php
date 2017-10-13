@@ -5,8 +5,9 @@ use yii\helpers\Url;
 use kartik\grid\GridView; 
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
-use app\model\location;
-use app\model\Customer;
+use app\models\location;
+use app\models\Customer;
+use yii\helpers\ArrayHelper;
 
 $this->title = Yii::t('app', 'Sales List');
 $this->params['breadcrumbs'][] = $this->title;
