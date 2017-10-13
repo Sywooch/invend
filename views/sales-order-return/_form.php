@@ -124,10 +124,10 @@ use kartik\widgets\DatePicker;
                             <thead>
                                 <tr class="active">
                                     <td></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'product_id'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'product_id'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'quantity'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-2"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderReturnLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 
@@ -212,7 +212,7 @@ use kartik\widgets\DatePicker;
             <div class="ibox-content">
                 <div class="row">
                     <div class="col-sm-3">
-                        <?= $form->field($modelSalesOrderReturn, 'paid')->textInput(['maxlength' => true, 'class' => 'form-control', 'onchange' => 'getSoReturnBalance(this)']) ?>
+                        <?= $form->field($modelSalesOrderReturn, 'paid')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control', 'onchange' => 'getSoReturnBalance(this)']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelSalesOrderReturn, 'balance')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>

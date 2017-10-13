@@ -38,23 +38,18 @@ use kartik\widgets\DatePicker;
 
             <div class="ibox-content">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelPo, 'vendor_id')->dropDownList(ArrayHelper::map(Vendor::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getVendor(this)']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelVendor, 'contact')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelVendor, 'phone')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelVendor, 'address')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPo, 'location_id')->dropDownList(ArrayHelper::map(Location::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-                    </div>                    
                     <div class="col-sm-3">
                         <?= $form->field($modelPo, 'date')->widget(DatePicker::classname(),[
                               'options' => [
@@ -73,10 +68,6 @@ use kartik\widgets\DatePicker;
                                 ]
                         ]);?>
 
-                    </div>
-
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPo, 'status')->dropDownList(['1'=>'Unreceived, Unpaid','2'=>'Received, Paid','3'=>'Received, Unpaid'],['disabled' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                 </div>
             </div>
@@ -127,10 +118,10 @@ use kartik\widgets\DatePicker;
                             <thead>
                                 <tr class="active">
                                     <td></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsPoLines[0], 'product_id'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsPoLines[0], 'product_id'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsPoLines[0], 'quantity'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsPoLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-2"><?= Html::activeLabel($modelsPoLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsPoLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 

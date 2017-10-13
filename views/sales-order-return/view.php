@@ -64,10 +64,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             'value' => 'unit_price'
                         ],
                         [
-                            'label' => 'Discount',
-                            'value' => 'discount'
-                        ],
-                        [
                             'label' => 'Total',
                             'value' => 'sub_total'
                         ],
@@ -91,9 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
             </tbody>
         </table>
-        <div class="text-right">
-            <button class="btn btn-primary"><i class="fa fa-dollar"></i> Make A Payment</button>
-        </div>
+
         <div class="well m-t"><strong>Comments</strong>
             Spring Water Falls. The water that gives life
         </div>

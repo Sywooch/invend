@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\DynamicForms;
 use yii\helpers\ArrayHelper;
+use app\widgets\GeneratePassword;
 
 /**
  * PoReturnController implements the CRUD actions for PoReturn model.
@@ -97,6 +98,7 @@ class PoReturnController extends Controller
         $modelsPoReturnLines = [new PoReturnLines()];
         $modelStock = new Stock();
         $modelTransactions = new Transactions();
+        $generate = new GeneratePassword();
 
         if ($modelPoReturn->load(Yii::$app->request->post())) {
 
@@ -120,7 +122,7 @@ class PoReturnController extends Controller
             // save po return data
             if ($valid) {
                 $modelPoReturn->reason = 2;
-                if ($this->savePoReturn($modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines)) {
+                if ($this->savePoReturn($generate,$modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The purchase order return number {id} has been saved.', ['id' => $modelPoReturn->id]));
                     return $this->redirect('index');
@@ -148,6 +150,7 @@ class PoReturnController extends Controller
         $modelVendor = new Vendor();
         $modelStock = new Stock();
         $modelTransactions = new Transactions();
+        $generate = new GeneratePassword();
 
         // retrieve existing po_return_lines data
         $oldPoReturnLineIds = PoReturnLines::find()->select('id')
@@ -177,7 +180,7 @@ class PoReturnController extends Controller
 
             // save po data
             if ($valid) {
-                if ($this->savePoReturn($modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines)) {
+                if ($this->savePoReturn($generate,$modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The purchase order return number {id} has been saved.', ['id' => $modelPoReturn->id]));
                     return $this->redirect('/po-return/index');
@@ -202,13 +205,18 @@ class PoReturnController extends Controller
      * @return bool Returns TRUE if successful.
      * @throws NotFoundHttpException When record cannot be saved.
      */
-    protected function savePoReturn($modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines) {
+    protected function savePoReturn($generate,$modelTransactions,$modelStock,$modelPoReturn,$modelsPoReturnLines) {
         $transaction = Yii::$app->db->beginTransaction();
         try {
 
             $modelPoReturn->user_id = Yii::$app->user->getId();
             $modelPoReturn->time = date('Y-m-d H:i:s');
+            $modelPoReturn->total =  -1 * abs($modelPoReturn->total);
+            $modelPoReturn->paid =  -1 * abs($modelPoReturn->paid);
             $modelPoReturn->balance = $modelPoReturn->total - $modelPoReturn->paid;
+
+            if(empty($modelPoReturn->number))
+                $modelPoReturn->number = 'POR-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
 
             if($modelPoReturn->paid > 0)
             {

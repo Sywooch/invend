@@ -75,11 +75,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'xlFormat'=>'mmm\-dd\, yyyy',  // different date format
                             ],
                             [
-                                'attribute'=>'remarks', 
-                                'format'=>'text', 
-                            ],
-
-                            [
                                 'class' => 'yii\grid\ActionColumn',
                                 'template' => '{view}',
                             ],

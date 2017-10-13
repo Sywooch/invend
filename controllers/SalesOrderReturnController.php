@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\DynamicForms;
 use yii\helpers\ArrayHelper;
+use app\widgets\GeneratePassword;
 
 /**
  * SalesOrderReturnController implements the CRUD actions for SalesOrderReturn model.
@@ -95,6 +96,7 @@ class SalesOrderReturnController extends Controller
         $modelSalesOrderReturn = new SalesOrderReturn();
         $modelCustomer = new Customer();
         $modelStock = new Stock();
+        $generate = new GeneratePassword();
         $modelTransactions = new Transactions();
         $modelsSalesOrderReturnLines = [new SalesOrderReturnLines()];
 
@@ -120,7 +122,7 @@ class SalesOrderReturnController extends Controller
             // save sales_order data
             if ($valid) {
                 $modelSalesOrderReturn->reason = 1;
-                if ($this->saveSalesOrderReturn($modelTransactions,$modelStock,$modelSalesOrderReturn,$modelsSalesOrderReturnLines)) {
+                if ($this->saveSalesOrderReturn($generate,$modelTransactions,$modelStock,$modelSalesOrderReturn,$modelsSalesOrderReturnLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The sales order return number {id} has been saved.', ['id' => $modelSalesOrderReturn->id]));
                     return $this->redirect('index');
@@ -146,6 +148,7 @@ class SalesOrderReturnController extends Controller
         // retrieve existing sales order data
         $modelSalesOrderReturn = $this->findModel($id);
         $modelCustomer = new Customer();
+        $generate = new GeneratePassword();
         $modelStock = new Stock();
         $modelTransactions = new Transactions();
 
@@ -177,7 +180,7 @@ class SalesOrderReturnController extends Controller
 
             // save sales_order data
             if ($valid) {
-                if ($this->saveSalesOrderReturn($modelSalesOrderReturn,$modelsSalesOrderReturnLines)) {
+                if ($this->saveSalesOrderReturn($generate,$modelSalesOrderReturn,$modelsSalesOrderReturnLines)) {
                     Yii::$app->getSession()->setFlash('success',
                         Yii::t('app','The sales order return number {id} has been saved.', ['id' => $modelSalesOrderReturn->id]));
                     return $this->redirect('/sales-order-return/index');
@@ -202,13 +205,18 @@ class SalesOrderReturnController extends Controller
      * @return bool Returns TRUE if successful.
      * @throws NotFoundHttpException When record cannot be saved.
      */
-    protected function saveSalesOrderReturn($modelTransactions,$modelStock,$modelSalesOrderReturn,$modelsSalesOrderReturnLines) {
+    protected function saveSalesOrderReturn($generate,$modelTransactions,$modelStock,$modelSalesOrderReturn,$modelsSalesOrderReturnLines) {
         $transaction = Yii::$app->db->beginTransaction();
         try {
 
             $modelSalesOrderReturn->user_id = Yii::$app->user->getId();
             $modelSalesOrderReturn->time = date('Y-m-d H:i:s');
+            $modelSalesOrderReturn->total = -1 * abs($modelSalesOrderReturn->total);
+            $modelSalesOrderReturn->paid = -1 * abs($modelSalesOrderReturn->paid);
             $modelSalesOrderReturn->balance = $modelSalesOrderReturn->total - $modelSalesOrderReturn->paid;
+
+            if(empty($modelSalesOrderReturn->number))
+                $modelSalesOrderReturn->number = 'SOR-'.$generate->Generate(8,1,0,1).'-'.$generate->Generate(2,1,0,0);
 
             if($modelSalesOrderReturn->paid > 0)
             {
@@ -270,7 +278,7 @@ class SalesOrderReturnController extends Controller
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelSalesOrderReturnLine->product_id;
                         $modelStock->quantity = $modelSalesOrderReturnLine->quantity;
-                        $modelStock->location_id = $modelSalesOrderReturn->location_id;
+                        $modelStock->location_id = $modelSalesOrderReturnLine->product->default_location_id;
                         $modelStock->product_category_id = $modelSalesOrderReturnLine->product->product_category_id;
 
                         if($modelSalesOrderReturnLine->product->last_vendor_id !== null){

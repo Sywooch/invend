@@ -118,10 +118,10 @@ use kartik\widgets\DatePicker;
                             <thead>
                                 <tr class="active">
                                     <td></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsSalesOrderLines[0], 'product_id'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderLines[0], 'product_id'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderLines[0], 'quantity'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-2"><?= Html::activeLabel($modelsSalesOrderLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsSalesOrderLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 

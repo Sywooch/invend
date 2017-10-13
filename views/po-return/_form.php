@@ -37,22 +37,17 @@ use kartik\widgets\DatePicker;
 
             <div class="ibox-content">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelPoReturn, 'vendor_id')->dropDownList(ArrayHelper::map(Vendor::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getVendor(this)']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelVendor, 'contact')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <?= $form->field($modelVendor, 'phone')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelVendor, 'address')->textInput(['readonly' => true,'readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPoReturn, 'location_id')->dropDownList(ArrayHelper::map(Location::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelPoReturn, 'date')->widget(DatePicker::classname(),[
@@ -72,9 +67,6 @@ use kartik\widgets\DatePicker;
                                 ]
                         ]);?>
 
-                    </div>
-                    <div class="col-sm-3">
-                        <?= $form->field($modelPoReturn, 'status')->dropDownList(['4'=>'Unreturned, Unpaid','5'=>'Returned, Unpaid','6'=>'Returned, Paid'],['disabled' => true,'maxlength' => true, 'class' => 'form-control']) ?>
                     </div>
                 </div>
             </div>
@@ -125,10 +117,10 @@ use kartik\widgets\DatePicker;
                             <thead>
                                 <tr class="active">
                                     <td></td>
-                                    <td class="col-xs-4"><?= Html::activeLabel($modelsPoReturnLines[0], 'product_id'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsPoReturnLines[0], 'product_id'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsPoReturnLines[0], 'quantity'); ?></td>
                                     <td class="col-xs-3"><?= Html::activeLabel($modelsPoReturnLines[0], 'unit_price'); ?></td>
-                                    <td class="col-xs-2"><?= Html::activeLabel($modelsPoReturnLines[0], 'sub_total'); ?></td>
+                                    <td class="col-xs-3"><?= Html::activeLabel($modelsPoReturnLines[0], 'sub_total'); ?></td>
                                 </tr>
                             </thead>
 
@@ -147,7 +139,7 @@ use kartik\widgets\DatePicker;
                                     <td>
                                         <?php
                                             echo $form->field($modelPoReturnLine, "[{$i}]product_id")->begin();
-                                            echo Html::activeDropDownList($modelPoReturnLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1 ])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
+                                            echo Html::activeDropDownList($modelPoReturnLine, "[{$i}]product_id", ArrayHelper::map(Product::find()->where(['active' => 1, 'product_category_id' => 1])->orderBy('item_name ASC')->all(), 'id', 'item_name'), ['prompt' => "",'maxlength' => true, 'class' => 'form-control', 'onChange' => 'getProduct(this)']); //Field
                                             echo Html::error($modelPoReturnLine,"[{$i}]product_id", ['class' => 'help-block']); //error
                                             echo $form->field($modelPoReturnLine, "[{$i}]product_id")->end();
                                         ?>
@@ -212,7 +204,7 @@ use kartik\widgets\DatePicker;
             <div class="ibox-content">
                 <div class="row">
                     <div class="col-sm-3">
-                        <?= $form->field($modelPoReturn, 'paid')->textInput(['maxlength' => true, 'class' => 'form-control', 'onchange' => 'getPoReturnBalance(this)']) ?>
+                        <?= $form->field($modelPoReturn, 'paid')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control', 'onchange' => 'getPoReturnBalance(this)']) ?>
                     </div>
                     <div class="col-sm-3">
                         <?= $form->field($modelPoReturn, 'balance')->textInput(['readonly' => true,'maxlength' => true, 'class' => 'form-control']) ?>
@@ -286,10 +278,6 @@ use kartik\widgets\DatePicker;
               var product = JSON.parse(data);
               console.log('product');
               console.log(product);
-              console.log(product.item_code);
-
-              var txtnumber = document.getElementById('poreturnlines-' +  index_1 + '-item_code');
-              txtnumber.value= product.item_code;
 
               var txtlast_cost = document.getElementById('poreturnlines-' +  index_1 + '-unit_price');
               txtlast_cost.value= product.cost;
@@ -312,9 +300,6 @@ use kartik\widgets\DatePicker;
                       var product = JSON.parse(data);
                       console.log('product');
                       console.log(product);
-                      console.log(product.item_code);
-                      var txtnumber = document.getElementById('poreturnlines-' +  index_1 + '-item_code');
-                      txtnumber.value= product.item_code;
 
                       var txtlast_cost = document.getElementById('poreturnlines-' +  index_1 + '-unit_price');
                       txtlast_cost.value= product.cost;

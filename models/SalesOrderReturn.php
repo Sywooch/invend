@@ -97,7 +97,7 @@ class SalesOrderReturn extends ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', 'User'),
-            'number' => Yii::t('app', 'Order #'),
+            'number' => Yii::t('app', 'Sales Return #'),
             'location_id' => Yii::t('app', 'Location'),
             'total' => Yii::t('app', 'Total'),
             'paid' => Yii::t('app', 'Paid'),

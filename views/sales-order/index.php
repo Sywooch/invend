@@ -57,11 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'sales_rep_id', 
-                                'value' => 'user.username',
-                                'format'=>'text', 
-                            ],
-                            [
                                 'attribute'=>'status', 
                                 'value'=>function ($model, $key, $index, $widget) {
                                     return $model->status == 8 ? "<span class='label label-primary'>Fulfilled, Invoiced</span>" : "<span class='label label-primary'>Fulfilled, Uninvoiced</span>";
@@ -79,11 +74,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format'=>['date', 'php:d-M-Y'], 
                                 'xlFormat'=>'mmm\-dd\, yyyy',  // different date format
                             ],
-                            [
-                                'attribute'=>'remarks', 
-                                'format'=>'text', 
-                            ],
-
                             [
                                 'class' => 'yii\grid\ActionColumn',
                                 'template' => '{view}',

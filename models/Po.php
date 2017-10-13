@@ -96,7 +96,7 @@ class Po extends ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', 'User'),
-            'number' => Yii::t('app', 'Order #'),
+            'number' => Yii::t('app', 'Purchase #'),
             'location_id' => Yii::t('app', 'Storage'),
             'total' => Yii::t('app', 'Total'),
             'paid' => Yii::t('app', 'Paid'),

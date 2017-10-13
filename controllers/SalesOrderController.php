@@ -275,8 +275,7 @@ class SalesOrderController extends Controller
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelSalesOrderLine->product_id;
                         $modelStock->quantity = -1 * abs($modelSalesOrderLine->quantity);
-                        $modelStock->location_id = $modelSalesOrder->location_id;
-                        
+                        $modelStock->location_id = $modelSalesOrderLine->product->default_location_id;
                         $modelStock->product_category_id = $modelSalesOrderLine->product->product_category_id;
 
                         if($modelSalesOrderLine->product->last_vendor_id !== null){

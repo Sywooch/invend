@@ -14,12 +14,7 @@ use yii\helpers\ArrayHelper;
     ]); ?>
 
 
-    <?= $form->field($modelPo, 'number') ?>
-
     <?= $form->field($modelPo, 'vendor_id')->dropDownList(ArrayHelper::map(Vendor::find()->where(['active' => 1 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control']) ?>
-
-    <?= $form->field($modelPo, 'status')->dropDownList(['1'=>'Unreceived, Unpaid','2'=>'Received, Paid','3'=>'Received, Unpaid'],['prompt' => '','maxlength' => true, 'class' => 'form-control']) ?>
-
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

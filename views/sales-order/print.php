@@ -52,10 +52,6 @@ use yii\grid\GridView;
                             'value' => 'unit_price'
                         ],
                         [
-                            'label' => 'Discount',
-                            'value' => 'discount'
-                        ],
-                        [
                             'label' => 'Total',
                             'value' => 'sub_total'
                         ],
