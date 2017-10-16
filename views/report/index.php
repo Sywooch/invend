@@ -25,7 +25,6 @@
         $q->output_template_parameters["show_hide_prepare_csv_button"] = "hide";
         $q->output_template_parameters["show_hide_prepare_page_style"] = "hide";
 
-        $q->projects_folder = "app\reports\reportico\projects";
 
         $q->execute();   
 ?>
