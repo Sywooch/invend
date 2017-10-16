@@ -13,7 +13,7 @@ return [
    //'dsn' => 'oci:dbname=//localhost:1521/mydatabase', // Oracle
     'username' => 'ytywzdgiahlcpx',
     'password' => '27d5d53d630f8e5628e548ae2dd56d5d88f6d471859e0cc13377e05b83b44a45',
-    //'username' => 'postgres',
+    //'username' => 'root',
     //'password' => 'root',
     //'charset' => 'utf8',
 ];

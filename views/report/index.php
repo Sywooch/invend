@@ -5,9 +5,9 @@
         $q->access_mode = "ONEREPORT";                // Allows access to single specified report
         $q->initial_output_format = "PDF";
         $q->initial_execute_mode = "PREPARE";         // Starts user in report criteria selection mode
-        $q->initial_project = "leaseapp";            // Name of report project folder
+        $q->initial_project = "invend";            // Name of report project folder
         $q->initial_project_password = "Larai@101#"; // If project password required
-        $q->initial_report = "payment_report";           // Name of report to run
+        $q->initial_report = "inventory_details_report";           // Name of report to run
         $q->bootstrap_styles = "3";                   // Set to "3" for bootstrap v3, "2" for V2 or false for no bootstrap
         $q->force_reportico_mini_maintains = true;    // Often required
         $q->bootstrap_preloaded = true;               // true if you dont need Reportico to load its own bootstrap

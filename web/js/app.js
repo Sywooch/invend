@@ -843,3 +843,54 @@ function getCustomer(component) {
     });
   }
 }
+
+
+function getNetWeight(component) {
+  console.log("Calculate Net Weight");
+  console.log(component);
+
+  var name = component.id;
+  var net_weight = 0;
+  console.log(name);
+
+
+  if(name === "production-start_weight") {
+    // get end_weight value
+    var end_weight = parseFloat($('#production-end_weight').val());
+    end_weight = parseFloat(end_weight);
+    console.log(end_weight);
+
+    if(isNaN(end_weight))
+    {
+      end_weight = 0;
+    }
+
+    start_weight = parseFloat(component.value);
+    if(isNaN(start_weight))
+    {
+      start_weight = 0;
+    }
+  }else if(name === "production-end_weight") {
+    // get start weight value
+    var start_weight = parseFloat($('#production-start_weight').val());
+    start_weight = parseFloat(start_weight);
+    console.log(start_weight);
+
+    if(isNaN(start_weight))
+    {
+      start_weight = 0;
+    }
+    end_weight = parseFloat(component.value);
+    if(isNaN(end_weight))
+    {
+      end_weight = 0;
+    }
+  }
+
+  net_weight = start_weight - end_weight;
+  
+
+  var txtnetweight = document.getElementById('production-net_weight');
+  txtnetweight.value= net_weight;
+
+}

@@ -58,7 +58,7 @@ class Transactions extends ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'account', 'type', 'credit', 'debit', 'time', 'remarks'], 'required'],
+            [['user_id', 'account', 'type', 'credit', 'debit', 'time', 'remarks', 'date'], 'required'],
             [['user_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['time'], 'safe'],
             [['account', 'type', 'credit', 'debit', 'remarks'], 'string', 'max' => 255],
@@ -78,6 +78,7 @@ class Transactions extends ActiveRecord
             'type' => Yii::t('app', 'Type'),
             'credit' => Yii::t('app', 'Credit'),
             'debit' => Yii::t('app', 'Debit'),
+            'date' => Yii::t('app', 'Date'),
             'time' => Yii::t('app', 'Time'),
             'remarks' => Yii::t('app', 'Remarks'),
             'created_by' => Yii::t('app', 'Created By'),

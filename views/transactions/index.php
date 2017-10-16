@@ -51,14 +51,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'type', 
-                                'format'=>'text', 
-                            ],
-                            [
                                 'label'=>'credit', 
                                 'attribute'=>'credit', 
                                 'format'=>['decimal', 2], 
-                                'hAlign'=>'right', 
+                                'hAlign'=>'left', 
                                 'width'=>'100px', 
                                 'pageSummary'=>true
                             ],
@@ -66,25 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'label'=>'debit', 
                                 'attribute'=>'debit', 
                                 'format'=>['decimal', 2], 
-                                'hAlign'=>'right', 
+                                'hAlign'=>'left', 
                                 'width'=>'100px', 
                                 'pageSummary'=>true
                             ],
                             [
-                                'class'=>'kartik\grid\FormulaColumn', 
-                                'label'=>'Total', 
-                                'format' => ['decimal', 2],
-                                'value'=>function ($model, $key, $index, $widget) { 
-                                    $p = compact('model', 'key', 'index');
-                                    return $widget->col(2, $p) - $widget->col(3, $p) ;
-                                }, 
-                                'hAlign'=>'right', 
-                                'width'=>'120px', 
-                                'pageSummary'=>true
-                            ],
-                            [
                                 'label'=>'Date', 
-                                'attribute'=>'time', 
+                                'attribute'=>'date', 
                                 'format'=>['date', 'php:d-M-Y'], 
                                 'xlFormat'=>'mmm\-dd\, yyyy',  // different date format
                                 'width'=>'100px'
@@ -92,6 +76,18 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 'attribute'=>'remarks', 
                                 'format'=>'text', 
+                            ],
+                            [
+                                'class'=>'kartik\grid\FormulaColumn', 
+                                'label'=>'Total', 
+                                'format' => ['decimal', 2],
+                                'value'=>function ($model, $key, $index, $widget) { 
+                                    $p = compact('model', 'key', 'index');
+                                    return $widget->col(1, $p) - $widget->col(2, $p) ;
+                                }, 
+                                'hAlign'=>'left', 
+                                'width'=>'120px', 
+                                'pageSummary'=>true
                             ],
                         ],
                         'pjax'=>true,

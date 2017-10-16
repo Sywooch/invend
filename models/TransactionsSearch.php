@@ -19,7 +19,7 @@ class TransactionsSearch extends Transactions
     {
         return [
             [['id', 'user_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['account', 'type', 'credit', 'debit', 'time', 'remarks'], 'safe'],
+            [['account', 'type', 'credit', 'debit', 'time', 'remarks', 'date'], 'safe'],
         ];
     }
 
@@ -62,6 +62,7 @@ class TransactionsSearch extends Transactions
             'id' => $this->id,
             'user_id' => $this->user_id,
             'time' => $this->time,
+            'date' => $this->date,
             'created_by' => $this->created_by,
             'updated_by' => $this->updated_by,
             'created_at' => $this->created_at,
@@ -70,6 +71,7 @@ class TransactionsSearch extends Transactions
 
         $query->andFilterWhere(['like', 'account', $this->account])
             ->andFilterWhere(['like', 'type', $this->type])
+            ->andFilterWhere(['like', 'date', $this->date])
             ->andFilterWhere(['like', 'credit', $this->credit])
             ->andFilterWhere(['like', 'debit', $this->debit])
             ->andFilterWhere(['like', 'remarks', $this->remarks]);

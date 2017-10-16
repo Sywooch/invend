@@ -63,6 +63,7 @@ use yii\helpers\Url;
                     <li><a href="/vendor/index">Supplier List</a></li>
                     <li><a href="/customer/create">New Customer</a></li>
                     <li><a href="/customer/index">Customer List</a></li>
+                    <li><a href="/transactions/index">Accounting</a></li>
                 </ul>
             </li>
             <li>

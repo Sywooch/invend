@@ -15,15 +15,11 @@ use yii\bootstrap\ActiveForm;
             </p>
 
             <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                Developed Specifically for Sachet Water Industry.
             </p>
 
             <p>
-                When an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-
-            <p>
-                <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+                It has realtime dashboards, Purchases and Sales.
             </p>
 
         </div>
@@ -53,16 +49,6 @@ use yii\bootstrap\ActiveForm;
                 <a href="#">
                     <small>Forgot password?</small>
                 </a>
-
-                <p class="text-muted text-center">
-                    <small>Do not have an account?</small>
-                </p>
-
-                <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
-
-                <p class="m-t">
-                    <small>Inspinia we app framework base on Bootstrap 3 &copy; 2017</small>
-                </p>
             </div>
         </div>
     </div>

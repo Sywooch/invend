@@ -18,6 +18,59 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-3">
+            <div class="widget red-bg p-lg text-center">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <i class="fa fa-shopping-cart fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <a href="<?= Url::toRoute(['/sales-order/create']) ?>" target="_blank"> <span class="font-bold" style="color: white;"> New Sales </span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="widget navy-bg p-lg text-center ">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-truck fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <a href="<?= Url::toRoute(['/po/create']) ?>" target="_blank"> <span class="font-bold" style="color: white;"> New Purchase </span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="widget lazur-bg p-lg text-center ">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <a href="<?= Url::toRoute(['/customer/create']) ?>" target="_blank"> <span class="font-bold" style="color: white;"> New Customer </span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="widget yellow-bg p-lg text-center">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <a href="<?= Url::toRoute(['/production/create']) ?>" target="_blank"> <span class="font-bold" style="color: white"> New Production </span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-success pull-right">Monthly</span>
