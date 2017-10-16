@@ -276,6 +276,7 @@ class SalesOrderController extends Controller
 
                         $modelStock->active = true;
                         $modelStock->user_id = Yii::$app->user->getId();
+                        $modelStock->date = date('d-m-Y');
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelSalesOrderLine->product_id;
                         $modelStock->quantity = -1 * abs($modelSalesOrderLine->quantity);

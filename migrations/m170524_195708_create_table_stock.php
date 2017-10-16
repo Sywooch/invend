@@ -28,6 +28,7 @@ class m170524_195708_create_table_stock extends Migration
             'last_vendor_id' => $this->integer()->defaultValue(1),
             'quantity' => $this->integer()->notNull(),
             'active' => $this->boolean()->defaultValue(false),
+            'date' => $this->string()->notNull(),
             'time' => $this->datetime()->notNull(),
             'remarks' => $this->string()->defaultValue(''),           
             'created_by' => $this->integer()->notNull(), 
@@ -46,6 +47,12 @@ class m170524_195708_create_table_stock extends Migration
             'idx-stock-user_id', 
             'stock', 
             'user_id'
+        );
+
+        $this->createIndex(
+            'idx-stock-date', 
+            'stock', 
+            'date'
         );
 
         $this->createIndex(

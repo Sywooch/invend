@@ -276,6 +276,7 @@ class PoController extends Controller
 
                         $modelStock->active = true;
                         $modelStock->user_id = Yii::$app->user->getId();
+                        $modelStock->date = date('d-m-Y');
                         $modelStock->time = date('Y-m-d H:i:s');
                         $modelStock->product_id = $modelPoLine->product_id;
                         $modelStock->quantity = $modelPoLine->quantity;

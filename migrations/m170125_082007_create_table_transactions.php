@@ -49,6 +49,12 @@ class m170125_082007_create_table_transactions extends Migration
         );
 
         $this->createIndex(
+            'idx-transactions-date', 
+            'transactions', 
+            'date'
+        );
+
+        $this->createIndex(
             'idx-transactions-type', 
             'transactions', 
             'type'
