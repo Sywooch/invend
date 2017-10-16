@@ -33499,3 +33499,713 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1508155998.039
     'REQUEST_TIME' => 1508155998
 ]
+2017-10-16 16:48:57 [127.0.0.1][1][ibil4j7bgmlvaoi2405utknmj5][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "web/reportico".' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('web/reportico', Array)
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-10-16 16:48:57 [127.0.0.1][1][ibil4j7bgmlvaoi2405utknmj5][info][application] $_COOKIE = [
+    '_identity' => '558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1\",2592000]\";}'
+    'PHPSESSID' => 'ibil4j7bgmlvaoi2405utknmj5'
+    '_csrf' => 'eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\" Lý[dtb
+¡á<KžgXª…¡»¯$šùŠRË&\0Y\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    'krajeeGridExportSalt' => '¶ï¼ê~ÜIÑF{sÈ‡ã%O®qB‘õ7÷'
+    'reportico' => [
+        'awaiting_initial_defaults' => false
+        'firsttimeIn' => true
+        'execute_mode' => 'MENU'
+        'project' => 'Invend Reporting'
+        'target_menu' => false
+        'project_path' => 'C:\\xampp\\htdocs\\invend\\runtime/reportico/projects/Invend Reporting'
+        'reportico_language' => 'en_gb'
+        'external_user' => 1
+        'external_param1' => false
+        'external_param2' => false
+        'external_param3' => false
+        'user_parameters' => []
+        'dropdown_menu' => false
+        'static_menu' => false
+        'charting_engine' => 'PCHART'
+        'charting_engine_html' => 'NVD3'
+        'output_template_parameters' => [
+            'show_hide_navigation_menu' => 'show'
+            'show_hide_dropdown_menu' => 'show'
+            'show_hide_report_output_title' => 'show'
+            'show_hide_prepare_section_boxes' => 'show'
+            'show_hide_prepare_pdf_button' => 'show'
+            'show_hide_prepare_html_button' => 'show'
+            'show_hide_prepare_print_html_button' => 'show'
+            'show_hide_prepare_csv_button' => 'show'
+            'show_hide_prepare_page_style' => 'show'
+            'show_hide_prepare_reset_buttons' => 'hide'
+            'show_hide_prepare_go_buttons' => 'hide'
+        ]
+        'dynamic_grids' => false
+        'dynamic_grids_sortable' => true
+        'dynamic_grids_searchable' => true
+        'dynamic_grids_paging' => false
+        'dynamic_grids_page_size' => 10
+        'framework_parent' => 'yii'
+        'access_mode' => 'FULL'
+        'firstTimeIn' => true
+        'latestRequest' => ''
+        'reporticourl' => '../vendor/reportico/yii2-reportico/components'
+        'reportico_ajax_script_url' => '/index.php/reportico/reportico/ajax'
+        'reportico_template' => false
+        'forward_url_get_parameters' => false
+        'forward_url_get_parameters_graph' => 'reportico/graph'
+        'forward_url_get_parameters_dbimage' => 'reportico/dbimage'
+        'bootstrap_styles' => '3'
+        'force_reportico_mini_maintains' => false
+        'url_path_to_assets' => '/assets/c52f91bf'
+        'jquery_preloaded' => false
+        'bootstrap_preloaded' => false
+        'loggedin' => false
+        'show_print_button' => true
+        'target_show_detail' => true
+        'target_show_graph' => true
+        'target_show_group_headers' => true
+        'target_show_group_trailers' => true
+        'target_show_criteria' => true
+    ]
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'invend.local:8088'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_identity=558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1%22%2C2592000%5D%22%3B%7D; PHPSESSID=ibil4j7bgmlvaoi2405utknmj5; _csrf=eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22+L%FD%5Bdtb%0A%A1%E1%3CK%9EgX%AA%15%85%A1%13%BB%AF%24%0D%9A%F9%8AR%CB%26%00Y%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Java\\jdk1.8.0_112;C:\\Program Files\\apache-tomcat-9.0.0.M20;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\nodejs\\;C:\\Program Files\\dotnet\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20 Server at invend.local Port 8088</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20'
+    'SERVER_NAME' => 'invend.local'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8088'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/invend/web/index.php'
+    'REMOTE_PORT' => '54872'
+    'REDIRECT_URL' => 'http://invend.local:8088/web/reportico'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/web/reportico'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1508168937.12
+    'REQUEST_TIME' => 1508168937
+]
+2017-10-16 17:05:43 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "web/reportico".' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('web/reportico', Array)
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-10-16 17:05:43 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][info][application] $_COOKIE = [
+    'PHPSESSID' => 'qvuomjoutf82e84o0oeeu3tkr3'
+    '_csrf' => 'eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\" Lý[dtb
+¡á<KžgXª…¡»¯$šùŠRË&\0Y\";}'
+    '_identity' => '558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 1
+    'reportico' => [
+        'awaiting_initial_defaults' => false
+        'firsttimeIn' => true
+        'execute_mode' => 'PREPARE'
+        'project' => 'invend'
+        'target_menu' => false
+        'project_path' => 'C:\\xampp\\htdocs\\invend\\runtime/reportico/projects/invend'
+        'reportico_language' => 'en_gb'
+        'external_user' => 1
+        'external_param1' => false
+        'external_param2' => false
+        'external_param3' => false
+        'user_parameters' => []
+        'dropdown_menu' => false
+        'static_menu' => false
+        'charting_engine' => 'PCHART'
+        'charting_engine_html' => 'NVD3'
+        'output_template_parameters' => [
+            'show_hide_navigation_menu' => 'show'
+            'show_hide_dropdown_menu' => 'show'
+            'show_hide_report_output_title' => 'hide'
+            'show_hide_prepare_section_boxes' => 'hide'
+            'show_hide_prepare_pdf_button' => 'show'
+            'show_hide_prepare_html_button' => 'hide'
+            'show_hide_prepare_print_html_button' => 'show'
+            'show_hide_prepare_csv_button' => 'hide'
+            'show_hide_prepare_page_style' => 'hide'
+            'show_hide_prepare_reset_buttons' => 'hide'
+            'show_hide_prepare_go_buttons' => 'hide'
+        ]
+        'dynamic_grids' => false
+        'dynamic_grids_sortable' => true
+        'dynamic_grids_searchable' => true
+        'dynamic_grids_paging' => false
+        'dynamic_grids_page_size' => 10
+        'framework_parent' => 'yii'
+        'access_mode' => 'ONEREPORT'
+        'progress_text' => 'Ready'
+        'progress_status' => 'READY'
+        'firstTimeIn' => true
+        'target_format' => 'HTML'
+        'latestRequest' => ''
+        'reporticourl' => '../vendor/reportico/yii2-reportico/components'
+        'reportico_ajax_script_url' => '/index.php/reportico/reportico/ajax'
+        'forward_url_get_parameters' => false
+        'forward_url_get_parameters_graph' => 'reportico/graph'
+        'forward_url_get_parameters_dbimage' => 'reportico/dbimage'
+        'bootstrap_styles' => '3'
+        'force_reportico_mini_maintains' => true
+        'url_path_to_assets' => '/assets/c52f91bf'
+        'jquery_preloaded' => false
+        'bootstrap_preloaded' => true
+        'loggedin' => true
+        'project_password' => 'Larai@101#'
+        'database' => null
+        'hostname' => null
+        'driver' => 'mysql'
+        'server' => null
+        'protocol' => null
+        'xmlout' => 'invend_summary_report'
+        'reportico_template' => false
+        'show_print_button' => true
+        'target_show_detail' => true
+        'target_show_graph' => true
+        'target_show_group_headers' => true
+        'target_show_group_trailers' => true
+        'target_show_criteria' => true
+        'target_style' => 'TABLE'
+        'xmlin' => 'invend_summary_report'
+    ]
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'invend.local:8088'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=qvuomjoutf82e84o0oeeu3tkr3; _csrf=eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22+L%FD%5Bdtb%0A%A1%E1%3CK%9EgX%AA%15%85%A1%13%BB%AF%24%0D%9A%F9%8AR%CB%26%00Y%22%3B%7D; _identity=558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Java\\jdk1.8.0_112;C:\\Program Files\\apache-tomcat-9.0.0.M20;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\nodejs\\;C:\\Program Files\\dotnet\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20 Server at invend.local Port 8088</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20'
+    'SERVER_NAME' => 'invend.local'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8088'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/invend/web/index.php'
+    'REMOTE_PORT' => '56438'
+    'REDIRECT_URL' => 'http://invend.local:8088/web/reportico'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/web/reportico'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1508169943.502
+    'REQUEST_TIME' => 1508169943
+]
+2017-10-16 17:05:53 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "web/reportico".' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('web/reportico', Array)
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-10-16 17:05:53 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][info][application] $_COOKIE = [
+    'PHPSESSID' => 'qvuomjoutf82e84o0oeeu3tkr3'
+    '_csrf' => 'eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\" Lý[dtb
+¡á<KžgXª…¡»¯$šùŠRË&\0Y\";}'
+    '_identity' => '558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 1
+    'reportico' => [
+        'awaiting_initial_defaults' => false
+        'firsttimeIn' => true
+        'execute_mode' => 'MENU'
+        'project' => 'invend'
+        'target_menu' => false
+        'project_path' => 'C:\\xampp\\htdocs\\invend\\runtime/reportico/projects/invend'
+        'reportico_language' => 'en_gb'
+        'external_user' => 1
+        'external_param1' => false
+        'external_param2' => false
+        'external_param3' => false
+        'user_parameters' => []
+        'dropdown_menu' => false
+        'static_menu' => false
+        'charting_engine' => 'PCHART'
+        'charting_engine_html' => 'NVD3'
+        'output_template_parameters' => [
+            'show_hide_navigation_menu' => 'show'
+            'show_hide_dropdown_menu' => 'show'
+            'show_hide_report_output_title' => 'show'
+            'show_hide_prepare_section_boxes' => 'show'
+            'show_hide_prepare_pdf_button' => 'show'
+            'show_hide_prepare_html_button' => 'show'
+            'show_hide_prepare_print_html_button' => 'show'
+            'show_hide_prepare_csv_button' => 'show'
+            'show_hide_prepare_page_style' => 'show'
+            'show_hide_prepare_reset_buttons' => 'hide'
+            'show_hide_prepare_go_buttons' => 'hide'
+        ]
+        'dynamic_grids' => false
+        'dynamic_grids_sortable' => true
+        'dynamic_grids_searchable' => true
+        'dynamic_grids_paging' => false
+        'dynamic_grids_page_size' => 10
+        'framework_parent' => 'yii'
+        'access_mode' => 'FULL'
+        'firstTimeIn' => true
+        'latestRequest' => ''
+        'reporticourl' => '../vendor/reportico/yii2-reportico/components'
+        'reportico_ajax_script_url' => '/index.php/reportico/reportico/ajax'
+        'reportico_template' => false
+        'forward_url_get_parameters' => false
+        'forward_url_get_parameters_graph' => 'reportico/graph'
+        'forward_url_get_parameters_dbimage' => 'reportico/dbimage'
+        'bootstrap_styles' => '3'
+        'force_reportico_mini_maintains' => false
+        'url_path_to_assets' => '/assets/c52f91bf'
+        'jquery_preloaded' => false
+        'bootstrap_preloaded' => false
+        'loggedin' => false
+        'show_print_button' => true
+        'target_show_detail' => true
+        'target_show_graph' => true
+        'target_show_group_headers' => true
+        'target_show_group_trailers' => true
+        'target_show_criteria' => true
+    ]
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'invend.local:8088'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=qvuomjoutf82e84o0oeeu3tkr3; _csrf=eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22+L%FD%5Bdtb%0A%A1%E1%3CK%9EgX%AA%15%85%A1%13%BB%AF%24%0D%9A%F9%8AR%CB%26%00Y%22%3B%7D; _identity=558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Java\\jdk1.8.0_112;C:\\Program Files\\apache-tomcat-9.0.0.M20;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\nodejs\\;C:\\Program Files\\dotnet\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20 Server at invend.local Port 8088</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20'
+    'SERVER_NAME' => 'invend.local'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8088'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/invend/web/index.php'
+    'REMOTE_PORT' => '56438'
+    'REDIRECT_URL' => 'http://invend.local:8088/web/reportico'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/web/reportico'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1508169953.009
+    'REQUEST_TIME' => 1508169953
+]
+2017-10-16 17:09:22 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "reportICO".' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('reportICO', Array)
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-10-16 17:09:22 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][info][application] $_COOKIE = [
+    'PHPSESSID' => 'qvuomjoutf82e84o0oeeu3tkr3'
+    '_csrf' => 'eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\" Lý[dtb
+¡á<KžgXª…¡»¯$šùŠRË&\0Y\";}'
+    '_identity' => '558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 1
+    'reportico' => [
+        'awaiting_initial_defaults' => false
+        'firsttimeIn' => true
+        'execute_mode' => 'EXECUTE'
+        'project' => 'Invend'
+        'target_menu' => false
+        'project_path' => 'C:\\xampp\\htdocs\\invend\\runtime/reportico/projects/Invend'
+        'reportico_language' => 'en_gb'
+        'external_user' => 1
+        'external_param1' => false
+        'external_param2' => false
+        'external_param3' => false
+        'user_parameters' => []
+        'dropdown_menu' => false
+        'static_menu' => false
+        'charting_engine' => 'PCHART'
+        'charting_engine_html' => 'NVD3'
+        'output_template_parameters' => [
+            'show_hide_navigation_menu' => 'show'
+            'show_hide_dropdown_menu' => 'show'
+            'show_hide_report_output_title' => 'hide'
+            'show_hide_prepare_section_boxes' => 'hide'
+            'show_hide_prepare_pdf_button' => 'show'
+            'show_hide_prepare_html_button' => 'hide'
+            'show_hide_prepare_print_html_button' => 'show'
+            'show_hide_prepare_csv_button' => 'hide'
+            'show_hide_prepare_page_style' => 'hide'
+            'show_hide_prepare_reset_buttons' => 'hide'
+            'show_hide_prepare_go_buttons' => 'hide'
+        ]
+        'dynamic_grids' => false
+        'dynamic_grids_sortable' => true
+        'dynamic_grids_searchable' => true
+        'dynamic_grids_paging' => false
+        'dynamic_grids_page_size' => 10
+        'framework_parent' => 'yii'
+        'access_mode' => 'ONEREPORT'
+        'progress_text' => 'Ready'
+        'progress_status' => 'READY'
+        'firstTimeIn' => false
+        'target_format' => 'PDF'
+        'latestRequest' => ''
+        'reporticourl' => '../vendor/reportico/yii2-reportico/components'
+        'reportico_ajax_script_url' => '/index.php/reportico/reportico/ajax'
+        'forward_url_get_parameters' => false
+        'forward_url_get_parameters_graph' => 'reportico/graph'
+        'forward_url_get_parameters_dbimage' => 'reportico/dbimage'
+        'bootstrap_styles' => '3'
+        'force_reportico_mini_maintains' => true
+        'url_path_to_assets' => '/assets/c52f91bf'
+        'jquery_preloaded' => false
+        'bootstrap_preloaded' => true
+        'loggedin' => true
+        'project_password' => 'Larai@101#'
+        'database' => null
+        'hostname' => null
+        'driver' => 'mysql'
+        'server' => null
+        'protocol' => null
+        'xmlin' => 'inventory_summary_report'
+        'xmlout' => 'inventory_summary_report'
+        'reportico_template' => false
+        'show_print_button' => true
+        'target_show_detail' => '1'
+        'target_show_graph' => '1'
+        'target_show_group_headers' => '1'
+        'target_show_group_trailers' => '1'
+        'target_show_criteria' => '1'
+        'target_style' => 'TABLE'
+    ]
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'invend.local:8088'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=qvuomjoutf82e84o0oeeu3tkr3; _csrf=eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22+L%FD%5Bdtb%0A%A1%E1%3CK%9EgX%AA%15%85%A1%13%BB%AF%24%0D%9A%F9%8AR%CB%26%00Y%22%3B%7D; _identity=558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Java\\jdk1.8.0_112;C:\\Program Files\\apache-tomcat-9.0.0.M20;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\nodejs\\;C:\\Program Files\\dotnet\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20 Server at invend.local Port 8088</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20'
+    'SERVER_NAME' => 'invend.local'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8088'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/invend/web/index.php'
+    'REMOTE_PORT' => '56812'
+    'REDIRECT_URL' => 'http://invend.local:8088/reportICO'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/reportICO'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1508170162.57
+    'REQUEST_TIME' => 1508170162
+]
+2017-10-16 17:16:23 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "reportICO".' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('reportICO', Array)
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-10-16 17:16:23 [127.0.0.1][1][qvuomjoutf82e84o0oeeu3tkr3][info][application] $_COOKIE = [
+    'PHPSESSID' => 'qvuomjoutf82e84o0oeeu3tkr3'
+    '_csrf' => 'eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\" Lý[dtb
+¡á<KžgXª…¡»¯$šùŠRË&\0Y\";}'
+    '_identity' => '558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 1
+    'reportico' => [
+        'awaiting_initial_defaults' => false
+        'firsttimeIn' => true
+        'execute_mode' => 'MENU'
+        'project' => 'invend'
+        'target_menu' => false
+        'project_path' => 'C:\\xampp\\htdocs\\invend\\runtime/reportico/projects/invend'
+        'reportico_language' => 'en_gb'
+        'external_user' => 1
+        'external_param1' => false
+        'external_param2' => false
+        'external_param3' => false
+        'user_parameters' => []
+        'dropdown_menu' => false
+        'static_menu' => false
+        'charting_engine' => 'PCHART'
+        'charting_engine_html' => 'NVD3'
+        'output_template_parameters' => [
+            'show_hide_navigation_menu' => 'show'
+            'show_hide_dropdown_menu' => 'show'
+            'show_hide_report_output_title' => 'show'
+            'show_hide_prepare_section_boxes' => 'show'
+            'show_hide_prepare_pdf_button' => 'show'
+            'show_hide_prepare_html_button' => 'show'
+            'show_hide_prepare_print_html_button' => 'show'
+            'show_hide_prepare_csv_button' => 'show'
+            'show_hide_prepare_page_style' => 'show'
+            'show_hide_prepare_reset_buttons' => 'hide'
+            'show_hide_prepare_go_buttons' => 'hide'
+        ]
+        'dynamic_grids' => false
+        'dynamic_grids_sortable' => true
+        'dynamic_grids_searchable' => true
+        'dynamic_grids_paging' => false
+        'dynamic_grids_page_size' => 10
+        'framework_parent' => 'yii'
+        'access_mode' => 'FULL'
+        'firstTimeIn' => true
+        'latestRequest' => ''
+        'reporticourl' => '../vendor/reportico/yii2-reportico/components'
+        'reportico_ajax_script_url' => '/index.php/reportico/reportico/ajax'
+        'reportico_template' => false
+        'forward_url_get_parameters' => false
+        'forward_url_get_parameters_graph' => 'reportico/graph'
+        'forward_url_get_parameters_dbimage' => 'reportico/dbimage'
+        'bootstrap_styles' => '3'
+        'force_reportico_mini_maintains' => false
+        'url_path_to_assets' => '/assets/c52f91bf'
+        'jquery_preloaded' => false
+        'bootstrap_preloaded' => false
+        'loggedin' => true
+        'admin_password' => '1'
+        'database' => null
+        'hostname' => null
+        'driver' => 'mysql'
+        'server' => null
+        'protocol' => null
+        'progress_text' => 'Ready'
+        'progress_status' => 'READY'
+        'target_format' => 'HTML'
+        'xmlout' => 'createproject'
+        'show_print_button' => true
+        'target_show_detail' => true
+        'target_show_graph' => true
+        'target_show_group_headers' => true
+        'target_show_group_trailers' => true
+        'target_show_criteria' => true
+        'target_style' => 'TABLE'
+    ]
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'invend.local:8088'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=qvuomjoutf82e84o0oeeu3tkr3; _csrf=eceae21b59538ace196299e21048c3318f065e7885c4617c014a66061648ae91a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22+L%FD%5Bdtb%0A%A1%E1%3CK%9EgX%AA%15%85%A1%13%BB%AF%24%0D%9A%F9%8AR%CB%26%00Y%22%3B%7D; _identity=558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Java\\jdk1.8.0_112;C:\\Program Files\\apache-tomcat-9.0.0.M20;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\nodejs\\;C:\\Program Files\\dotnet\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20 Server at invend.local Port 8088</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20'
+    'SERVER_NAME' => 'invend.local'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8088'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/invend/web/index.php'
+    'REMOTE_PORT' => '57543'
+    'REDIRECT_URL' => 'http://invend.local:8088/reportICO'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/reportICO'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1508170583.171
+    'REQUEST_TIME' => 1508170583
+]
