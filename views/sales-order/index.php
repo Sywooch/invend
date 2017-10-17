@@ -5,7 +5,7 @@ use yii\helpers\Url;
 use kartik\grid\GridView; 
 use kartik\grid\ActionColumn;
 use yii\widgets\Pjax;
-use app\models\location;
+use app\models\Location;
 use app\models\Customer;
 use yii\helpers\ArrayHelper;
 
