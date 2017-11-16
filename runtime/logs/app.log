@@ -34209,3 +34209,147 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1508170583.171
     'REQUEST_TIME' => 1508170583
 ]
+2017-11-16 14:47:29 [127.0.0.1][-][i6u0b9q71csbneco43kontudq5][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[08006] [7] could not translate host name "ec2-50-19-89-124.compute-1.amazonaws.com" to address: Unknown host' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php:646
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php(646): PDO->__construct('pgsql:host=ec2-...', 'ytywzdgiahlcpx', '27d5d53d630f8e5...', NULL)
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php(579): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php(928): yii\db\Connection->open()
+#3 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php(915): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Command.php(910): yii\db\Command->prepare('<span class="ke...')
+#6 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Command.php(376): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#7 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Query.php(253): yii\db\Command->queryOne()
+#8 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\ActiveQuery.php(294): yii\db\Query->one('<span class="ke...')
+#9 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\BaseActiveRecord.php(107): yii\db\ActiveQuery->one()
+#10 C:\xampp\htdocs\invend\models\User.php(64): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#11 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\User.php(657): app\models\User::findIdentity('<span class="nu...')
+#12 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\User.php(188): yii\web\User->renewAuthStatus()
+#13 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\User.php(333): yii\web\User->getIdentity()
+#14 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Component.php(132): yii\web\User->getIsGuest()
+#15 C:\xampp\htdocs\invend\vendor\yiisoft\yii2-debug\panels\UserPanel.php(75): yii\base\Component->__get('<span class="st...')
+#16 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Object.php(107): yii\debug\panels\UserPanel->init()
+#17 [internal function]: yii\base\Object->__construct('[<span class="s...')
+#18 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs('[[<span class="...')
+#19 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('<span class="st...', '[]', '[<span class="s...')
+#20 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\BaseYii.php(348): yii\di\Container->get('<span class="st...', '[]', '[<span class="s...')
+#21 C:\xampp\htdocs\invend\vendor\yiisoft\yii2-debug\Module.php(177): yii\BaseYii::createObject('[<span class="s...')
+#22 C:\xampp\htdocs\invend\vendor\yiisoft\yii2-debug\Module.php(149): yii\debug\Module->initPanels()
+#23 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Object.php(107): yii\debug\Module->init()
+#24 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php(158): yii\base\Object->__construct('[]')
+#25 [internal function]: yii\base\Module->__construct('<span class="st...', Object(yii\web\Application), '[]')
+#26 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(375): ReflectionClass->newInstanceArgs('[<span class="s...')
+#27 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('<span class="st...', '[<span class="s...', '[]')
+#28 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\BaseYii.php(348): yii\di\Container->get('<span class="st...', '[<span class="s...', '[]')
+#29 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php(423): yii\BaseYii::createObject('[<span class="s...', '[<span class="s...')
+#30 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(309): yii\base\Module->getModule('<span class="st...')
+#31 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(69): yii\base\Application->bootstrap()
+#32 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(272): yii\web\Application->bootstrap()
+#33 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Object.php(107): yii\base\Application->init()
+#34 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(205): yii\base\Object->__construct('[<span class="s...')
+#35 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->__construct('[<span class="s...')
+#36 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[08006] [7] could not translate host name "ec2-50-19-89-124.compute-1.amazonaws.com" to address: Unknown host' in C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php:584
+Stack trace:
+#0 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php(928): yii\db\Connection->open()
+#1 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Connection.php(915): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Command.php(910): yii\db\Command->prepare('<span class="ke...')
+#4 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Command.php(376): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#5 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\Query.php(253): yii\db\Command->queryOne()
+#6 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\ActiveQuery.php(294): yii\db\Query->one('<span class="ke...')
+#7 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\db\BaseActiveRecord.php(107): yii\db\ActiveQuery->one()
+#8 C:\xampp\htdocs\invend\models\User.php(64): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#9 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\User.php(657): app\models\User::findIdentity('<span class="nu...')
+#10 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\User.php(188): yii\web\User->renewAuthStatus()
+#11 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\User.php(333): yii\web\User->getIdentity()
+#12 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Component.php(132): yii\web\User->getIsGuest()
+#13 C:\xampp\htdocs\invend\vendor\yiisoft\yii2-debug\panels\UserPanel.php(75): yii\base\Component->__get('<span class="st...')
+#14 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Object.php(107): yii\debug\panels\UserPanel->init()
+#15 [internal function]: yii\base\Object->__construct('[<span class="s...')
+#16 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs('[[<span class="...')
+#17 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('<span class="st...', '[]', '[<span class="s...')
+#18 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\BaseYii.php(348): yii\di\Container->get('<span class="st...', '[]', '[<span class="s...')
+#19 C:\xampp\htdocs\invend\vendor\yiisoft\yii2-debug\Module.php(177): yii\BaseYii::createObject('[<span class="s...')
+#20 C:\xampp\htdocs\invend\vendor\yiisoft\yii2-debug\Module.php(149): yii\debug\Module->initPanels()
+#21 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Object.php(107): yii\debug\Module->init()
+#22 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php(158): yii\base\Object->__construct('[]')
+#23 [internal function]: yii\base\Module->__construct('<span class="st...', Object(yii\web\Application), '[]')
+#24 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(375): ReflectionClass->newInstanceArgs('[<span class="s...')
+#25 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('<span class="st...', '[<span class="s...', '[]')
+#26 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\BaseYii.php(348): yii\di\Container->get('<span class="st...', '[<span class="s...', '[]')
+#27 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Module.php(423): yii\BaseYii::createObject('[<span class="s...', '[<span class="s...')
+#28 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(309): yii\base\Module->getModule('<span class="st...')
+#29 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\web\Application.php(69): yii\base\Application->bootstrap()
+#30 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(272): yii\web\Application->bootstrap()
+#31 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Object.php(107): yii\base\Application->init()
+#32 C:\xampp\htdocs\invend\vendor\yiisoft\yii2\base\Application.php(205): yii\base\Object->__construct('[<span class="s...')
+#33 C:\xampp\htdocs\invend\web\index.php(12): yii\base\Application->__construct('[<span class="s...')
+#34 {main}
+Additional Information:
+
+2017-11-16 14:47:17 [127.0.0.1][-][i6u0b9q71csbneco43kontudq5][info][application] $_COOKIE = [
+    '_csrf' => 'ed726c1f20ea0acd553947dd5bb67bc4a0c54b1b6e1337da652f89e0fe2f66b3a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"!=c{L¬¢Ã}F|èç
+Ž~ß9=_y\\oO)2æ\";}'
+    'PHPSESSID' => 'i6u0b9q71csbneco43kontudq5'
+    '_identity' => '558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'invend.local:8088'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://invend.local:8088/'
+    'HTTP_COOKIE' => '_csrf=ed726c1f20ea0acd553947dd5bb67bc4a0c54b1b6e1337da652f89e0fe2f66b3a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%21%3Dc%04%7BL%AC%1B%A2%C3%7D%1DF%7C%E8%E7%0A%8E%7E%DF9%18%3D_y%1D%5CoO%292%E6%22%3B%7D; PHPSESSID=i6u0b9q71csbneco43kontudq5; _identity=558c893fce3fae20ca095981182a6940a38393b98677b5525889255facb638aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\HashiCorp\\Vagrant\\bin;C:\\Program Files\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\PrivateAssemblies\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Java\\jdk1.8.0_112;C:\\Program Files\\apache-tomcat-9.0.0.M20;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\nodejs\\;C:\\Program Files\\MongoDB\\Server\\3.4\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20 Server at invend.local Port 8088</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.20'
+    'SERVER_NAME' => 'invend.local'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8088'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/invend/web'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/invend/web/index.php'
+    'REMOTE_PORT' => '63858'
+    'REDIRECT_URL' => 'http://invend.local:8088/sales-order/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/sales-order/index'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1510843637.568
+    'REQUEST_TIME' => 1510843637
+]

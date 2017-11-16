@@ -63,23 +63,10 @@ use kartik\widgets\SwitchInput;
                 <div class="col-sm-3">
                     <?= $form->field($model, 'start_weight')->textInput(['maxlength' => true, 'onchange' => 'getNetWeight(this);']) ?>
                 </div>
-                <div class="col-sm-3">
-                    <?= $form->field($model, 'end_weight')->textInput(['maxlength' => true, 'onchange' => 'getNetWeight(this);']) ?>
-                </div>
-                <div class="col-sm-3">
-                    <?= $form->field($model, 'net_weight')->textInput(['readonly' => true,'maxlength' => true]) ?>
-                </div>
-                
             </div>
             <div class="row">
                 <div class="col-sm-3">
-                    <?= $form->field($model, 'rolls_wasted')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-sm-3">
                     <?= $form->field($model, 'quantity_produced')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-sm-3">
-                    <?= $form->field($model, 'quantity_wasted')->textInput(['maxlength' => true]) ?>
                 </div>
             </div>
         </div>

@@ -51,10 +51,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'format'=>'text', 
                             ],
                             [
-                                'attribute'=>'end_weight', 
-                                'format'=>'text', 
-                            ],
-                            [
                                 'attribute'=>'quantity_produced', 
                                 'format'=>'text', 
                             ],

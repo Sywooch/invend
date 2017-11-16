@@ -30,7 +30,7 @@ use yii\helpers\Url;
                 <a href="/site/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Purchases</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-suitcase"></i> <span class="nav-label">Purchases</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="/po/create">New Purchase</a></li>
                     <li><a href="/po/index">Purchase List</a></li>
@@ -45,6 +45,15 @@ use yii\helpers\Url;
                     <li><a href="/sales-order/index">Sales List</a></li>
                     <li><a href="/sales-order-return/create">New Sales Return</a></li>
                     <li><a href="/sales-order-return/index">Sales Return List</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Distribution</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/distribution/create">New Distribution</a></li>
+                    <li><a href="/distribution/index">Distribution List</a></li>
+                    <li><a href="/distribution-return/create">New Distribution Return</a></li>
+                    <li><a href="/distribution-return/index">Distribution Return List</a></li>
                 </ul>
             </li>
             <li>
@@ -63,7 +72,13 @@ use yii\helpers\Url;
                     <li><a href="/vendor/index">Supplier List</a></li>
                     <li><a href="/customer/create">New Customer</a></li>
                     <li><a href="/customer/index">Customer List</a></li>
-                    <li><a href="/transactions/index">Accounting</a></li>
+                    <li><a href="/driver/create">New Driver</a></li>
+                    <li><a href="/driver/index">Driver List</a></li>
+                    <li><a href="/wastage/create">New Wastage</a></li>
+                    <li><a href="/wastage/index">Wastage List</a></li>
+                    <li><a href="/expenses/create">New Expenses</a></li>
+                    <li><a href="/expenses/index">Expenses List</a></li>
+                    <li><a href="/transactions/index">Accounting Lis</a></li>
                 </ul>
             </li>
             <li>
