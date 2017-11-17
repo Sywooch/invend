@@ -28,18 +28,18 @@ use kartik\widgets\SwitchInput;
                     <i class="fa fa-wrench"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="/po/return">Return</a></li>
-                    <li><a href="/po/index">Order List</a></li>
+                    <li><a href="/po/return">Purchase Return</a></li>
+                    <li><a href="/po/index">Purchase List</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="ibox-content">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <?= $form->field($model, 'actual_prod_date')->widget(DatePicker::classname(),[
                           'options' => [
                             'placeholder' => '',
@@ -60,12 +60,10 @@ use kartik\widgets\SwitchInput;
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <?= $form->field($model, 'start_weight')->textInput(['maxlength' => true, 'onchange' => 'getNetWeight(this);']) ?>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <?= $form->field($model, 'quantity_produced')->textInput(['maxlength' => true]) ?>
                 </div>
             </div>

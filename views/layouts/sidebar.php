@@ -78,6 +78,8 @@ use yii\helpers\Url;
                     <li><a href="/wastage/index">Wastage List</a></li>
                     <li><a href="/expenses/create">New Expenses</a></li>
                     <li><a href="/expenses/index">Expenses List</a></li>
+                    <li><a href="/donation/create">New Donation</a></li>
+                    <li><a href="/donation/index">Donation List</a></li>
                     <li><a href="/transactions/index">Accounting Lis</a></li>
                 </ul>
             </li>

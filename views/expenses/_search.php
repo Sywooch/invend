@@ -2,10 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\DatePicker;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\ExpensesSearch */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="expenses-search">
@@ -15,27 +13,22 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'date')->widget(DatePicker::classname(),[
+          'options' => [
+            'placeholder' => '',
+            'value' => date('d-m-Y'),
+          ],
+          
+          'type' => DatePicker::TYPE_COMPONENT_APPEND,
+          'readonly' => true,
 
-    <?= $form->field($model, 'user_id') ?>
-
-    <?= $form->field($model, 'purpose') ?>
-
-    <?= $form->field($model, 'amount') ?>
-
-    <?= $form->field($model, 'active')->checkbox() ?>
-
-    <?php // echo $form->field($model, 'notes') ?>
-
-    <?php // echo $form->field($model, 'time') ?>
-
-    <?php // echo $form->field($model, 'created_by') ?>
-
-    <?php // echo $form->field($model, 'updated_by') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
+          'pluginOptions' => [
+                'autoclose'=>true,
+                'format' => 'dd-mm-yyyy',
+                'todayHighlight' => TRUE,
+                
+            ]
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

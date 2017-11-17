@@ -25,6 +25,8 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const TYPE_ADMIN = 1;
+    const TYPE_DRIVER = 2;
 
 
     /**
@@ -51,8 +53,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            ['type', 'default', 'value' => self::TYPE_ADMIN],
+            ['type', 'in', 'range' => [self::TYPE_ADMIN, self::TYPE_DRIVER]],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
         ];
     }
 
@@ -81,6 +86,17 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * Finds user by type
+     *
+     * @param string $type
+     * @return static|null
+     */
+    public static function findByType($type)
+    {
+        return static::find(['type' => $type, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**

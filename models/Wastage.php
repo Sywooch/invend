@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "wastage".
@@ -17,6 +18,7 @@ use Yii;
  * @property integer $status
  * @property string $date
  * @property string $time
+ * @property string $reason
  * @property string $notes
  * @property integer $created_by
  * @property integer $updated_by
@@ -35,6 +37,25 @@ class Wastage extends \yii\db\ActiveRecord
         return 'wastage';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\BlameableBehavior::className(),
+                'createdByAttribute' => 'created_by',
+                'updatedByAttribute' => 'updated_by',
+            ],
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => function() { return date('U'); },
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -42,10 +63,10 @@ class Wastage extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'location_id', 'product_id', 'quantity', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['number', 'product_id', 'quantity', 'price', 'date', 'time', 'notes', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'required'],
+            [['number', 'product_id', 'quantity', 'price', 'date', 'reason'], 'required'],
             [['price'], 'number'],
             [['time'], 'safe'],
-            [['number', 'date', 'notes'], 'string', 'max' => 255],
+            [['number', 'date', 'reason', 'notes'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -66,6 +87,7 @@ class Wastage extends \yii\db\ActiveRecord
             'status' => Yii::t('app', 'Status'),
             'date' => Yii::t('app', 'Date'),
             'time' => Yii::t('app', 'Time'),
+            'reason' => Yii::t('app', 'Reason'),
             'notes' => Yii::t('app', 'Notes'),
             'created_by' => Yii::t('app', 'Created By'),
             'updated_by' => Yii::t('app', 'Updated By'),

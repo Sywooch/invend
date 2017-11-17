@@ -29,6 +29,7 @@ class m170125_082004_create_table_expenses extends Migration
             'amount' => $this->decimal(10,2)->notNull(),
             'active' => $this->boolean()->defaultValue(true)->notNull(),
             'notes' => $this->string()->notNull()->defaultValue(''),  
+            'date' => $this->string()->notNull(),
             'time' => $this->datetime()->notNull(),
             'created_by' => $this->integer()->notNull(), 
             'updated_by' => $this->integer()->notNull(),      

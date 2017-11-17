@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\DatePicker;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\DistributionSearch */
@@ -15,37 +17,24 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'driver_id')->dropDownList(ArrayHelper::map(User::find()->where(['status' => 10, 'type' => 2 ])->orderBy('name ASC')->all(), 'id', 'name'),['prompt' => '', 'class' => 'form-control', 'onChange' => 'getDriver(this)']) ?>
 
-    <?= $form->field($model, 'user_id') ?>
+    <?= $form->field($model, 'date')->widget(DatePicker::classname(),[
+          'options' => [
+            'placeholder' => '',
+            'value' => date('d-m-Y'),
+          ],
+          
+          'type' => DatePicker::TYPE_COMPONENT_APPEND,
+          'readonly' => true,
 
-    <?= $form->field($model, 'number') ?>
-
-    <?= $form->field($model, 'location_id') ?>
-
-    <?= $form->field($model, 'product_id') ?>
-
-    <?php // echo $form->field($model, 'quantity') ?>
-
-    <?php // echo $form->field($model, 'price') ?>
-
-    <?php // echo $form->field($model, 'driver_id') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'date') ?>
-
-    <?php // echo $form->field($model, 'time') ?>
-
-    <?php // echo $form->field($model, 'reason') ?>
-
-    <?php // echo $form->field($model, 'created_by') ?>
-
-    <?php // echo $form->field($model, 'updated_by') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
+          'pluginOptions' => [
+                'autoclose'=>true,
+                'format' => 'dd-mm-yyyy',
+                'todayHighlight' => TRUE,
+                
+            ]
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

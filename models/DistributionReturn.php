@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "distribution_return".
@@ -18,7 +19,7 @@ use Yii;
  * @property integer $status
  * @property string $date
  * @property string $time
- * @property integer $reason
+ * @property string $notes
  * @property integer $created_by
  * @property integer $updated_by
  * @property integer $created_at
@@ -38,17 +39,36 @@ class DistributionReturn extends \yii\db\ActiveRecord
         return 'distribution_return';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\BlameableBehavior::className(),
+                'createdByAttribute' => 'created_by',
+                'updatedByAttribute' => 'updated_by',
+            ],
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => function() { return date('U'); },
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['user_id', 'location_id', 'product_id', 'quantity', 'driver_id', 'status', 'reason', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['number', 'product_id', 'quantity', 'price', 'date', 'time', 'reason', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'required'],
+            [['user_id', 'location_id', 'product_id', 'quantity', 'driver_id', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['number', 'product_id', 'quantity', 'price', 'driver_id', 'date'], 'required'],
             [['price'], 'number'],
             [['time'], 'safe'],
-            [['number', 'date'], 'string', 'max' => 255],
+            [['number', 'date', 'notes'], 'string', 'max' => 255],
             [['driver_id'], 'exist', 'skipOnError' => true, 'targetClass' => Driver::className(), 'targetAttribute' => ['driver_id' => 'id']],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -72,7 +92,7 @@ class DistributionReturn extends \yii\db\ActiveRecord
             'status' => Yii::t('app', 'Status'),
             'date' => Yii::t('app', 'Date'),
             'time' => Yii::t('app', 'Time'),
-            'reason' => Yii::t('app', 'Reason'),
+            'notes' => Yii::t('app', 'Notes'),
             'created_by' => Yii::t('app', 'Created By'),
             'updated_by' => Yii::t('app', 'Updated By'),
             'created_at' => Yii::t('app', 'Created At'),

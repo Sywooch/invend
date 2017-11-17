@@ -21,7 +21,23 @@ class m170524_195718_insert_data extends Migration
         // User Table
         $this->insert('user',array(
             'email'=>'info@phantomgh.com',
+            'name' => 'admin',
+            'type' => 1,
+            'notes' => 'na',
             'username' => 'admin',
+            'auth_key' => 'Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1',
+            'password_hash' => '$2y$13$63XwUjt116GA0zFqnKvnRODObKmgeT3OHTiMlb.fgkNhXjnil5OyO',
+            'status' => 10,
+            'created_at' => '1496109620',
+            'updated_at' => '1496109620',
+        ));
+
+        $this->insert('user',array(
+            'email'=>'info@phantomgh.com',
+            'name' => 'Driver Kofi',
+            'type' => 2,
+            'notes' => 'na',
+            'username' => 'kofi',
             'auth_key' => 'Cd4vPaE-c38uSURcXOOCvfVFCFqyXn-1',
             'password_hash' => '$2y$13$63XwUjt116GA0zFqnKvnRODObKmgeT3OHTiMlb.fgkNhXjnil5OyO',
             'status' => 10,

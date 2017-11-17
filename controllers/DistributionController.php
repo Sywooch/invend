@@ -64,8 +64,11 @@ class DistributionController extends Controller
     public function actionCreate()
     {
         $model = new Distribution();
+        $modelStock = new Stock();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $this->saveProduction($model, $modelStock);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -91,6 +94,102 @@ class DistributionController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    /**
+     * This function saves each part of the product dynamic form controls.
+     *
+     * @param $modelProduct mixed The product model.
+     * @param $modelsStock mixed The stock model from the product.
+     * @return bool Returns TRUE if successful.
+     * @throws NotFoundHttpException When record cannot be saved.
+     */
+    protected function saveProduction($model,$modelStock) {
+        $transaction = Yii::$app->db->beginTransaction();
+        try {
+            
+            $model->active = true;
+            $model->user_id = Yii::$app->user->getId();
+            $model->time = date('Y-m-d H:i:s');
+            $model->completed_date = $model->actual_prod_date;
+
+            
+
+            if ($go = $model->save(false)) {
+
+                // Stock
+                
+                if($oldendweight != $model->end_weight)
+                {
+                    // Rolls
+                    $modelStock->active = true;
+                    $modelStock->user_id = Yii::$app->user->getId();
+                    $modelStock->time = date('Y-m-d H:i:s');
+                    $modelStock->product_id = 1;
+                    $modelStock->product_category_id = 1;
+                    $modelStock->quantity = abs($model->end_weight - $oldendweight);
+
+                    if (! ($go = $modelStock->save(false))) {
+                        $transaction->rollBack();
+                    }
+                }
+
+                if($oldqtywasted != $model->quantity_wasted)
+                {
+                    // Bags
+                    $modelStock = new Stock;
+                    $modelStock->active = true;
+                    $modelStock->user_id = Yii::$app->user->getId();
+                    $modelStock->time = date('Y-m-d H:i:s');
+                    $modelStock->product_id = 2;
+                    $modelStock->product_category_id = 1;
+                    $modelStock->quantity = -1 * abs($model->quantity_wasted - $oldqtywasted);
+                    $modelStock->remarks = 'wastage';
+
+                    if (! ($go = $modelStock->save(false))) {
+                        $transaction->rollBack();
+                    }
+                }
+                
+
+                if($oldqtyproduced != $model->quantity_produced)
+                {
+                    // Bags
+                    $modelStock = new Stock;
+                    $modelStock->active = true;
+                    $modelStock->user_id = Yii::$app->user->getId();
+                    $modelStock->time = date('Y-m-d H:i:s');
+                    $modelStock->product_id = 2;
+                    $modelStock->product_category_id = 1;
+                    $modelStock->quantity = -1 * abs($model->quantity_produced - $oldqtyproduced);
+
+                    if (! ($go = $modelStock->save(false))) {
+                        $transaction->rollBack();
+                    }
+
+                    // Sachet Water
+                    $modelStock = new Stock;
+                    $modelStock->active = true;
+                    $modelStock->user_id = Yii::$app->user->getId();
+                    $modelStock->time = date('Y-m-d H:i:s');
+                    $modelStock->product_id = 3;
+                    $modelStock->product_category_id = 2;
+                    $modelStock->quantity = abs($model->quantity_produced - $oldqtyproduced);
+
+                    if (! ($go = $modelStock->save(false))) {
+                        $transaction->rollBack();
+                    }
+                
+                }
+                
+            }
+            if ($go) {
+                $transaction->commit();
+            }
+        } catch (Exception $e) {
+            $transaction->rollBack();
+        }
+        return $go;
     }
 
     /**
